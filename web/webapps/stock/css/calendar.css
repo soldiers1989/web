@@ -1,0 +1,75 @@
+/*日历控件*/
+.jrj-clear:after {
+    content: '\20';
+    display: block;
+    height: 0;
+    clear: both;
+}
+.jrj-clear { *zoom: 1; }
+
+.jrj-cal-box{border:1px solid #ae0a2c;width:198px;background:#fff;font:12px/22px Tahoma;z-index:110;}
+.jrj-cal-box a{text-decoration:none;}
+
+.jrj-cal-hd, 
+.jrj-cal-hd a:hover, 
+.jrj-cal-hd a span, 
+.jrj-cal-year span,
+.jrj-cal-month span{background:url(/stock/images/calendar.png) no-repeat;}
+
+.jrj-cal-hd{background-position:0 -100px;background-repeat:repeat-x;padding:0 5px;height:24px;}
+
+.jrj-cal-hd .jrj-cal-prev, .jrj-cal-hd .jrj-cal-next{ width:18px;height:17px;overflow:hidden;margin-top:3px;}
+.jrj-cal-hd .jrj-cal-prev{ float:left; }
+.jrj-cal-hd .jrj-cal-next{ float:right; }
+.jrj-cal-hd a:hover{background-position:0 -20px;}
+.jrj-cal-hd .jrj-cal-prev span{display:block;padding-left:20px;background-position:-5px -37px;}
+.jrj-cal-hd .jrj-cal-next span{display:block;padding-left:20px;background-position:-5px -57px;}
+
+.jrj-cal-hd .jrj-cal-year{position:relative;float:left;margin-left:12px;}
+.jrj-cal-hd .jrj-cal-month{float:left;width:60px;}
+.jrj-cal-hd .jrj-cal-year span,
+.jrj-cal-hd .jrj-cal-month span{display:block;color:#fff;font-weight:bold;font-size:14px;padding-right:18px;background-position:right -78px;text-align:right;cursor:pointer;}
+
+.jrj-cal-year-list{position:absolute;border:1px solid #4297D7;background:#fff;width:65px;padding:1px;height:160px;overflow-y:auto;} 
+.jrj-cal-month-list{position:absolute;border:1px solid #4297D7;background:#fff;width:65px;margin-left:12px;padding:1px;height:160px;overflow-y:auto;}
+.jrj-cal-month-list{width:45px;height:192px;}
+
+.jrj-cal-year-list i, .jrj-cal-month-list i{display:block;line-height:16px;text-align:center;font-style: normal; }
+.jrj-cal-year-list .hover, .jrj-cal-month-list .hover, .jrj-cal-year-list i:hover, .jrj-cal-month-list i:hover{background:#ae0a2c;color:#fff;cursor:pointer;}
+
+.jrj-cal-bd{padding:2px 0 3px;}
+.jrj-cal-bd .jrj-cal-whd{border-bottom:1px solid #ccc;height:19px;}
+.jrj-cal-bd .jrj-cal-whd span{float:left;width:28.285px;text-align:center;line-height:19px;}
+.jrj-cal-whd .jrj-cal-rest{color:#f60;}
+
+.jrj-cal-dbd{ height:144px; }
+.jrj-cal-dbd a,
+.jrj-cal-dbd a:link,
+.jrj-cal-dbd a:visited{
+	float:left;margin:3px;width:22.285px;line-height:18px;color:#000;text-align:center;
+}
+.jrj-cal-dbd a:hover{background-color:#999999;color:#fff}
+
+.jrj-cal-dbd a.jrj-cal-null,
+.jrj-cal-dbd a.jrj-cal-null:link,
+.jrj-cal-dbd a.jrj-cal-null:visited{
+	background-color:#fff; color:#fff; cursor:default;
+}
+
+.jrj-cal-dbd a.jrj-cal-today,
+.jrj-cal-dbd a.jrj-cal-today:link,
+.jrj-cal-dbd a.jrj-cal-today:visited{
+	color:#FF6600; font-weight:bold
+}
+
+.jrj-cal-dbd a.jrj-cal-selected,
+.jrj-cal-dbd a.jrj-cal-selected:link,
+.jrj-cal-dbd a.jrj-cal-selected:visited{
+	background-color:#ae0a2c;color:#fff
+}
+
+.jrj-cal-dbd a.jrj-cal-disabled,
+.jrj-cal-dbd a.jrj-cal-disabled:link,
+.jrj-cal-dbd a.jrj-cal-disabled:visited{
+	background-color:#fff; color:#999; cursor:default;
+}

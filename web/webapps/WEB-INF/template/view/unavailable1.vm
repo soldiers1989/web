@@ -1,0 +1,15 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="证券通")
+<div class="main">
+ <div class="main-right">
+                <div class="block">
+                    <div class="block-title middle">
+                    </div>
+                    <div class="block-cnt-2">
+                        <div class="stock-error-wrap">
+                            <h2>尊敬的客户:</h2>
+                            <p>目前证券通正在系统清算，暂停股票查询与交易功能。您可以去浏览一些其他理财产品，请您稍后再来，由此给您带来的不便敬请谅解。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>

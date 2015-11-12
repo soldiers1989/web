@@ -1,0 +1,33 @@
+#set($layout="layout/stock_noasset_layout.vm")
+#set($title="证券通")
+#set($breadCrumb="系统维护")
+#define( $privatecss )
+<style>
+   .nofind .noninfo{ margin:0 45px 20px; background:#f8f8f8 url(/stock/images/404_bg.jpg) right bottom no-repeat; padding:15px 30px 25px; position:relative;}
+	.nofind p{ line-height:24px; margin-top:10px; font-size:14px; color:#2b2b2b; padding-left:20px;}
+	.nofind .t{ font-size:20px; font-weight:bold;}
+	.nofind .st{ font-size:18px; color:#ae0a2c;}
+	.nofind .hr{ border-bottom:1px dashed #a5a8b0; padding-bottom:10px;}
+	.nofind p a{ color:#0048d7; text-decoration:underline;}
+	.nofind p.bt{ color:#666;}
+	.nofind p.bbt{ font-size:16px;}
+	.nofind .yqico{ display:inline-block; width:66px; height:66px; background:url(/stock/images/404yq.png) no-repeat; position:absolute; top:-30px;}
+	.nofind .lyq{ left:-17px; top:-45px;}.nofind .ryq{ right:-22px; background-position: -129px 0;}
+	.nofind .nonboy{ margin-bottom:-14px; *margin-bottom:0; padding-left:0;}
+</style>
+#end
+  <div class="nofind">
+    	<p class="tc nonboy"><img src="/stock/images/404boy.png" width="96" height="110" /></p>
+    	<div class="noninfo">
+        	<p class="t">尊敬的证券通用户：</p>
+            <p class="st hr">该券商正在进行临时系统维护，请稍后再来。</p>
+            <p>您也可以选择其他券商进行交易：</p>
+            <p>没有其他券商？<a href="https://t.jrj.com.cn/stock/accountManager.jspa?go=kaihu" target="_blank">点这里开户吧</a></p>
+            <P class="hr">已有其他券商账户？<a href="https://t.jrj.com.cn/stock/accountManager.jspa?go=bind" target="_blank">来这里绑定吧</a></P>
+            <p>证券通支持一人多户、多券商管理、方便快捷，开户只需3分钟</p>
+            <i class="yqico lyq"></i><i class="yqico ryq"></i>
+            
+        </div>
+        <p class="tr bbt">访问&nbsp;&nbsp;<a href="http://t.jrj.com.cn/" target="_blank">证券通首页</a></p>
+        
+    </div>

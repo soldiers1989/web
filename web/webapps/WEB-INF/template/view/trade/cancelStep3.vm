@@ -1,0 +1,35 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="撤单结果")
+#set($breadCrumb ="撤单结果")
+<div class="block">
+    <div class="block-title middle">
+                <span class="jrj-fl">
+                    <i class="icon icon-block-title"></i>
+                    <span>撤单结果</span>
+                </span>
+            </div>
+			#if($errMsg)
+				<h2 class="result-error-h1">您的委托提交失败！</h2>
+				<ul class="result-error">
+					<li>失败原因 : <em>$!{errMsg}</em></li>
+					<li><em><a href="#C/stock/cancelable.jspa">返回撤单查询&gt;&gt;</a></em></li>
+                </ul>
+			#else	
+				<h1 class="result-h1">您的撤单已提交　<a href="#C/stock/cancelable.jspa">撤单查询&gt;&gt;</a></h1>
+				<ul class="cancellation-result">
+                    <li>
+						<div class="result-txt fl">股票代码：<span>$!{rs.stockCode}</span></div>
+                        <div class="result-txt fr">股票名称：<span>$!{stockName}</span></div>
+                    </li>
+					<li>
+                        <div class="result-txt fl">委托时间：<span>$!{nowDate}</span></div>
+    					<div class="result-txt fr">委托单号：<span>$!{rs.entrustNo}</span></div>
+                    </li>
+                    <li class="unbd">
+    					<div class="result-txt fl">买卖方向：<span>$!{rs.entrustBs.name}</span></div>						
+                    </li>
+				</ul>
+			#end
+            
+
+        </div>

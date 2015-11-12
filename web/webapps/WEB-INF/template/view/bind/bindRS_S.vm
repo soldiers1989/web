@@ -1,0 +1,18 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="绑定证券账户")
+#parse("/common/css.vm")
+<div class="hpbox mt">
+       </p></div>
+        <strong class="hphd"><span class="mh-title mh-none">账户绑定</span></strong>
+        <div class="bdok">
+             <strong><span>恭喜！您的$!{qaName}账户已与证券通成功绑定。</span></strong>
+             <p class="testblue">证券通一站式交易服务，让投资更简单，安全交易有保障</p>
+             <a class="btn-hp" href="/stock/accountIndex.jspa">立即交易</a>
+        </div>
+</div>
+<script type="text/javascript">
+	var redirect ="$!{redirect}"; 
+	if(redirect !=undefined && redirect !=""){
+		window.location.href=redirect;
+	}
+</script>

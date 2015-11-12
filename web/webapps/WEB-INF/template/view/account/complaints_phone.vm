@@ -1,0 +1,83 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="我的证券通账户页")
+#set($breadCrumb ="证券账户")	
+<script src="#C/stock/js/account/hp-js.js"></script>
+#parse("/common/css.vm")
+<style type="text/css">
+.colfour{padding:20px 0;}
+.colfour .phbox{float:left;width:236px;border-right:solid 1px #c0c0c0;}
+.colfour .phbox dl dt{font-weight:bold;}
+.colfour .phbox dl dt,.colfour .phbox dl dd{height:30px;line-height:30px;font-sizE:14px;font-family:"微软雅黑","宋体"}
+.colfour .phbox dl dt span,.colfour .phbox dl dd span{display:inline-block;}
+.colfour .phbox dl dt span.w1,.colfour .phbox dl dd span.w1{width:55px;}
+.colfour .last{border:none;}
+.colfour .phbox dl{padding-left:40px;}
+.colfour .f1 dl{padding:0;}
+.phone-box .hui-box{padding:20px;background:#f1f1f1;color:#666;text-align:left;font-size:14px;margin:0}
+{width:237px;}
+</style>
+<div class="jrj-wrap clearfix mt">
+        <div class="content zoom">
+            <div class="phone-box">
+            	<div class="colfour jrj-clear">
+                	<div class="phbox f1">
+                    	<dl>
+                        	<dt><span class="w1">地区</span><span>投诉电话</span></dt>
+                            <dd><span class="w1">北京</span><span>010-88088086</span></dd>
+                            <dd><span class="w1">天津</span><span>022-23136873</span></dd>
+                            <dd><span class="w1">河北</span><span>0311-83630191</span></dd>
+                            <dd><span class="w1">山西</span><span>0351-7218583</span></dd>
+                            <dd><span class="w1">内蒙古</span><span>0471-4688613</span></dd> 
+                            <dd><span class="w1">辽宁</span><span>024-22899980</span></dd>
+                            <dd><span class="w1">吉林</span><span>0431-85097933</span></dd>
+                            <dd><span class="w1">黑龙江</span><span>0451-82357020</span></dd>
+                            <dd><span class="w1">上海</span><span>021-50121047</span></dd>
+                        </dl>
+                    </div>
+                	<div class="phbox">
+                    	<dl>
+                        	<dt><span class="w1">地区</span><span>投诉电话</span></dt>
+                            <dd><span class="w1">江苏</span><span>025-84575515</span></dd>
+                        	<dd><span class="w1">浙江</span><span>0571-88473333</span></dd>
+                        	<dd><span class="w1">安徽</span><span>0551-62840674</span></dd>
+                        	<dd><span class="w1">福建</span><span>0591-87828160</span></dd>
+                        	<dd><span class="w1">江西</span><span>0791-87601133</span></dd>
+                        	<dd><span class="w1">山东</span><span>0531-86106973</span></dd>
+                        	<dd><span class="w1">河南</span><span>0371-69337560</span></dd>
+                        	<dd><span class="w1">湖北</span><span>027-87460061</span></dd>
+                        	<dd><span class="w1">湖南</span><span>0731-82194270</span></dd>
+                        </dl>
+                    </div>
+                	<div class="phbox">
+                    	<dl>
+                        	<dt><span class="w1">地区</span><span>投诉电话</span></dt>
+                            <dd><span class="w1">广东</span><span>020-37853900</span></dd>
+                        	<dd><span class="w1">广西</span><span>0771-5555736</span></dd>
+                        	<dd><span class="w1">海南</span><span>0898-66515262</span></dd>
+                        	<dd><span class="w1">重庆</span><span>023-89031960</span></dd>
+                        	<dd><span class="w1">四川</span><span>028-85541337</span></dd>
+                        	<dd><span class="w1">贵州</span><span>0851-6904175</span></dd>
+                        	<dd><span class="w1">云南</span><span>0871-5135126</span></dd>
+                        	<dd><span class="w1">西藏</span><span>0891-6873078</span></dd>
+                        	<dd><span class="w1">陕西</span><span>029-88361759</span></dd>
+                        </dl>
+                    </div>
+                	<div class="phbox last">
+                    	<dl>
+                        	<dt><span class="w1">地区</span><span>投诉电话</span></dt>
+                        	<dd><span class="w1">甘肃</span><span>0931-8475060</span></dd>
+                        	<dd><span class="w1">青海</span><span>0971-8216826</span></dd>
+                        	<dd><span class="w1">宁夏</span><span>0951-6025924</span></dd>
+                        	<dd><span class="w1">新疆</span><span>0991-2831732</span></dd>
+                        	<dd><span class="w1">深圳</span><span>0755-83263315</span></dd>
+                        	<dd><span class="w1">大连</span><span>0411-88008567</span></dd>
+                        	<dd><span class="w1">宁波</span><span>0574-87325122</span></dd>
+                        	<dd><span class="w1">厦门</span><span>0592-5165635</span></dd>
+                        	<dd><span class="w1">青岛</span><span>0532-85798529</span></dd>
+                        </dl>
+                    </div>
+                </div>
+                <p class="hui-box">您或可拨打中国证监会热线12386进行投诉</p>
+            </div>
+        </div>
+    </div>

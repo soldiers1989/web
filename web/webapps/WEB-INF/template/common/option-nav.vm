@@ -1,0 +1,9 @@
+<div class="table-tab mt30 clearfix">
+    <a class="table-tab-item #navHighLight("position",$option_nav,"btn btn-79-25")" href="#C/stock/$!{accountId}/stockInfoIndex.jspa">当前持仓</a>
+    <a class="table-tab-item #navHighLight("buy",$option_nav,"btn btn-79-25")" href="#C/stock/$!{accountId}/buyStep1.jspa">买入</a>
+    <a class="table-tab-item #navHighLight("sell",$option_nav,"btn btn-79-25")" href="#C/stock/$!{accountId}/sellStep1.jspa">卖出</a>
+    <a class="table-tab-item #navHighLight("cancel",$option_nav,"btn btn-79-25")" href="#C/stock/$!{accountId}/cancelable.jspa">撤单</a>
+    <a class="table-tab-item #navHighLight("entrust",$option_nav,"btn btn-79-25")" href="#C/stock/$!{accountId}/entrust.jspa">查询</a>
+    <a class="table-tab-item #navHighLight("transe",$option_nav,"btn btn-79-25")" href="#C/stock/$!{accountId}/bankIndex.jspa">银证转账</a>
+    #if($qsFlag=="CJZQ")<a class="table-tab-item new_item cjtg #navHighLight("pdflist",$option_nav,"btn btn-79-25")" href="#C/stock/$!{accountId}/pdflist.jspa">长江投顾组合</a>#end
+</div>

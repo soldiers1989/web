@@ -1,0 +1,23 @@
+<script src="#C/stock/js/util/FusionCharts.js"></script>
+<script src="#C/stock/js/trade/ChartUtil.js"></script>
+#if($qsFlag=="ZSZQ")
+<div id="chartdiv2" align="center" class="fusionChar-no-data">
+	功能正在完善，敬请期待
+</div>
+#else
+<div id="chartdiv2" align="center">
+	<script >
+		var chart2 = new ChartUtil({
+            swfUrl: '/stock/stockFlash/FCF_MSArea2D.swf',
+            chartId: 'chartId2',
+            chartDivId: 'chartdiv2',
+            width: 404,
+            height: 261,
+            noDataHtml:"您尚未买入股票，无资金变动",
+            noDataCss:"fusionChar-no-data",
+            xmlUrl: '/stock/flashFundInfo.jspa?_='+ new Date().getTime()
+    	});
+    	chart2.show();
+    </script>
+</div>
+#end

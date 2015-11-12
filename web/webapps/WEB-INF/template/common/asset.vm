@@ -1,0 +1,66 @@
+<!--$!{dateUtils.now()} -->
+#cache("Html","asset_$!{selfUserId}_$!{accountId}")
+#set($accUserInfo=$commonDataUtils.getAccUserInfo($selfUserId,$accountId))
+<div class="account-title">
+<!--$!{dateUtils.now()} -->
+	<table>
+		<tr>
+			<td style="width:200px;" rowspan="2"><img src="#brokerImage($accUserInfo.qsFlag,'m')" /></td>
+			<td rowspan="2">
+				<p class="field">资金账号</p>
+				<p>#if($accUserInfo.fundAccount.fundAccount)$accUserInfo.fundAccount.fundAccount#else***********#end</p>
+			</td>
+			<td rowspan="2">
+				<p class="field">股东姓名</p>
+				<p>#if(${accUserInfo.clientName})${accUserInfo.clientName}#else&nbsp;#end</p>
+			</td>
+			<td width="20%">
+				<p class="field">营业部</p>
+				
+			</td>
+            <td width="10%" valign="top">
+            </td>
+			<td class="tr" width="10%" rowspan="2">
+#if($accUserInfo.stockAccount_SH)<i class="icon icon-hu"></i>#else<i class="icon icon-hu-disable"></i>#end
+#if($accUserInfo.stockAccount_SZ)<i class="icon icon-shen"></i>#else<i class="icon icon-shen-disable"></i>#end
+			</td>
+		</tr>
+        <tr>
+        	<td colspan="2" width="20%">
+            	<p>#if(${accUserInfo.brankName})${accUserInfo.brankName}#else&nbsp;#end</p>
+            </td>
+        </tr>
+	</table>
+</div>
+#end
+<div id="account_summary" class="account-summary clearfix">
+    <div class="account-summary-item account-summary-item-1">
+        <p class="f14">账户总资产（人民币：元）：</p>
+        <p class="number mt15 assetBalance"><img src="#C/stock/images/loading3.gif" width="210" height="19" alt="loading..." /></p>
+    </div>
+    <div class="account-summary-item account-summary-item-2">
+        <p><span class="f14">今日盈亏：</span><i class="icon icon-tooltip" title="监控账户异动，比例为当日持仓股票的加权平均涨幅，实际数据以券商系统为准"></i></p>
+        <p class="number mt15 middle todayGenLose"><img src="#C/stock/images/loading3.gif" width="190" height="19" alt="loading..." /></p>
+    </div>
+    <div class="account-summary-item account-summary-item-3">
+        <table>
+            <tr>
+                <td class="field" style="width:67px;">参考市值：</td>
+                <td class="number marketValue"><img src="#C/stock/images/loading4.gif" width="16" height="16" alt="loading..." /></td>
+                <td width="20%">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="field">可用资金：</td>
+                <td class="number enableBalance"><img src="#C/stock/images/loading4.gif" width="16" height="16" alt="loading..." /></td>
+                <td><a href="#C/stock/$!{accountId}/bankIndex.jspa" class="link">存入</a></td>
+            </tr>
+            <tr>
+                <td class="field">可取资金：</td>
+                #if($qsFlag == "ZSZQ")
+                <td class="number">--.--</td>#else
+                <td class="number fetchBalance"><img src="#C/stock/images/loading4.gif" width="16" height="16" alt="loading..." /></td>#end
+                <td><a href="#C/stock/$!{accountId}/bankRollOut.jspa" class="link">取出</a></td>
+            </tr>
+        </table>
+    </div>
+</div>

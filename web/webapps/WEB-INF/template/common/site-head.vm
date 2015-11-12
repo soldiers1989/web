@@ -1,0 +1,17 @@
+<!--site-header-->
+    <div class="site-header site-header-1st" data-sr="enter top over 0.5s and move 140px  scale 0%">
+        <div class="wrapper">
+            <h1 class="site-logo-wrap"><a href="/stock" class="site-logo fl"><span class="beta"></span><span class="hide">证券通-金融界</span></a></h1>
+            <!--<ul class="site-nav">
+                <li><a href="http://itougu.jrj.com.cn/" target="_blank">首页</a></li>
+                <li><a href="http://itougu.jrj.com.cn/account/dynamic.jspa" target="_blank">我的i投顾</a></li>
+                <li><a href="http://itougu.jrj.com.cn/ques/" target="_blank">投顾说</a></li>
+            </ul>-->
+            <a href=" http://itougu.jrj.com.cn/app/index.html?from=itgapp-20141225-rc-gdpc-xzy-wzl-010" title="" class="btn-appload btn fr" target="_blank">APP下载</a>
+            <div class="site-search site-search-right middle">
+                <input id="txtSearch" type="text" class="txtbox txtbox-search" placeholder="搜索观点/投资品种/投资顾问..." autocomplete="off">
+                <a id="btntop01" href="javascript:;" class="btnSearch"></a>
+            </div>
+        </div>
+    </div>
+<!--site-header-->

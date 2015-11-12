@@ -1,0 +1,44 @@
+#set($layout="layout/default_layout.vm")
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>消息提示</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<!--IE字体特殊处理样式-->
+<!--[if lt IE 8]><link rel="stylesheet" href="#C/stock/js/ie-family.css" /><![endif]-->
+
+<link href="#C/stock/css/dialog.effect.css" rel="stylesheet" />
+<script src="#C/stock/js/jquery/jquery-1.7.2.min.js"></script>
+<script src="#C/stock/js/jquery/jquery.bgiframe.pack.js"></script>
+<script src="#C/stock/js/common/rAF-Polyfill.js"></script>
+<script src="#C/stock/js/dialogs/dialogs-effect.js"></script>
+<script>
+var _accountId='$!{accountId}';
+$(function(){
+#if(!$errMsg)
+	var content='转账成功，流水号：$!{result.entrustNo}，您可点击确认查询流水记录';
+	function callBack(){
+		window.parent.location.href="/stock/"+_accountId+"/fundQuery.jspa";
+	}
+#else
+	var content='$!{errMsg}';
+	function callBack(){
+		window.parent.location.href="/stock/"+_accountId+"/bankIndex.jspa";
+	}
+#end
+	JRJ.Alerts.alert({
+		title: "消息提示",  //标题
+		width:400,
+		message: content,     //提示语
+		autoClose : false,
+		okCallback: callBack, //ok回调
+		cancelCallback: callBack //cancel回调，关闭时也触发  
+	  });
+});
+</script>
+</head>
+<body></body>
+</html>

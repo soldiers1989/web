@@ -1,0 +1,25 @@
+#set($layout="layout/stock_noheader_layout.vm")
+<div style="padding:50px 20px; text-align:center">
+            <div class="site-main-single-cnt">
+                <div class="password-wrap">
+                    <h1 class="tc title">绑定结果</h1>
+                    <p class="tc mt30">绑定失败</p>
+                    <p class="tc mt30 error-msg">$!{msg}</p>
+                    <p class="tc mt30">请关闭此窗口的绑定结果处理页，返回证券通继续操作</p>
+                    <p class="tc mt30"><a href="javascript:;" class="btn btn-123-40 btn-back-zqt">关闭</a></p>
+                </div>
+            </div>
+</div>
+#define( $privatejs )
+<script>
+    if(window.opener!=undefined){  
+        window.opener.returnValue = 1;   
+      }else{  
+        window.returnValue = 1;  
+      }  	  
+	  $(".btn-back-zqt").bind("click",function(){  
+		window.opener.JRJ.Dialogs.close();
+		window.close();
+	  })
+</script>
+#end

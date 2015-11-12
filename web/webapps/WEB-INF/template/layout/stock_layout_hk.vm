@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+#parse("/common/header.vm")
+<body>
+#parse("/common/site-top.vm")
+#parse("/common/site-head.vm") 
+#parse("/common/bread-crumb.vm")
+<div class="site-main">
+  <div class="wrapper"> 
+#parse("/common/left.vm") 
+    <!--site-main-right-->
+  	<div class="site-main-right" data-sr="enter bottom  scale 0%">
+    #if($accountId)
+	#parse("/common/asset-hk.vm")
+    #end
+    $screen_content 
+	</div>
+    <!--site-main-right-->
+  </div>
+</div>
+<script>var _accountId='$!{accountId}';</script>
+$!{privatejs}
+#parse("/common/foot.vm")
+</body>
+</html>

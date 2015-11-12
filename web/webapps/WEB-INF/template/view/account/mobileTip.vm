@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>证券通</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+	<link href="#C/stock/css/reset-min.css" rel="stylesheet" />
+	<link href="#C/stock/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="#C/stock/css/tooltipster-light.min.css" rel="stylesheet" />
+    <link href="#C/stock/css/dialog.effect.css" rel="stylesheet" />
+	<link href="#C/stock/css/styles.min.css" rel="stylesheet" />
+	<script src="#C/stock/js/jquery/jquery-1.7.2.min.js"></script>
+	<script src="#C/stock/js/dialogs/dialogs-effect.js"></script>
+ 	<script type="text/javascript">
+         $(function () {
+            setTimeout(function () {
+                frameElement._thisDialog.resizeIfrH();
+                frameElement._thisDialog.dlg.resetPosition();
+            }, 0);
+         });   
+    </script>
+     <style>
+   a{outline: none;}
+.way img{
+    vertical-align: middle;
+}
+.way-sand{
+    font-size: 16px;
+    color: #333333;
+}
+.way-title{
+    font-size:16px;
+    font-weight: bold;
+    margin-bottom: 34px;
+}
+.way-box{
+    margin: 20px 0;
+    border-bottom: 1px dashed #dddddd;
+}
+.way-box-fl {
+    border-right: 1px solid #ddd;
+    padding-right:45px;
+    margin-right:60px;
+    padding-bottom: 10px;
+}
+.way-box-fl .way-fl-img{
+   margin-right:30px;
+}
+.way-box-fl .way-suport{
+   font-size: 14px;
+}
+.way-box-fl .way-02{
+    font-size: 14px;
+    text-indent: 20px;
+}
+.way-blue{
+    color: #3796ef;
+}
+.way-blue:hover{
+    color: #3796ef;
+}
+.way-box-fl .way-01{
+    font-size: 14px;
+}
+.way-box ul li{
+    margin-bottom:19px;
+    line-height:44px;
+    font-size: 14px;
+    padding-left: 73px;
+    background: url(/stock/images/sample-42.jpg) 0 0  no-repeat;
+}
+.way-box ul li.way-li02{
+ background-position: 0 -63px;
+}
+
+.way-box ul li.way-li03{
+  background-position: 0 -124px;
+}
+.way-bottom{
+    line-height: 37px;
+}
+.way-bottom .bind_lBut{
+     display: inline-block;
+    width: 120px;
+    height: 34px;
+    border-bottom: 3px solid #b7072d;
+    border-radius: 8px;
+    background: #d11741;
+    font-size: 16px;
+    line-height: 34px;
+    font-family: 微软雅黑;
+    text-align: center;
+    color: #fff;
+    float: left;
+}
+.way-bottom span{
+    float:left;
+    font-size: 14px;
+    margin: 0 30px 0 40px;
+
+}
+    </style>
+    </head>
+<body style="background:#fff;overflow:hidden">
+	<div class="way">
+       <p class="way-sand" style="font-size:14px;">
+         亲爱的<strong>$!{userName}</strong>，请务必使用本人身份证(<strong style='color: #ff7400;'>$!{idNumber}</strong>)和手机号（<strong style='color: #ff7400;'>$!{mobile}</strong>）开转户，否则无法享受超低佣金！
+       </p>
+       <div class="way-box clearfix" style="*padding_bottom:20px;">
+           <div class="fl way-box-fl" style="border:none;padding:0;margin:0">
+               #if($!{brokerId} =='CJZQ')
+               <div class="clearfix">
+	               <div class="fl mr30 ml30">
+	                  <h2 class="way-title ">方式一：手机开转户</h2>
+	                  <p class="way-suport">支持 <img src="images/sample-39.jpg" alt=""> 苹果或 <img src="images/sample-40.jpg" alt=""> 安卓手机系统</p> 
+	                  <p class="way-01 mt10">
+	                    扫描右侧二维码，下载长江开户APP
+	                  </p>
+	               </div>
+	                <img class="way-fl-img fl" style="width:150px;height:150px;" src="/stock/qrCode/CJZQ/open.jspa?type=$!{type}" alt="">
+               </div>
+               #elseif($!{brokerId} =='CCZQ')
+               	<div class="clearfix">
+                	<div class="fl mr30 ml30">
+	                  <h2 class="way-title ">方式一：手机开转户</h2>
+	                  <p class="way-suport">支持 <img src="images/sample-39.jpg" alt=""> 苹果或 <img src="images/sample-40.jpg" alt=""> 安卓手机系统</p> 
+	                  <p class="way-01 mt10">
+	                      扫描右侧二维码，无需下载 刷脸开户
+	                  </p>
+	               </div>
+	                <img class="way-fl-img fl" style="width:150px;height:150px;" src="/stock/qrCode/CCZQ/open.jspa?type=$!{type}" alt="">
+                </div>
+               #elseif($!{brokerId}=='HAITZQ')
+				<div class="clearfix">
+                	<div class="fl mr30 ml30">
+	                  <h2 class="way-title ">方式一：手机开转户</h2>
+	                  <p class="way-suport">支持 <img src="images/sample-39.jpg" alt=""> 苹果或 <img src="images/sample-40.jpg" alt=""> 安卓手机系统</p> 
+	                  <p class="way-01 mt10">
+	                      扫描右侧二维码，下载海通开户APP
+	                  </p>
+	               </div>
+	                <img class="way-fl-img fl" style="width:150px;height:150px;" src="/stock/qrCode/HAITZQ/open.jspa?type=$!{type}" alt="">
+                </div>
+				#elseif($!{brokerId}=='ZXZQ')
+				<div class="clearfix">
+                	<div class="fl mr30 ml30">
+	                  <h2 class="way-title ">方式一：手机开转户</h2>
+	                  <p class="way-suport">支持 <img src="images/sample-39.jpg" alt=""> 苹果或 <img src="images/sample-40.jpg" alt=""> 安卓手机系统</p> 
+	                  <p class="way-01 mt10">
+	                      扫描右侧二维码，下载中信开户APP
+	                  </p>
+	               </div>
+	                <img class="way-fl-img fl" style="width:150px;height:150px;" src="/stock/qrCode/ZXZQ/open.jspa?type=$!{type}" alt="">
+                </div>
+				#elseif($!{brokerId}=='PAZQ')
+				<div class="clearfix">
+                	<div class="fl mr30 ml30">
+	                  <h2 class="way-title ">方式一：手机开转户</h2>
+	                  <p class="way-suport">支持 <img src="images/sample-39.jpg" alt=""> 苹果或 <img src="images/sample-40.jpg" alt=""> 安卓手机系统</p> 
+	                  <p class="way-01 mt10">
+	                      扫描右侧二维码，下载平安开户APP
+	                  </p>
+	               </div>
+	                <img class="way-fl-img fl" style="width:150px;height:150px;" src="/stock/qrCode/PAZQ/open.jspa?type=$!{type}" alt="">
+                </div>
+			   #else
+                <div class="clearfix">
+                	<div class="fl mr30 ml30">
+	                  <h2 class="way-title ">方式一：手机开转户</h2>
+	                  <p class="way-suport">支持 <img src="images/sample-39.jpg" alt=""> 苹果或 <img src="images/sample-40.jpg" alt=""> 安卓手机系统</p> 
+	                  <p class="way-01 mt10">
+	                      扫描右侧二维码，下载爱投顾，立享<br/>便捷开户和定制投顾服务
+	                  </p>
+	               </div>
+	                <img class="way-fl-img fl" style="width:150px;height:150px;" src="images/client-qrcode.jpg" alt="">
+                </div>
+               #end
+               <div class="mt20" style="clear:both">
+                   <ul>
+                       <li class="way-li01 fl">
+                           用户的选择
+                       </li>
+                       <li class="way-li02 fl" style="line-height:22px;">
+                           随时随地<br/>方便快捷
+                       </li>
+                       <li class="way-li03 fl">
+                           3分钟开户完成
+                       </li>
+                   </ul>
+               </div>
+           </div>
+           
+       </div>
+       <div class="way-bottom">
+           <p>
+             <h2 class="way-title fl" style="margin-bottom:0px;">方式二：电脑开转户
+             </h2>
+           </p>
+           <p class="clearfix" style="clear:both">
+          	#if($!{brokerId} =='HAITZQ') 
+               	<span style='margin:0;color: red;'>目前暂不支持海通证券网页开户，请扫描屏幕上方二维码，通过手机完成开户，立享万分之2.5超低佣金！</span><br/>
+			#elseif($!{brokerId} =='ZXZQ') 
+               	<span style='margin:0;color: red;'>目前暂不支持中信证券网页开户，请扫描屏幕上方二维码，通过手机完成开户！</span><br/>	
+			#elseif($!{brokerId} =='PAZQ')
+				<span style='margin:0;color: red;'>目前暂不支持平安证券网页开户，请扫描屏幕上方二维码，通过手机完成开户，立享万分之2.5超低佣金、极速开户！</span><br/>
+			#elseif($!{brokerId} =='ZXZQ')
+				<span style='margin:0;color: red;'>目前暂不支持中信证券网页开户，请使用安卓手机扫描屏幕上方二维码，下载爱投顾，选择“买什么”页卡内的“开户”选择中信证券开户，立享万分之2.5超低佣金！</span><br/>
+                <span style='margin:0;color: red;'>   开户敬请选择“北京建国路营业部”，并请留下手机号与证券通手机号相同。方可享受爱投顾的服务。</span><br/>
+            #else
+                  	<span style='margin:0'>为了保证开户顺利完成，请使用券商推荐浏览器：</span><br/>
+               	##<img src="images/zsample_04.jpg" alt="">
+                #if($!{brokerId} =='ZXZQ')
+                <img src="#C/stock/images/web-browser-zhongxin.jpg" /> 
+                #elseif($!{brokerId} =='ZSZQ')
+                <img src="#C/stock/images/web-browser.jpg" />
+                #elseif($!{brokerId} =='HTZQ') 
+               	<img src="#C/stock/images/web-browser-hengtai.jpg" />
+                #elseif($!{brokerId} =='CCZQ') 
+                <img src="#C/stock/images/web-browser-changcheng.jpg" />
+                #elseif($!{brokerId} =='HKZXGJ') 
+                <img src="#C/stock/images/sample-38.jpg" alt=""> 
+                #elseif($!{brokerId} =='ZJZQ') 
+                <img src="#C/stock/images/web-browser-zhongjin.jpg" alt=""> 
+                #elseif($!{brokerId} =='CJZQ') 
+                <img src="#C/stock/images/web-browser-hengtai.jpg" alt=""> 
+				#elseif($!{brokerId} =='HAITZQ') 
+                <img src="#C/stock/images/web-browser-haitong.jpg" alt=""> 	
+                #end
+                #end
+           </p>
+           #if($!{brokerId} !='HAITZQ'&&$!{brokerId} !='ZXZQ'&&$!{brokerId} !='PAZQ'&&$!{brokerId} !='ZXZQ') 
+	           <p style="text-align:center;margin-top:30px;" class="clearfix">
+	             <a class="btn bind_lBut ml30" style="float:none" title="" href="javascript:void(0)" onclick="kaihu($!{type},'$!{brokerId}');return false;">立即进入</a>
+	           </p>
+	       #end
+       </div>
+   </div>
+  <script>
+            function kaihu(type,brokerId){
+            	$.ajax({
+            		type : "get",
+            		url :"/stock/kaihu.jspa",
+            		data :{
+            			"brokerId" : brokerId,
+            			"type" : type
+            		  },
+            		dataType : "json",
+            		timeout : 5000,
+            		async:false,
+            		cache : false,
+            		success:function(data){
+            			  if(data &&data !=undefined){
+            				  if(data.error && data.error ==-2){
+            					  JRJ.Alerts.alert({
+            							title: "消息提示",  //标题
+            							width:400,
+										autoClose:false,
+            							message: "用户信息不完整，请完善姓名、身份证、手机号等信息！"     //提示语
+            						  });
+            					  return false;
+            				  }
+            				  if(data.error && data.error ==-1){
+            					  JRJ.Alerts.alert({
+            							title: "消息提示",  //标题
+            							width:400,
+										autoClose:false,
+            							message: "请选择券商"     //提示语
+            						  });
+            				  }else if(data.error && data.error !=-1){
+            					  JRJ.Alerts.alert({
+            							title: "消息提示",  //标题
+            							width:400,
+										autoClose:false,
+            							message: data.error     //提示语
+            						  });
+            				  }
+            				  if(data.kaihuUrl==null || data.kaihuUrl==""){
+            					 
+            				  }else{
+            					  window.open(data.kaihuUrl,"ZHKH");
+            				  }
+            				 
+            				  if(type == "1" || type == "2"){//只有开户时才刷页面
+            					  top.location.reload();
+            				  }
+            			  }else{
+            				  JRJ.Alerts.alert({
+            						title: "消息提示",  //标题
+            						width:400,
+									autoClose:false,
+            						message: "系统错误"     //提示语
+            					  });
+            			  }
+            		 }		  
+            	});
+            }
+			
+  </script>
+</body>
+</html>
+    

@@ -1,0 +1,59 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="登录")
+    		<div class="zqt_md">
+    			<div class="bd w100">
+    				
+    			</div>
+    		</div>
+    
+<!--------------------------------------------自适应伸缩框架html结束-------------------------------------------->
+
+<!--等率弹层开始-->
+
+
+#define( $privatejs )
+<script src="#C/stock/js/util/JRJLoginDialog.v2.js"></script>
+<script language="javascript">
+<!-- 
+try{
+if(window.top !== window.self){ window.top.location = window.location;} 
+}catch(e){}   
+//-->
+</script>
+    <script type="text/javascript">
+        new JRJ.ui.Accordion("menu", {
+            //multiple : true,
+            animation: true,
+            triggerActiveCls: "active",
+            activeIndex: 0
+        });
+        new JRJ.ui.Accordion("submenu1", {
+            animation: true,
+            triggerActiveCls: "active"
+        });
+		$(function () {
+			var handler = $(".menu_wrap a.handler").click(function () {
+				var parent = $(this).parent(),
+					content = $(".content");
+				if (parent.hasClass("collapse")) {
+					parent.removeClass("collapse");
+					content.removeClass("expand");
+				} else {
+					parent.addClass("collapse");
+					content.addClass("expand");
+				}
+			});
+		});
+		
+		//弹窗基础脚本开始
+		$(function(){
+		var returnUrl="#C('host')/stock/loginBack.jspa#if($redirect)?redirect=$redirect#end";
+		var authUrl=encodeURIComponent("#C('host')/stock/?refer=https://t.jrj.com/stock/login.jspa");
+		var regUrl=#if($redirect)encodeURIComponent(decodeURIComponent("${redirect}"))#else encodeURIComponent("#C('host')/stock/") #end;
+    		regUrl = regUrl + "&refer=https://t.jrj.com/stock/login.jspa";
+    		var loginDlg = new JRJLoginDialog("t", window.location, "false",
+    			 returnUrl,regUrl,true,null,null,authUrl,authUrl,'utf8',true,"http://stock.jrj.com.cn");
+    		loginDlg.show();
+		});	
+    </script>
+#end

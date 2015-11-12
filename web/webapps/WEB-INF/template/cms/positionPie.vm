@@ -1,0 +1,17 @@
+<script src="#C/stock/js/util/FusionCharts.js"></script>
+<script src="#C/stock/js/trade/ChartUtil.js"></script>
+<div id="chartdiv" align="center">
+	<script type="text/javascript">
+		var chart1 = new ChartUtil({
+	        swfUrl: '/stock/stockFlash/Pie3D.swf',
+	        chartId: 'chartId',
+	        chartDivId: 'chartdiv',
+	        width: 318,
+	        height: 261,
+	        noDataHtml:"暂无数据",
+	        noDataCss:"fusionChar-no-data",
+	        xmlUrl: '/stock/flashPositionInfo.jspa?_='+ new Date().getTime()
+	    });
+	    chart1.show();
+    </script>
+</div>

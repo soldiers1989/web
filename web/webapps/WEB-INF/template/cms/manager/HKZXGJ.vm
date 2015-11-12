@@ -1,0 +1,31 @@
+<div class="stock-comp-popup-cnt clearfix" id="stock-comp-popup-cnt-5">
+                            <div class="clearfix">
+                                <div class="stock-comp-popup-slogan stock-comp-popup-slogan-5"></div>
+                                <div class="fl">
+
+                                    <div><img src="#C/stock/images/zhengxingjinrong_middle.jpg" width="215" height="260" /></div>
+                                </div>
+                                <div class="tab-cnt-right">
+                                    <div class="stock-comp-service stock-comp-service-5"></div>
+                                    <div class="tab-cnt-right-item clearfix mt30">
+                                        <p>通过证星金融开通港股/美股账户,环球期货账户，享受超低佣金。</p>
+                                        <a href="javascript:void(0)" id="kaihu_div_5" class="btn btn-openaccount kaihu_div">我要开户</a>
+                                    </div>
+                                    <div class="tab-cnt-right-item clearfix">
+                                        <p>已在证星金融开立过账户的用户，请直接进行绑定</p>
+                                        <a href="javascript:void(0)" id="btnbind_div_4" class="btn btn-openaccount btnbind_div">我要绑户</a>
+                                    </div>
+
+                                </div>
+                                <div class="zhengjian1 mt10">
+                                    <i class="icon icon-tooltip ml5 mt10 icon-tooltip_01" title="您使用在有效期内的身份证明文件照片有效期需不少于6个月，见证时需要原件。"></i>
+                                    <i class="icon icon-tooltip ml5 mt10 icon-tooltip_02" title="由第三方在最近三个月内发出的地址证明，如水、电、煤气、电话单、信用卡或银行账单，单据上必须注明用户名字和住址。见证时，需要您提供原件。"></i>
+                                    <i class="icon icon-tooltip ml5 mt10 icon-tooltip_03" title="您本人名下的银行卡，见证时需要原件。"></i>
+                                </div>
+                            </div>
+                            <p class="clearfix">
+                                <!-- <a href="" class="btn btn-helper fr">证券通开户小助手</a> -->
+                                <span class="middle"><span class="note mr10">支持的浏览器</span><img src="#C/stock/images/web-browser-zhengxingjinrong.jpg"/></span>
+                            </p>
+
+                        </div>

@@ -1,0 +1,42 @@
+<link href="/stock/css/trade/common201304.css" rel="stylesheet" />
+<link href="/stock/css/trade/styles.min.css" rel="stylesheet" />
+<link href="/stock/css/trade/changeBroker.css" rel="stylesheet" />
+<script src="/stock/js/jquery/jquery-1.4.4.min.js"></script>
+<div class="stock-popup-step-wrap">
+    <div class="stock-popup-step stock-popup-step-1">
+        <div class="stock-popup-step-text">
+            <p>点击“马上转户”，进入转户环节，根据流程完成信息填写、视频见证和身份验证，在开立账户环节选择转户，然后完成后续流程开设账户；</p>
+        </div>
+    </div>
+    <div class="stock-popup-step stock-popup-step-2">
+        <div class="stock-popup-step-text">
+            <p>到原券商开户营业部，撤销上海交易所指定交易，办理深圳股票交易所股票转托管、撤销三方存管、注销资金账户；</p>
+        </div>
+    </div>
+    <div class="stock-popup-step stock-popup-step-3">
+        <div class="stock-popup-step-text stock-popup-step-text-single">
+            <p>将上海交易所（沪A）交易指定至中信证券、办理创业板投资权限转签；</p>
+        </div>
+    </div>
+	
+    <div id="ie-info" class="ie-info-zhuanhu" style="display:none">
+        <p><em>温馨提示 : </em>为保证您转户开户顺利进行，请在IE浏览器下完成<p>
+	</div>
+    <div class="jrj-tc btn-wrap" style="display:none" id="btn-zhuanhu"><a class="btn btn-transfer"></a></div>
+</div>
+<script >
+	function isIE(){
+		return window.ActiveXObject ? true : false;
+	}
+	if(isIE()){
+		$("#btn-zhuanhu").show();
+	}else{
+		$("#ie-info").show();
+	}
+	$(".btn-transfer").click(function(){
+    	//window.parent.open("https://kh.cs.ecitic.com/webtrade/zxkh/login.jsp?promote_type=branch&promote_code=ODMy&promote_wbjg=1002","ZXKH");
+		window.parent.kaihu("2");
+	})
+	
+</script>
+</script>

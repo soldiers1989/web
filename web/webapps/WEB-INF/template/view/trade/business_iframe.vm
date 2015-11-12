@@ -1,0 +1,46 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="成交记录查询")
+#set($breadCrumb ="交易查询")
+#set($option_nav="entrust")
+#parse("/common/option-nav.vm")
+<ul class="sub-tabbar">
+    <li id="menu_1"><a href="#C/stock/$!{accountId}/entrust.jspa">委托记录</a></li>
+    <li id="menu_2" class="cur"><a href="#C/stock/$!{accountId}/business.jspa">成交记录</a></li>
+    <li id="menu_3"><a href="#C/stock/$!{accountId}/fund.jspa">对账单</a></li>
+</ul>
+<div class="condition-bar middle">
+        <input id="Radio1"  name="Radio1" type="radio" value="today" checked/><label for="Radio1"><span>当日</span></label>
+	    <input id="Radio2"  name="Radio1" type="radio" class="ml30" value="week"/><label for="Radio2"><span>一周</span></label>
+	    <input id="Radio3"  name="Radio1" type="radio" class="ml30" value="month"/><label for="Radio3"><span>一个月</span></label>
+	    <input id="Radio4"  name="Radio1" type="radio" class="ml30" value="custom"/><label for="Radio4"><span>自定义</span></label>
+    <span class="ml30" id="seltitle">日期</span>
+    <input id="cal-1" type="text" class="txtbox-calendar" />
+    <span id="seltitle2">至</span>
+    <input id="cal-2" type="text" class="txtbox-calendar" />
+    <a id="selectBtn" class="btn btn-45-24-blue">查询</a>
+</div>
+<div id="con_2">
+#if($errMsg)
+<table class="table-general">
+	<input type="hidden" value="0" id="countsize"/>
+	<input type="hidden" value="1" id="pageNum"/>
+	<tbody>
+		<tr style="text-align:center;color:red">
+			<td>错误提示：$!{errMsg}</td>
+		</tr>
+    </tbody>	
+</table>	
+#else
+<div style="width: 760px;height:650px;margin: 0px 0px 0px -14px;overflow: hidden;"> 
+<iframe width="766" align="center" height="650" id="win" name="win" frameborder="0" scrolling="no" src="$!{url}" style="margin-left: -13px;">
+</iframe> 
+</div>
+#end
+</div>
+#define( $privatecss )
+	<link href="#C/stock/css/calendar.css" rel="stylesheet" />
+#end
+#define( $privatejs )
+<script src="#C/stock/js/lib/calendar-min.2.2.js"></script>
+<script src="#C/stock/js/trade/getBusinessIframeAjax.js"></script>
+#end

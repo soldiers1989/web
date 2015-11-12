@@ -1,0 +1,72 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="完善个人信息")
+#parse("/common/css.vm")
+    	 <!--完善个人信息-->
+         <div id="zqtinfo" class="hpbox mt" style="display:">
+            <strong class="hphd  pa0"><span class="mh-title">您已进入证券通股票交易平台，为了您的交易安全，请完善个人信息</span></strong>
+           <div class="form-s2" style="padding-bottom:40px;">
+           	<form id="registForm" action="/stock/regist.jspa#if($from && $from !="")?from=$!{from}#end" method="post">
+		    <input type="hidden" value="$!{errorCode}" id="errorCode" />
+			<input type="hidden" value="$!{redirect}" name="redirect"/>
+              <ul>
+                <li class="hint-note">
+                                                        &nbsp;&nbsp;请您务必认真完善资料，确保内容的真实性和准确性
+                </li>
+                <li></li>
+                <li>
+                  <p><span class="tt">姓名：</span><input type="text" id="realname" name="realname" tabindex="1" class="txt txt_s1" autofocus/><em class="required">*</em></p>
+                  <p class="tip table-note">真实姓名只能是中文</p>
+                </li>
+                 <li>
+                  <p><span class="tt">身份证号：</span><input type="text" id="idnumber" name="idnumber" tabindex="2" class="txt txt_s1"/><em class="required">*</em></p>
+                  <p class="tip table-note">请填写18位身份证号，如末位是X，请输入大写X</p>
+                </li>
+                <li  class="hide_one">
+                  <p>
+                      <span class="tt">手机号：</span><input type="text" id="mobile" name="mobile" tabindex="3" class="txt txt_s2"/><em class="required">*</em><a class="btn btn-5-disable" id="getValidateCode">获取手机验证码</a>
+                  </p>
+                  <p class="tip table-note" id="mobile">手机号将用于接收账户交易信息及找回密码</p>
+                </li>
+                <li  class="hide_one">
+                  <p><span class="tt">验证码：</span><input type="text" id="validateCode" name="validateCode" tabindex="4" class="txt txt_s1"/><em class="required">*</em></p>
+                  <p class="tip table-note" id="validateCode"></p>
+                  <input type="hidden" id="userInfo" name="userInfo" tabindex="3" class="txt txt_s1"/>
+                </li>
+             
+              </ul>
+              <div class="jrj-tc" id="registylb"><button class="btn btn_s1" id="register-btn">确认提交</button></div>
+              <div class="jrj-tc" id="sqylb" style="display:none"><button class="btn btn_s1" id="ylbBind-btn" onclick="bindTozqt('s');return false;">确认绑定</button></div>
+              </form>
+           </div>
+         </div>
+        <div id="idNumberError" class="jrj-wrap clearfix mt" style="display:none">
+	            <div class="hpbox">
+	                <strong class="hphd pa0"><span class="mh-title mh-none">个人信息验证提示</span></strong>
+					<div class="bdok">
+	                	<strong><span class="nook">很遗憾，您的身份证验证没有通过</span></strong>
+	                    <p class="testblue">您的姓名和身份证号不匹配，请重新输入并验证</p>
+	                    <a href="javascript:void(0)" class="btn-hp" onclick="setZqtInfo();return false;">重新验证</a>
+	                </div>
+	            </div>
+        </div>
+#define( $privatejs )
+<script src="/stock/js/regist/regist.js"></script>
+<script type="text/javascript">
+	var errorCode = $("#errorCode").val();
+	if(errorCode !=undefined && errorCode !=""){
+		if(errorCode ==1){
+			showErr("#mobile","手机号填写错误");
+		}else if(errorCode ==2){
+			showErr("#idnumber","身份证填写错误");
+		}else if(errorCode ==3){
+			showErr("#idnumber","实名身份认证失败，请正确填写真实姓名和证件号");
+		}else if(errorCode ==4){
+			showErr("#validateCode","手机验证码错误");
+		}
+	}
+	$(function(){
+		//$('#getValidateCode').attr('disabled',true);
+		$('#validateCode').attr('disabled',true);
+	});
+</script>
+#end

@@ -1,0 +1,297 @@
+#set($layout="layout/stock_layout_hk.vm")
+#set($title="股票卖出")
+#set($breadCrumb ="股票卖出")
+#set($option_nav="sell")
+#define( $privatecss )
+<link href="#C/stock/css/stylish-select.min.css" rel="stylesheet">
+#end
+#parse("/common/option-nav-hk.vm")
+<div class="trade-block trade-block-hk clearfix" style="padding-top:30px; position:relative;">
+<div class="error-msg-bar-wrap">
+    <div class="error-msg-bar middle" style="display:none;">
+        <i class="icon icon-error-2"></i>
+        <span></span>
+    </div>
+    <div class="error-msg-bar-wrap-right middle" style="display:none;">
+        <i class="icon icon-right-2"></i>
+        <span class="text">
+        <span></span>
+        <a href="javascript:;" class="link"></a>
+        </span>
+        <em onclick="clearSuccessMsg();"></em>
+    </div>
+</div>
+    <div class="col-1">
+    <form action="#C/stock/hk/$!{accountId}/sellStep2.jspa" id="buyCheckForm" method="post">#token()
+        <table>
+        	<tr>
+                <td class="field" style="width: 60px;"><span>类型</span></td>
+                <td>
+                     <select id="matchingType" name="matchingType" style="display: none;">
+                        <option value="AO">竞价盘</option>
+                        <option value="ALO">竞价限价盘</option>
+                        <option value="LO" selected="selected">限价盘</option>
+                        <option value="ELO">增强限价盘</option>
+                        <option value="SLO">特别限价盘</option>
+                    </select>
+                    <div class="note tr"><a href="http://t.jrj.com.cn/cloud/html/FAQ/zqt.html?menu=5&item=6" class="link" style="margin-right:32px;" target="_blank">报盘方式解释</a></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="field" style="width:60px;"><span>卖出证券</span></td>
+                <td>
+	                <div class="txtbox-select-wrap" style="width:222px;">
+                	<input type="text" id="stockCode_show" value="$!{stockCode}" class="txtbox inp-txt" style="width:184px;padding-right: 30px;"" />
+                    <em id="txtCode2Handle" class="handler" title="当前持仓"></em>
+                    <div class="txtbox-select-dropdownlist" style="width:222px;">
+                        <div class="loading tc">
+                            <img src="/stock/images/loading.gif" alt="loading..." width="25" height="25" />
+                        </div>
+                        <ul>
+                        </ul>
+                    </div>
+                </div>
+	                <input type="hidden" name="stockCode" id="stockCode" value="$!{stockCode}" />
+                    <input type="hidden" name="marketType" id="marketType" value="$!{marketType}"/>
+                    <input type="hidden" name="stockType" id="stockType" value="$!{stockType}"/>
+                    <div class="error-msg"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="field">卖出价格</td>
+                <td>
+                    <div class="txtbox txtbox-up-down txtbox-up-down-155 fl">
+                        <span class="fr">
+                            <i class="down"></i>
+                            <i class="up"></i>
+                        </span>
+                        <input type="text" name="entrustPrice" id="price" class="txtbox inp-txt price" value="0.00" onpaste="return false" oncopy="return false" oncut="return false" />
+                    </div>
+                    <span class="unit fl">港元</span>
+                    <div class="error-msg"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="field" style="vertical-align:top">最大可卖</td>
+                <td>
+                    <div class="clearfix">
+                        <input id="enableSell" data="0" type="text" class="txtbox fl" style="width:200px;" disabled />
+                        <span class="unit fl">股</span>
+                    </div>
+                    <ul class="custom-checkbox custom-checkbox-55-25 clearfix mt10">
+                        <li id="cost_four" data-quart="4">1/4</li>
+                        <li id="cost_three" data-quart="3">1/3</li>
+                        <li id="cost_two" data-quart="2">1/2</li>
+                        <li id="cost_all" data-quart="1">全部</li>
+                    </ul>
+                </td>
+            </tr>
+             <tr>
+                <td class="field">每手股数</td>
+                <td><span class="ml10" id="lotsz"></span>股</td>
+            </tr>
+            <tr>
+                <td class="field">卖出数量</td>
+                <td>
+                    <div class="txtbox txtbox-up-down txtbox-up-down-155 fl">
+                        <span class="fr">
+                            <i class="down"></i>
+                            <i class="up"></i>
+                        </span>
+                        <input type="text" name="entrustAmount" id="entrustAmount" class="txtbox inp-txt" maxlength="9"onpaste="return false" oncopy="return false" oncut="return false" autocomplete="off" />
+                    </div>
+                    <span class="unit fl">股</span>
+                    <div class="error-msg"></div>
+                </td>
+            </tr>
+        </table>
+        </form>
+        <div class="tc">
+            <a id="btnSubmit" href="javascript:;" class="btn btn-123-40 mt30">委托卖出</a>
+        </div>
+    </div>
+    #parse("/cms/stockHq_hk.vm")
+</div>
+#define( $privatejs )	    
+<script src="#C/stock/js/common/JRJPassword.v2.js"></script>
+<script type="text/javascript" src="#C/stock/js/trade/tradeCommon.js"></script>
+<script src="#C/stock/js/trade/doCancelAjax_hk.js"></script>
+<script src="#C/stock/js/trade/sellCheck_hk.js"></script>
+<script type="text/javascript" src="#C/stock/js/util/swfobject-2.2.js"></script>
+<script src="#C/stock/js/jquery/jquery.stylish-select.min.js"></script>
+<script type="text/javascript" src="#C/stock/js/util/HqTiming.js"></script>
+<script type="text/javascript" src="#C/stock/js/trade/stockHq_hk.js"></script>
+<script>
+var stockAble = false;
+$(function(){
+	 //下拉列表
+    $('#matchingType').sSelect({ ddMaxHeight: '168px', containerClass: 'newListSelected-229' });
+	$('.custom-checkbox li').tooltipster({
+		theme: 'tooltipster-light'
+	});
+	$('#txtCode2Handle').tooltipster({
+		theme: 'tooltipster-light'
+	});
+	var _stockCode = $("#stockCode").val();
+	//XJB.HQ.searchBox("com_combox_input","com_combox_btn",hq_call_back,false);
+	
+	if(_stockCode !="代码/简称/拼音" && _stockCode != ""){
+		XJB.HQ.hqFlash(_stockCode,"flash_div_sf","215","140");
+		XJB.HQ.showHq(_stockCode);
+		initType();
+	}else{
+		XJB.HQ.searchBox("stockCode_show",null,hq_call_back,true);
+		XJB.HQ.hqFlash("","flash_div_sf","215","140");
+	}
+	$('#txtCode2Handle').click(function (e) {
+		$.ajax({
+			url:'/stock/hk/'+_accountId+'/ajaxQueryPosition.jspa',
+			type:'get',
+			dataType: 'json',
+			timeout:1000,
+			cache:false,
+			success:function(data){
+				$('.txtbox-select-dropdownlist').css({'width':'222px'}).find('.loading').hide();
+				if(data.positions.length>0){
+					$.each(data.positions,function(i,v){
+						$('.txtbox-select-dropdownlist').find('ul').append('<li data-code="'+v.instrumentCode+'" data-name="'+v.instrumentName+'"><span>'+v.instrumentCode+'</span><span>'+v.instrumentName+'</span></li>');
+					});
+				}else{
+					$('.txtbox-select-dropdownlist').find('ul').append('<li><span class="tc">暂无持仓</span></li>');
+				}
+			}
+		});
+		e.stopPropagation();
+		$('.txtbox-select-dropdownlist').find('ul').empty();
+		$('.txtbox-select-dropdownlist').show().find('.loading').show();
+	});
+	$('.txtbox-select-dropdownlist ul li').live('click',function(e){
+		e.stopPropagation();
+		var stockCode=$(this).attr('data-code');
+		var stockName=$(this).attr('data-name');
+		if(typeof stockCode != 'undefined' && stockCode!= null && typeof stockName != 'undefined' && stockName!=null){
+			$('#stockCode').val(stockCode);
+			hq_call_back({code:stockCode,name:stockName});
+		}
+		$('.txtbox-select-dropdownlist').hide();
+	});
+	$(document).click(function () {
+		$('.txtbox-select-dropdownlist').hide();
+	});
+
+});
+function hq_call_back(stock){
+	XJB.HQ.hqFlash(stock.code,"flash_div_sf","215","140");
+	XJB.HQ.showHq(stock.code);
+	$('#stockCode_show').val(stock.code + ' ' + stock.name);			
+	$("#stockCode").val(stock.code);
+	var scode = $("#stockCode").val();
+	if(scode=="代码/简称/拼音" || scode==""){
+	 	clearInfo();	
+		return;
+	}
+	if(isNaN(scode)){
+		showError('stockCode','请输入正确股票代码或简称');
+		clearInfo();
+		return;
+	}
+	checkSell();
+}
+function showMsg(data){
+	if(data.errMsg != ''){
+		showGloableError(data.errMsg);
+		return;
+	}
+	showSuccessMsg('提交成功！');
+	clearInfo();
+	//console.log(data);
+}
+function submitCallBack(data){
+	if(typeof data.hk_password_error != 'undefined'){
+		window.location.href = '/stock/' + _accountId + '/password/view.jspa';
+	}
+	if(typeof data.errMsg != 'undefined'){
+		showGlobalError(data.errMsg);
+		return;
+	}
+/* #if($qsFlag=="ZSZQ")*/
+	var url = data.url;
+	var params = data.params;
+	for(key in params){
+		url = urlAppend(url,key + '=' + encodeURIComponent(params[key]));
+	}
+	JRJ.Dialogs.iframeDialog({
+		width: 350,
+		hasOkBtn: false,
+		title: '卖出确认',
+		titleRight:'',
+		ifrReHeight:false,
+		ifrHeight:300,
+		ifrScroll:'no',
+		hasBtn:false,
+		hasCancelBtn: false,
+		enableKeyCtrl: true,
+		ifrSrc: url
+   });
+/* #else*/
+	//确认买入
+	JRJ.Dialogs.standardDialog({
+		title: "确认卖出",
+		width:350,
+		content: ['<div class="dialog-cnt">',
+						'<table class="table-p5">',
+							'<tr>',
+								'<td style="width:70px;">委托股票</td>',
+								'<td>' + data.stockName + '(' + data.stockCode + ')</td>',
+							'</tr>',
+							'<tr>',
+								'<td>委托价格</td>',
+								'<td>' + data.entrustPrice + (isNaN(data.entrustPrice)?'':'元/股')+'</td>',
+							'</tr>',
+							'<tr>',
+								'<td>委托数量</td>',
+								'<td>' + data.entrustAmount + '股</td>',
+							'</tr>',
+						'</table>',
+				  '</div>'].join(''),
+		okBtnText: "确认",
+		cancelBtnText: "取消",
+		hasCloseBtn: true,
+		hasOkBtn: true,
+		hasCancelBtn: true,
+		okCallback: okCallBack,
+		isFixed: true
+	});
+	//dialog------------------------------------------------
+/* #end*/
+}
+function okCallBack(){
+	$.ajax({
+		url : '/stock/hk/'+_accountId+'/ajaxSellStep3.jspa',
+		data : {"xjb.token.name":getTokenName(),"xjb.token":getToken()},
+		type : 'post',
+		dataType : 'json',
+		timeout : 5000,
+		cache : false,
+		success : function(data){
+			if(typeof data.hk_password_error != 'undefined'){
+				window.location.href = '/stock/' + _accountId + '/password/view.jspa';
+			}
+			resetToken(data.token);
+			if(typeof data.mutiple_request_error != 'undefined'){
+					window.location.reload();
+			}else if(typeof data.result != 'undefined'){
+				showSuccessMsg('提交成功，合同号：'+data.result.orderNo,'快速撤单',confirmCancel,{stockCode:data.stockCode,stockName:data.stockName,direction:'卖出',price:data.entrustPrice,amount:data.entrustAmont,entrustNo:data.result.orderNo});
+				clearInfo();
+			}else{
+				showGlobalError(data.errMsg);
+				//showError('td_tradePWD',data.errMsg);
+				//return;
+			}
+			JRJ.Dialogs.close();
+		}
+	});		
+	return true;	
+}
+</script>
+#end

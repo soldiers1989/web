@@ -1,0 +1,70 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="长江投顾组合")
+#set($breadCrumb ="长江投顾组合")
+#set($option_nav="pdflist")
+#parse("/common/option-nav.vm")
+<div class="trade-block trade-block-hk clearfix">
+    <div class="mt15 tglist" >
+        <ul class="ml20" id="ul_list">
+           <!--<div class="tc"><img width="40" src="/stock/images/loading.gif" alt="loading" /></div>-->
+           <li><span>2015-02-06</span><a href="/pdf/cjzq-20150206.pdf" target="_blank">热点追击版-20150206.pdf</a></li>
+           <li><span>2015-02-05</span><a href="/pdf/cjzq-20150205.pdf" target="_blank">热点追击版-20150205.pdf</a></li>
+           <li><span>2015-02-04</span><a href="/pdf/cjzq-20150204.pdf" target="_blank">热点追击版-20150204.pdf</a></li>
+        </ul>
+    </div>
+    <div class="pn mt60 mb45" id="pagefoot"></div>
+</div>
+#define( $privatecss )
+#end
+#define( $privatejs )
+<script src="#C/stock/js/jquery/jquery.pagefoot.js"></script>
+<script>
+var PAGE_SIZE = 16;
+var PDF_PATH='/pdf/';
+$('#p-txt').on('click',function(){
+	$(this).addClass('f-focus');							  
+});
+
+$.ajax({
+	type : "get",
+	url : '/activityweb/queryPdfList',
+	dataType : "json",
+	timeout : 5000,
+	cache : false,
+	success:function(data){
+		$('#ul_list').data('total',data.list.length);
+		$('#ul_list').data('list',data.list);
+		$('#ul_list').data('current',1);
+		loadpage(1, data.list);
+		$("#pagefoot").pagefoot({
+			pagesize:16,
+			count:data.list.length,
+			css:"",
+			current : 1,
+			displaynum : 10,
+			displaylastNum :2,
+			previous:"<span class='pf-previous'>上一页</span>",
+			next:"<span class='pf-next'>下一页</span>",
+			enableArrowKey: true,
+			paging:function(page){
+				loadpage(page.current, $('#ul_list').data('list'));
+			}
+		});
+	}
+});
+
+function loadpage(page,list){
+	var start = (page-1) * PAGE_SIZE;
+	plist = list.slice(start,start+PAGE_SIZE);
+	var arr=[];
+	arr.push('<li><span>&nbsp;</span><a href="/pdf/cjzq-summary.pdf" target="_blank">长江证券投资组合-热点追击说明.pdf</a></li>');
+	$.each(plist,function(i,v){
+		arr.push('<li><span>' + new Date(v.fileDate).format('yyyy-MM-dd') + '</span><a href="' + PDF_PATH + v.filePath + '" target="_blank">' + v.fileName + '</a></li>');
+		if(i==7){
+			arr.push('<li style="border-bottom:1px dashed #ddd; height:10px; background:none; margin-bottom:10px;"></li>');
+		}
+	});
+	$('#ul_list').empty().html(arr.join(''));
+}
+</script>
+#end

@@ -1,0 +1,63 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="撤单")
+#set($breadCrumb ="撤单确认")
+<div class="block">
+    <div class="block-title middle">
+                <span class="jrj-fl">
+                    <span>撤单确认</span>
+                    <a class="tooltip">
+                        <i class="block-title-info png_bg"></i>
+                        <span class="tooltip-content" style="left: 112px; top: 9px; display: none;"><i class="tooltip-arrow"></i>您即将撤销您的委托指令</span>
+                    </a>
+                </span>
+            </div>
+            <div class="cancellation-confirm">
+				#if($errMsg)
+					<div >
+						<div id="errContent">
+							<img src=""/>
+							<span>							
+								$!{errMsg}
+							</span>
+                        </div>				
+						<div class="confirm-line"></div>
+						<div >
+							<p >
+								<a href="#C/stock/cancelable.jspa">返回列表</a>
+                            </p>
+                        </div>
+                    </div>
+				#else	
+					<form action="#C/stock/cancelStep3.jspa" id="cancelForm" method="post">
+					#token()
+					<input name="stockName" type="hidden" value="$!{rs.stockName}" />
+					<input type="hidden" name="userMac" value="" id="userMac"/>
+                    </ins>
+                    <ul class="cancellation-info">
+                        <li><label for="">股票名称：</label><span class="no-fill">$!{rs.stockName}</span></li>
+                        <li><label for="">买卖方向：</label><span class="no-fill">$!{rs.entrustBs.getName()}</span></li>
+                        <li><label for="">委托价格：</label><span class="no-fill">$!{rs.entrustPrice}</span><i>元</i></li>
+                        <li><label for="">委托数量：</label><span class="no-fill">$!{rs.entrustAmount}</span><i>股</i></li>
+                        <li style="height:42px;"><label for="">交易密码：</label>
+							<input type="hidden"   name="password" id="password" class="inp-txt">
+							<OBJECT id=TestAX classid="clsid:10D83247-E1A4-4C6B-9685-B84208D6FB50" codebase="#C/stock/JrjSafePwd.cab#version=1,0,4,0"  align="center" hspace="0" vspace="0" style="height:40px;"> 
+            						<param name="BorderColor" value="DDDDDD">
+            						<param name="BorderWidth" value="212">
+            						<param name="BorderHeight" value="36">
+            						<param name="BorderSize" value="1">
+									<param name="windowless" value="true">
+									<span class="no-safety-controller">请在IE下安装控件<span class="no-safety-controller-tip"></span></span>
+            				</OBJECT>	
+						</li>
+                    </ul>
+                    <div class="confirm-line"></div>
+                    <a href="javascript:void(0);" onclick="return false" id="cancelButton" class="cancellation-submit"></a>
+                </form>
+				#end	
+                
+            </div>
+        </div>
+#define( $privatejs )
+<script src="#C/stock/js/trade/cancel.js"></script>
+#end
+		

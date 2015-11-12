@@ -1,0 +1,7 @@
+#cache("Javascript","Trade_StockCode")
+#set($stocksList=$commonDataUtils.queryStocks(7))
+if (typeof JRJ == "undefined" || !JRJ) {
+	var JRJ = {};
+}if (typeof JRJ.Trade == "undefined" || !JRJ.Trade) { JRJ.Trade = {} }
+JRJ.Trade.STOCKS=$!{stocksList};
+#end

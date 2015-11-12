@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toolbox>
+<tool>
+		<key>dateUtils</key>
+		<scope>application</scope>
+		<class>com.jrj.common.velocity.utils.toolbox.DateUtilsToolbox</class>
+	</tool>
+	<tool>
+		<key>env</key>
+		<scope>application</scope>
+		<class>com.jrj.common.velocity.utils.toolbox.EnvPropertiesToolbox</class>
+	</tool>
+	
+	<tool>
+		<key>stringUtils</key>
+		<scope>application</scope>
+		<class>com.jrj.common.velocity.utils.toolbox.StringUtilsToolbox</class>
+	</tool>
+	
+	<tool>
+		<key>decimalUtils</key>
+		<scope>application</scope>
+		<class>com.jrj.common.velocity.utils.toolbox.DecimalUtilsToolbox</class>
+	</tool>
+	
+	<tool>
+		<key>pageUtils</key>
+		<scope>application</scope>
+		<class>com.jrj.common.velocity.utils.toolbox.PageUtilsToolbox</class>
+	</tool>
+		
+	<tool>
+		<key>collectionUtils</key>
+		<scope>application</scope>
+		<class>com.jrj.common.velocity.utils.toolbox.CollectionUtilsToolbox</class>
+	</tool>
+	
+	<tool>
+		<key>stockUtils</key>
+		<scope>application</scope>
+		<class>com.cfo.stock.web.velocity.toolbox.StockUtilsToolbox</class>
+	</tool>
+	
+	<tool>
+		<key>parameterUtils</key>
+		<scope>application</scope>
+		<class>com.cfo.stock.web.velocity.toolbox.ParameterUtilToolbox</class>
+	</tool>
+	
+	<tool>
+		<key>commonDataUtils</key>
+		<scope>application</scope>
+		<class>com.cfo.stock.web.velocity.data.toolbox.CommonDataToolbox</class>
+	</tool>
+</toolbox>

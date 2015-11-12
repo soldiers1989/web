@@ -1,0 +1,11 @@
+<link href="#C/stock/css/styles.min.css" rel="stylesheet" />
+<script>
+    frameElement._thisDialog.resizeIfrH();
+    frameElement._thisDialog.dlg.resetPosition();
+</script>
+<div class="register-success register-success-nomargin" style="width:240px;">
+    <p class="title mt10">您的交易密码已经成功修改。</p>
+</div>
+<p class="mt10 tc">
+	<a href="javascript:void(0)" onclick="javascript:frameElement._thisDialog.close();window.parent.location.reload();" class="btn btn-113-30">确定</a>
+</p>

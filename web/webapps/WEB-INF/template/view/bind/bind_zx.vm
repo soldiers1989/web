@@ -1,0 +1,11 @@
+#set($layout="layout/default_layout.vm")
+<script src="#C/stock/js/jquery/jquery-1.7.2.min.js"></script>
+<form action="$!{url}" method="post" id="bindForm" style="display:none">
+	<input type="hidden"  name="brokerId"  id="brokerId" />
+    #foreach($param in ${params.keySet()})
+	<input type="hidden" name="$param" value="${params.get($param)}"/>
+    #end
+</form>
+<script>
+	$("#bindForm").submit();
+</script>

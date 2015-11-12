@@ -1,0 +1,42 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="股票卖出")
+#set($breadCrumb ="卖出确认")
+<div class="block-title middle">
+    <span class="jrj-fl">
+        <i class="icon icon-block-title"></i>
+        <span>卖出股票</span>
+        <a class="tooltip">
+            <i class="block-title-info png_bg"></i>
+            <span class="tooltip-content" style="left: 112px; top: 9px; display: none;"><i class="tooltip-arrow"></i>卖出股票</span>
+        </a>
+    </span>
+</div>
+<div class="entrust-area">
+    <div class="entrust-hd path-2"></div>
+    <div class="entrust-buy">
+        <div class="entrust-info">
+            <h1 class="entrust-title">确认委托</h1>
+			<iframe width="740" height="600" frameborder="0" scrolling="no" name="main"></iframe>
+        </div>
+    </div>
+</div>
+<form action="$!{url}" method="get" id="form_main" target="main">
+ #foreach($param in ${params.keySet()})
+  <input type="hidden" name="$param" value="${params.get($param)}"/>
+  #end
+ </form>
+ 
+<form action="#C/stock/sellCallBack.jspa" id="form_sell" method="post">
+#token()
+</form>
+#define( $privatejs )	
+<script>
+$(function(){
+	$('#form_main').submit();
+	});
+	
+function submitForm(){
+	$('#form_sell').submit();
+}
+</script>
+#end

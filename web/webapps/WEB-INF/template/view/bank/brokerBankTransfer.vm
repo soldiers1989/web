@@ -1,0 +1,166 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="银证业务")
+#set($breadCrumb ="证券账户")
+#set($option_nav="transe")
+#parse("/common/option-nav.vm")
+                <ul class="sub-tabbar  mt10">
+                    <li id="menu_1" class="cur">资金转入</li>
+                    <li id="menu_2"><a href="#C/stock/$!{accountId}/bankRollOut.jspa">资金转出</a></li>
+                    <li id="menu_3"><a href="#C/stock/$!{accountId}/fundQuery.jspa">转账记录</a></li>
+                </ul>
+                <div class="">
+                    <div class=" error-msg-bar-wrap-right middle" style="display:none" id="moneyValueDiv">
+                        <i class="icon icon-right-2"></i>
+                        <span id="moneyValue"></span>
+                    </div>
+                </div>
+                <form action="/stock/bankTransfer.jspa" method="post" id="transferForm">
+                <input type="hidden" id="transferType" name="transferType" value="1"/>
+                <input type="hidden" id="bankNo" name="bankNo" value="$!{_bankNo}"/>
+                 <input type="hidden" id="bankAcc" name="bankAcc" value="$!{_bankAcc}"/>
+                
+                <div id="con_1">
+                    <div class="trade-block mt30 clearfix">
+                        <div class="col-1 col-1-s2" style="width:auto;height: 484px;">
+                            <table class="ml30">
+                                <tr>
+                                    <td class="field" style="width:85px;"><span>选择银行</span></td>
+                                    <td>
+                                        <div class="">
+                                            <ul class="custom-checkbox clearfix">
+                                                #foreach($bank in $bankList)
+											    <li class="middle #if($!velocityCount == 1) checked #end" onclick="setBankNo('$!{bank.bankNo}','$!{bank.bankAccount}',JRJZQTPassword.Action.YTOZ, qsFlag);"><span>$!{bank.bankName}</span></li>
+										        #end
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">银行余额</td>
+                                    <td>
+                                        <a id="balanceButton" href="javascript:void(0)" onclick="getNeedpasswords();" class="btn btn-279-37">点击显示银行卡余额</a>
+                                        <span class="num-wrap"><span class="num" id="moneys"></span></span> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field" style="vertical-align:top">转入金额</td>
+                                    <td>
+                                        <input id="balance" name="balance" type="text" class="txtbox fl" style="width: 259px;" />
+                                        <div id="balance_error"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">
+                                        <div style="display:none" id="fund_password_div">
+                                                                                                                            资金密码
+                                        </div>
+                                        <div class="mt20" style="display:none" id="bank_password_div">
+                                                                                                                            银行密码
+                                        </div>
+                                        <div class="mt20" style="display:none" id="trade_password_div">
+                                                                                                                           交易密码
+                                        </div>
+                                    </td>
+                                    <td id="bankpass">
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field"></td>
+                                    <td id="bankpass_error">
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">&nbsp;</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="submitForm(_accountId);return false;" class="btn btn-123-40 mt10">转账</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                </form>
+<!-- main-right -->
+</div>
+#define( $privatejs )
+<script src="#C/stock/js/common/JRJPassword.v2.js"></script>
+<script type="text/javascript" src="#C/stock/js/trade/trade_pwd.js"></script>
+<script src="#C/stock/js/bank/bankTransfer.js"></script>
+<script src="#C/stock/js/bank/bankBalance.js"></script>
+<script>
+var qsFlag='$!{qsFlag}';
+var bankNo = $("#bankNo").val();
+//转入余额密码输入框
+var bankpasswords = "";
+var balancePassword = "";
+//点查询余余额查询密码
+function showBankMoney(){
+    //由于弹层不能覆盖页面的控件，暂时做隐藏处理
+    $("#bankpass").hide();
+	bankNo = $("#bankNo").val();
+	if(bankNo == ""){
+	    JRJ.Alerts.alert({
+				title: "消息提示",  //标题
+				width:400,
+				autoClose:false,
+				message: "请选择银行!"     //提示语
+			  });
+		return false;
+	}
+    balancePassword = new JRJZQTPassword("#balancePass",_accountId,JRJZQTPassword.Action.QUERY,bankNo,300,#if($qsFlag=="ZJZQ")47#else 170#end);
+    //动态查询左侧密码框提示
+	//请输入密码
+    var TRADlg = jQuery.extend(true,{}, JRJ.Dialogs);
+	TRADlg.standardDialog({
+        title: "请输入密码",
+        width: 400,
+        content: ['<div class="dialog-cnt">',
+                        '<table class="table-p5">',
+                            '<tr>',
+                                '<td style="width:70px;vertical-align:top;line-height:37px;">',
+                                '<div class="mt20" style="display:none;margin-top: 6px;" id="fund_password_bal_div">资金密码</div>',
+                                '<div class="mt20" style="display:none" id="bank_password_bal_div">银行密码</div>',
+                                '<div class="mt20" style="display:none" id="trade_password_bal_div">交易密码</div>',
+                                '</td>',
+                                '<td>',
+                                    '<div id="balancePass">',
+                                    '</div>',
+                                    '<div id="errorMsg" style="margin-top: 15px;">&nbsp;',
+                                    '</div>',
+                                '</td>',
+                            '</tr>',
+                        '</table>',
+                  '</div>'].join(''),
+        okBtnText: "确认",
+        cancelBtnText: "取消",
+        hasCloseBtn: true,
+        hasOkBtn: true,
+        hasCancelBtn: true,
+        okCallback: function () {balance_query(_accountId,balancePassword,TRADlg);return true;},
+        cancelCallback: function () {balancePassword.destory();$("#bankpass").show();},
+        isFixed: true
+    });
+    getpasswords_Balance();
+}
+//checkbox
+            $('.custom-checkbox li').mouseenter(function () {
+                if (!$(this).hasClass('checked')) {
+                    $(this).addClass('hover');
+                }
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            }).click(function () {
+                $(this).addClass('checked').siblings().removeClass('checked');
+            });
+            //checkbox
+//初始化
+function initBank(){
+    if(bankNo != ""){
+        setBankNo(bankNo,$("#bankAcc").val(),JRJZQTPassword.Action.YTOZ, qsFlag);
+    }
+}
+initBank();
+</script>
+#end

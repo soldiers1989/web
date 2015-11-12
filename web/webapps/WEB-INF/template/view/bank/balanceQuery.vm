@@ -1,0 +1,82 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="银证业务")
+#set($breadCrumb ="证券账户")
+            <div class="block clearfix">
+				<div class="block-title middle">
+                    <span class="jrj-fl">
+						<span>银证业务</span>
+                        <a class="tooltip">
+                            <i class="block-title-info png_bg"></i>
+                            <span class="tooltip-content" style="left: 112px; top: 9px; display: none;"><i class="tooltip-arrow"></i>时刻关注您的资金动态</span>
+                        </a>
+                    </span>
+                </div>
+                    <div class="broker-area">
+                        <div class="tab-wrap">
+                        <a href="#C/stock/bankIndex.jspa"> <span><em></em>银行转账</span></a>
+                        <a href="javascript:vodi(0)"><span class="tab-cur"><em></em>银行余额</span></a>
+                        <a href="#C/stock/fundQuery.jspa"><span><em></em>转账查询</span></a>
+                        </div>
+                        <div class="clear"></div>
+						
+                        <div class="borker-con">
+							#if($errMsg)
+                            <ul class="borker-blank"style="padding-top:20px;">
+                                <li><p>请核实您的证券帐号银行卡绑定状态</p></li>
+                            </ul>	
+							#else
+								<form action="" id="queryForm" method="post">
+                                <ul class="borker-blank">
+                                    <li><label for="">选择银行</label>
+                                        <select name="bankNo" id="bankNo">
+											#foreach($bank in $bankList)
+											<option value="$!{bank.bankNo}" data-acc="$!{bank.bankAccount}">$!{bank.bankName}</option>
+											#end
+                                        </select>
+                                    </li>
+                                    <li id="bank_password" style="display:#if($passwordFlag.isBankPasswordRequired()) block #else none #end" data-password="#if($passwordFlag.isBankPasswordRequired()) 1#else 0#end"><label for="">银行密码</label>
+									<OBJECT id=bankPassword classid="clsid:10D83247-E1A4-4C6B-9685-B84208D6FB50" codebase="/stock/JrjSafePwd.cab#version=1,0,4,0"  align="center" hspace="0" vspace="0" style="width:141px;height:27px;float:left;zoom:1" > 
+                						<param name="BorderColor" value="DDDDDD">
+                						<param name="BorderWidth" value="141">
+                						<param name="BorderHeight" value="27">
+                						<param name="BorderSize" value="1">
+    									<param name="windowless" value="true">
+                                        <span class="no-safety-controller no-safety-controller-2 bank_pwd">请在IE下安装控件<span class="no-safety-controller-tip"></span></span>
+            						</OBJECT>
+								</li>
+								
+								<li id="fund_password" style="display:#if($passwordFlag.isFundPasswordRequired()) block #else none #end" data-password="#if($passwordFlag.isFundPasswordRequired()) 1#else 0#end"><label for="">资金密码</label>
+									<OBJECT id=fundPassword classid="clsid:10D83247-E1A4-4C6B-9685-B84208D6FB50" codebase="/stock/JrjSafePwd.cab#version=1,0,4,0"  align="center" hspace="0" vspace="0" style="width:141px;height:27px;float:left;zoom:1"> 
+                						<param name="BorderColor" value="DDDDDD">
+                						<param name="BorderWidth" value="141">
+                						<param name="BorderHeight" value="27">
+                						<param name="BorderSize" value="1">
+    									<param name="windowless" value="true">
+                                        <span class="no-safety-controller no-safety-controller-2 fund_pwd">请在IE下安装控件<span class="no-safety-controller-tip"></span></span>
+            						</OBJECT>
+								</li>
+								
+								<li id="trade_password" style="display:#if($passwordFlag.isPasswordRequired()) block #else none #end"  data-password="#if($passwordFlag.isPasswordRequired()) 1#else 0#end"><label for="">交易密码</label>
+									<OBJECT id=tradePassword classid="clsid:10D83247-E1A4-4C6B-9685-B84208D6FB50" codebase="/stock/JrjSafePwd.cab#version=1,0,4,0"  align="center" hspace="0" vspace="0" style="width:141px;height:27px;float:left;zoom:1"> 
+                						<param name="BorderColor" value="DDDDDD">
+                						<param name="BorderWidth" value="141">
+                						<param name="BorderHeight" value="27">
+                						<param name="BorderSize" value="1">
+    									<param name="windowless" value="true">
+                                        <span class="no-safety-controller no-safety-controller-2 trade_pwd">请在IE下安装控件<span class="no-safety-controller-tip"></span></span>
+            						</OBJECT>
+								</li>
+                                </ul>
+								<input  class="borker-btn borker-ser"  type="button"  id="balance_query"/>
+                                ##<a class="borker-btn borker-ser" id="balance_query"></a>
+                            </form>
+							#end
+                        </div>		
+                    </div>
+            </div>
+#define( $privatejs )	
+<link href="#C/stock/css/util/dialog.css" rel="stylesheet" />
+<script src="#C/stock/js/dialogs/dialogs.js"></script>
+<script src="#C/stock/js/bank/bankBalance.js">
+</script>
+#end

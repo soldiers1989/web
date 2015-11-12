@@ -1,0 +1,12 @@
+#set($layout="layout/stock_noheader_layout.vm")
+#set($title="出错啦")
+<div class="main">
+    <div class="main-right">	
+			<h1 class="entrust-title">错误信息提示</h1>
+			<ul >
+                <li ><em>业务方向：</em><p>$!{errorInfo.returnUrl}</p></li>
+				<li ><em>错误信息：</em><p>$!{errorInfo.returnUrl}</p></li>  
+				<li ><em>操作：</em><a href="$!{errorInfo.returnUrl}">返回 $!{errorInfo.returnName}</a></li>
+            </ul>
+    </div>			
+</div>	

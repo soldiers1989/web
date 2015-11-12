@@ -1,0 +1,53 @@
+#if($errMsg)
+    <input type="hidden" value="0" id="countsize"/>
+	<input type="hidden" value="1" id="pageNum"/>
+ 	<table class="table-general mt15 table-general-p3" >
+		<tbody>
+	       <tr>
+			<td class="tc red last">错误提示：$!{errMsg}</td>
+	        </tr>
+	    </tbody>
+    </table>
+#else
+<input type="hidden" value="$!{positions.size()}" id="countsize"/>
+<input type="hidden" value="$!{pageNum}" id="pageNum"/>
+<table class="table-general mt15 table-general-p3" >
+		<thead>
+	        <tr>
+	            <th class="tl">代码/名称</th>
+	            <th class="tr">证券数量/可用数量</th>
+	            <th class="tr">当前价(延时)</th>
+	            <th class="tr">市值</th>
+	            <th class="last" style="width:65px;">交易</th>
+	        </tr>
+	    </thead>
+    <tbody>
+    #if($positions.size()==0)
+		<tr>
+		 <td colspan="5" class="tc middle last">
+		 <div class="mt20">
+               <img src="#C/stock/images/icon-alert.png"> <span class="f16" style="font-weight:bold;">您现在暂无持仓记录，尝试</span><a href="#C/stock/hk/$!{accountId}/buyStep1.jspa" class="link f16" style="font-weight:bold;">买入股票</a><span class="f16" style="font-weight:bold;">？</span>
+          </div>
+          </td>
+		</tr>
+	#else
+		#foreach($p in $positions)
+        #if($velocityCount % 2 == 0)
+		<tr class="alt">
+        #else
+        <tr>
+        #end
+		 	<td class="tl"><a href="http://hk.jrj.com.cn/share/$!{p.instrumentCode}/index.shtml" target="_blank" class="link">$!{p.instrumentCode}/$!{p.instrumentName}</a></td>
+            <td class="tr">$!{p.holdQuantity}/$!{p.availableQuantity}</td>
+            <td class="tr">$!{numberTool.format("0.00",$p.lastPrice)}</td>
+            <td class="tr">$!{p.marketValue}</td>
+            <td class="last middle tc">
+            	<a href="/stock/hk/$!{accountId}/buyStep1.jspa?stockCode=$!{p.instrumentCode}" class="link">买</a><span class="split">|</span>
+            	<a href="/stock/hk/$!{accountId}/sellStep1.jspa?stockCode=$!{p.instrumentCode}" class="link">卖</a>
+            </td>
+		</tr>
+		#end
+	#end
+    </tbody>
+</table>
+#end

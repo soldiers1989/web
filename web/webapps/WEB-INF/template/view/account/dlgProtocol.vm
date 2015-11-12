@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>证券通</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+ 
+	<link href="/stock/css/reset-min.css" rel="stylesheet" />
+	<link href="/stock/css/styles.min.css" rel="stylesheet" />
+	<script src="/stock/js/jquery/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="/stock/js/lib/TabSwitch.2.0-min.js"></script>
+	
+    <script type="text/javascript">
+        $(function () {
+            setTimeout(function () {
+                frameElement._thisDialog.resizeIfrH();
+                frameElement._thisDialog.dlg.resetPosition();
+            }, 0);
+
+            //tab
+            var tab = new JRJ.ui.TabSwitch({
+                menuPre: "menu_",
+                conPre: "con_",
+                total: 3,
+                onClass: "cur",
+                eventType: 'click'
+            });
+            //tab
+        });
+    </script>
+</head>
+<body style="background:#fff;">
+    <div class="dialog-cnt dialog-ask clearfix">
+        <ul class="sub-tabbar">
+            <li id="menu_1" class="cur">证券通用户协议</li>
+            <li id="menu_2">证券通用户服务协议</li>
+            <li id="menu_3" style="display: #if($!brokerId =='ZXZQ')  #else none #end">互联网第三方交易系统使用风险告知书</li>
+        </ul>
+        #parse("/cms/protocol/ZQT_AGREE.vm")
+        #parse("/cms/protocol/ZXZQ_AGREE.vm")
+    </div>
+        
+
+</body>
+</html>

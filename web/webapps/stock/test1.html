@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="/stock/js/jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/stock/js/util/swfobject-2.2.js"></script>
+
+<script>
+var flashvars = {
+		stock_code: "00001" // H股的股票代码
+	};
+	var params = {
+		menu: "false",
+		scale: "noScale",
+		allowScriptAccess:"always"
+	};
+	var attributes = {
+		id:"stock_flash"
+	};
+	var flashURL="/stock/stockFlash/H_StockHQLite.swf"; 
+	swfobject.embedSWF(
+			flashURL,
+			//'http://f0.jrj.com.cn/stock/H_StockHQLite.swf',
+		"FlashContent", "215", "165", "10.0.0", 
+		"", 
+		flashvars, params, attributes);
+
+</script>
+</head>
+<body >
+<div id="FlashContent"></div>
+</body>
+</html>

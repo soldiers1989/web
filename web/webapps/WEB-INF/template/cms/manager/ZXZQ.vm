@@ -1,0 +1,27 @@
+                        <div class="stock-comp-popup-cnt clearfix" id="stock-comp-popup-cnt-1" style="display:none;">
+                            <div class="clearfix">
+                                <div class="fl">
+                                    <div class="stock-comp-popup-slogan stock-comp-popup-slogan-2"></div>
+                                    <div><img src="#C/stock/images/zhongxin_middle.jpg" width="215" height="260" /></div>
+                                </div>
+                                <div class="tab-cnt-right mt20">
+                                    <div class="stock-comp-service stock-comp-service-2"></div>
+                                    <div class="tab-cnt-right-item clearfix mt30">
+                                        <p>从未在任何一家证券公司开立账户，马上开户，立享超低交易佣金</p>
+                                        <a href="javascript:void(0)" id="kaihu_div_2" class="btn btn-openaccount kaihu_div">我要开户</a>
+                                    </div>
+                                    <div class="tab-cnt-right-item clearfix">
+                                        <p>已在其他证券公司开立账户，马上新开A股账户，享受超低佣金及更多增值服务</p>
+                                        <span class="left">
+                                            <a href="javascript:void(0)" id="zhuan_div_2" class="btn btn-openaccount zhuan_div">一人多户</a>
+                                            <!--<a href="javascript:void(0)" id="btnbind_div_2" class="btn btn-openaccount btnbind_div">我要绑户</a>-->
+                                            <a href="javascript:void(0)" id="bindOrderUser_2" class="link bindOrderUser">绑定其他账户</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="clearfix">
+                                <!-- <a href="" class="btn btn-helper fr">证券通开户小助手</a> -->
+                                <span class="middle"><span class="note mr10">支持的浏览器</span><img src="#C/stock/images/web-browser-zhongxin.jpg" /></span>
+                            </p>
+                        </div>

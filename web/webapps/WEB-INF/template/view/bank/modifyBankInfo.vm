@@ -1,0 +1,85 @@
+#set($layout="layout/stock_layout_hk.vm")
+#set($title="银证业务")
+#set($breadCrumb ="证券账户")
+#set($option_nav="transe")
+#parse("/common/option-nav-hk.vm")
+                <ul class="sub-tabbar  mt10">
+                    <li id="menu_1"><a href="#C/stock/hk/$!{accountId}/bankIndex.jspa">存入资金</a></li>
+                    <li id="menu_2"><a href="#C/stock/hk/$!{accountId}/bankRollOut.jspa">提取资金</a></li>
+                    <li id="menu_3"><a href="#C/stock/hk/$!{accountId}/fundQuery.jspa">转账记录</a></li>
+					<li id="menu_4" class="cur">更改银行资料</li>
+                </ul>
+                     <div class="trade-block trade-block-hk mt10 clearfix">
+                        <div class="clearfix">
+                            <div class="col-1 col-1-s2" style="width:auto;">
+                                <div class="cloud-form-block" style="display:none">
+                                    <h2 class="block-title">
+                                        <span class="f14">原银行信息</span>
+                                    </h2>
+                                    <table class="table-s2">
+                                        <tr>
+                                            <td class="field" style="width: 120px;"><span>地域属性</span></td>
+                                            <td>香港和海外银行</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="field"><span>银行名称</span></td>
+                                            <td>中国工商银行</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="field"><span>户名</span></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="field"><span>收款人银行帐号</span></td>
+                                            <td>2343523452345</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <h2 class="block-title mt10" style="clear:both">
+                                <span class="f14">更新银行信息</span>
+                            </h2>
+
+                            <div class="ml30 mt20 f14 clearfix" style="clear:both;">须提供已经签署的银行数据证明文件的复印件(例如 :月结单 / 银行卡 )签署及印章模式需与开户文件一致。</div>
+                            <div class="hk-bottom-bar clearfix " style="border:none">
+                                <div class="hk-bottom-bar-left mt10" style="width:388px;">
+
+                                    <p><b>您可以使用以下三个方式通知本公司修改信息</b></p>
+                                    <ul class="clearfix">
+                                        <li class="clearfix mb5">
+                                            <div class="left">方式一：</div>
+                                            <div class="right"><h2>使用登记邮箱通知本公司的邮箱: fio@istartrade.com </h2>内容包括：已经填写的《更新客户资料表格》已经签署的 
+              银行证明文件复印件。</div>
+                                        </li>
+                                        <li class="clearfix mb5">
+                                            <div class="left">方式二：</div>
+
+                                            <div class="right"><h2>传真已经填写的《更新客户资料表格》已经签署的银行证 
+              明文件复印件。至香港客服部</h2>
+                                            传真：（852）39001708／ （852）39001705 
+                                            </div>
+
+                                           
+
+                                        </li>
+                                        <li class="clearfix mb5">
+                                            <div class="left">方式三：</div>
+
+                                            <div class="right"><h2>邮寄已填写的《更新客户资料表格》已经签署
+              的银行证明文件复印件。 </h2>
+                                            公司地址： 香港中环皇后大道中99号中环中心3705室<br>
+				上海综合服务部 地址：上海浦东新区碧波路690号张江微电子港8号楼3楼
+                                            </div>
+
+                                           
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="hk-bottom-bar-right">
+
+                                    <p class="tc mt60"><a href="/stock/banktransferdata/gxkhzl.pdf" class="btn btn-152-32" target="_blank">《更新客户资料表格》下载</a></p>
+                                    <p class="tc mt30"><a href="/stock/banktransferdata/gxkhzlyz.pdf" class="btn btn-152-32" target="_blank">样本资料查看</a></p>
+                                </div>
+                            </div>
+								</div>
+                                </div>

@@ -1,0 +1,262 @@
+<div class="col-2">
+  <div class="col-2-title"> 
+    <!--<span class="btn-realtime">查看实时行情</span>
+                            <span class="ml10">本月剩余 <span class="highlight">300</span> 次</span>
+                            <span class="split">|</span>
+                            <span class="lazy-toolbar">
+                                <span class="f14">实时行情</span>
+                                <a href="" class="link f14 ml10">立即开通 &gt;</a>
+                            </span>
+                            <span class="realtime-toolbar" style="display:none;">
+                                <span class="f14">现价</span><span class="highlight ml5">133.50↑</span>
+                            </span>--> 
+    <span class="fr"> <span>延时15分钟行情</span> <span class="note ml30">实时行情敬请期待</span> </span> </div>
+  <!--延时行情-->
+  <div class="trend-cnt clearfix" id="lazy-trend">
+    <div class="trend-cnt-left" id="quote_con1">
+      <table>
+        <tbody>
+          <tr>
+            <td style="width:40px;">卖①</td>
+            <td><span id="quote_sp1">--.--</span><span id="quote_ba1" class="ml10">--</span></td>
+          </tr>
+          <tr>
+            <td>成交</td>
+            <td><span id="quote_np">--.--</span><span id="quote_ta" class="ml10">--</span></td>
+          </tr>
+          <tr>
+            <td>买①</td>
+            <td><span id="quote_bp1">--.--</span><span id="quote_sa1" class="ml10">--</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="margin-top:10px;">
+        <tbody>
+          <tr class="title">
+            <td class="f14" style="width:60px;">基本信息</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>最高价</td>
+            <td class="value"><span id="quote_hp">--.--</span></td>
+          </tr>
+          <tr>
+            <td>最低价</td>
+            <td class="value"><span id="quote_lp">--.--</span></td>
+          </tr>
+          <tr>
+            <td>开盘价</td>
+            <td class="value"><span id="quote_op">--.--</span></td>
+          </tr>
+          <tr>
+            <td>昨收价</td>
+            <td class="value"><span id="quote_lcp">--.--</span></td>
+          </tr>
+          <tr>
+            <td>成交量</td>
+            <td class="value"><span id="quote_ta">--.--</span></td>
+          </tr>
+          <tr>
+            <td>成交额</td>
+            <td class="value"><span id="quote_tm">--.--</span></td>
+          </tr>
+          <tr>
+            <td>委&nbsp;&nbsp;&nbsp;&nbsp;比</td>
+            <td class="value"><span id="quote_cot">--.--</span></td>
+          </tr>
+          <!--<tr>
+            <td>量&nbsp;&nbsp;&nbsp;&nbsp;比</td>
+            <td class="value"><span id="quote_cat">--.--</span></td>
+          </tr>-->
+          <tr>
+            <td>市盈率</td>
+            <td class="value"><span id="quote_ape">--.--</span></td>
+          </tr>
+          <!--<tr>
+            <td>市净率</td>
+            <td class="value"><span id="quote_apb">--.--</span></td>
+          </tr>
+          <tr class="last">
+            <td>市&nbsp;&nbsp;&nbsp;&nbsp;值</td>
+            <td class="value"><span id="quote_tmv">--.--</span></td>
+          </tr>-->
+        </tbody>
+      </table>
+    </div>
+    <div class="trend-cnt-right">
+      <p class="tc" id="flash_div_sf">
+      	数据加载中……
+      </p>
+      <table id="detail_capital">
+        <tbody>
+          <tr>
+            <th>时间</th>
+            <th>成交价</th>
+            <th>成交量</th>
+          </tr>
+          <tr>
+            <td>--:--:--</td>
+            <td><span>--.--</span></td>
+            <td><span>--</span></td>
+          </tr>
+          <tr class="alt">
+            <td>--:--:--</td>
+            <td><span>--.--</span></td>
+            <td><span>--</span></td>
+          </tr>
+          <tr>
+            <td>--:--:--</td>
+            <td><span>--.--</span></td>
+            <td><span>--</span></td>
+          </tr>
+          <tr class="alt last">
+            <td>--:--:--</td>
+            <td><span>--.--</span></td>
+            <td><span>--</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!--延时行情--> 
+  <!--实时行情-->
+  <div class="trend-cnt trend-cnt-realtime clearfix" id="realtime-trend" style="display:none;">
+    <div class="trend-cnt-left">
+      <table>
+        <tbody>
+          <tr>
+            <td>卖⑩</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖⑨</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖⑧</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖⑦</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖⑥</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖⑤</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖④</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖③</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖②</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr class="last">
+            <td>卖①</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="bt1">
+        <tbody>
+          <tr>
+            <td>卖⑩</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖⑨</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖⑧</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖⑦</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖⑥</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖⑤</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖④</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖③</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr>
+            <td>卖②</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+          <tr class="last">
+            <td>卖①</td>
+            <td>11.00</td>
+            <td>4730</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="trend-cnt-right">
+      <p class="title">买盘经纪</p>
+      <div class="scroll-block scroll-block-1">
+        <p>-5</p>
+        <p>9076富昌</p>
+        <p>9063瑞银</p>
+        <p>1499美林</p>
+        <p>-6</p>
+        <p>8028里昂</p>
+        <p>5467摩根士丹利</p>
+        <p>513 E.O.Ltd</p>
+        <p>1499Optiver</p>
+      </div>
+      <p class="title mt10">卖盘经纪</p>
+      <div class="scroll-block scroll-block-2">
+        <p>-5</p>
+        <p>9076富昌</p>
+        <p>9063瑞银</p>
+        <p>1499美林</p>
+        <p>-6</p>
+        <p>8028里昂</p>
+        <p>5467摩根士丹利</p>
+        <p>513 E.O.Ltd</p>
+        <p>1499Optiver</p>
+      </div>
+    </div>
+  </div>
+  <!--实时行情--> 
+</div>

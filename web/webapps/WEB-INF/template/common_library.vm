@@ -1,0 +1,103 @@
+#macro(brokerImage $__brokerId $__type)#if(!$__type)/stock/brokerImages/$!{__brokerId}.png#else/stock/brokerImages/$!{__brokerId}_$!{__type}.png#end#end
+#macro(navHighLight $__option $__highLight $__class)#if($__highLight && $__option==$__highLight) $!{__class}#end#end
+#macro(pager $__uri $__obj_count $__page_size $_current)
+	#if($__obj_count > $__page_size)
+		#set($pageItem = $pageUtils.getPageDisplayItem($__obj_count,$_current,$__page_size))
+		#set($__p_uri =	$pageUtils.getPageURL($__uri))
+	##设置参数
+	#set($_pagesOneSide = 5)##当前页每边显示的页数
+	#set($_pagesSides = $_pagesOneSide * 2)
+	#set($_pagesOnEdge = 2)##两边显示的页数
+	#set($_totalPage=${pageItem.totalPage})
+	#set($_pageNoStr=${pageItem.pageNoStr})
+	<span style="color:red">当前第 ${_current} 页</span>
+	##显示上一页
+	#if($pageItem.hasPrev)##第_current页
+		<a href="${__p_uri}&$_pageNoStr=$pageItem.pre" target="_self">&lt;&lt;上一页</a>
+	#else##第一页
+		<a>&lt;&lt;上一页</a>
+	#end 
+	
+	#set($_start = 1)##循环显示的开始页码
+	#set($_end = $_totalPage)##循环显示的结束页码
+	#if($_current > ($_pagesOneSide + $_pagesOnEdge + 1) && $_current < ($_totalPage - $_pagesOneSide - $_pagesOnEdge))##中间情况
+		#set($_start = $_current - $_pagesOneSide)
+		#set($_end = $_current + $_pagesOneSide)
+	#elseif($_current <= ($_pagesOneSide + $_pagesOnEdge + 1))##开始
+		#set($_end = $_pagesSides)
+	#else
+		#set($_start = $_totalPage - ($_pagesSides - 1))
+	#end
+	#if($_start < 1)
+		#set($_start = 1)
+	#end
+	#if($_end > $_totalPage)
+		#set($_end = $_totalPage)
+	#end
+	
+	##显示1 2 页码
+	#if($_start > ($_pagesOnEdge + 1))##需要显示1 2 页码
+		#foreach($_page in [1..$_pagesOnEdge]) 
+			#if($_current == $_page)
+				<a href="${__p_uri}&${_pageNoStr}=${_page}${_otherParams}" class="cur" target="_self">${_page}</a>
+			#else
+				<a href="${__p_uri}&?${_pageNoStr}=${_page}${_otherParams}" target="_self">${_page}</a> 
+			#end
+		#end
+		<span>&#8230;</span>
+	#end
+	
+	##循环显示中间的页码
+	#foreach($_page in [$_start..$_end]) 
+		#if($_current == $_page)
+			<a href="${__p_uri}&?${_pageNoStr}=${_page}" class="cur" target="_self">${_page}</a>
+		#else
+			<a href="${__p_uri}&?${_pageNoStr}=${_page}" target="_self">${_page}</a> 
+		#end
+	#end
+	
+	##显示尾页的页码
+	#if($_end < ($_totalPage - $_pagesOnEdge))	
+		<span>&#8230;</span>
+		#set($_tmp = $_totalPage - $_pagesOnEdge + 1)
+		#foreach($_page in [$_tmp..$_totalPage]) 
+			#if($_current == $_page)
+				<a href="${__p_uri}&${_pageNoStr}=${_page}" class="cur" target="_self">${_page}</a>
+			#else
+				<a href="${__p_uri}&${_pageNoStr}=${_page}" target="_self">${_page}</a> 
+			#end
+		#end
+	#end
+	
+	##显示下一页
+	#if($pageItem.hasNext)
+		<a href="${__p_uri}&${_pageNoStr}=$pageItem.next" target="_self">下一页&gt;&gt;</a>
+	#else
+		<a>下一页&gt;&gt;</a>
+	#end
+	#end
+#end
+#macro(utilmarketType $__marketTypeValue )
+	#if(${__marketTypeValue}=="1"||${__marketTypeValue}=="D")
+		cn.sh
+	#elseif(${__marketTypeValue}=="2"||${__marketTypeValue}=="H")
+		cn.sz	
+	#end
+#end
+#macro(brokerLogo $__brokerId)
+ 	#if(${__brokerId} =='ZXZQ')
+	bank-logo-zhongxin 
+	#elseif(${__brokerId} =='ZSZQ')
+	bank-logo-zhongshan 
+	#elseif(${__brokerId} =='HTZQ') 
+	bank-logo-hengtai 
+	#elseif(${__brokerId} =='CCZQ') 
+	bank-logo-changcheng
+	#elseif(${__brokerId} =='HKZXGJ') 
+	bank-logo-zhengxing  
+	#elseif(${__brokerId} =='CJZQ') 
+	bank-logo-changjiang  
+	#elseif(${__brokerId} =='ZJZQ') 
+	bank-logo-zhongjin  
+	#end
+#end

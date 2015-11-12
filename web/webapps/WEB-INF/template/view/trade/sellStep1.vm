@@ -1,0 +1,354 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="股票卖出")
+#set($breadCrumb ="股票卖出")
+#set($option_nav="sell")
+#parse("/common/option-nav.vm")
+<div class="trade-block clearfix" style="padding-top:30px; position:relative;">
+<div class="error-msg-bar-wrap">
+    <div class="error-msg-bar middle" style="display:none;">
+        <i class="icon icon-error-2"></i>
+        <span></span>
+    </div>
+    <div class="error-msg-bar-wrap-right middle" style="display:none;">
+        <i class="icon icon-right-2"></i>
+        <span class="text">
+        <span></span>
+        <a href="javascript:;" class="link"></a>
+        </span>
+        <em onclick="clearSuccessMsg();"></em>
+    </div>
+</div>
+    <div class="col-1">
+    <form action="#C/stock/$!{accountId}/sellStep2.jspa" id="buyCheckForm" method="post">#token()
+        <table>
+            <tr>
+                <td class="field" style="width:60px;"><span>卖出证券</span></td>
+                <td>
+	                <div class="txtbox-select-wrap" style="width:156px;">
+                	<input type="text" id="stockCode_show" value="$!{stockCode}" class="txtbox inp-txt" style="width:114px;padding-right: 30px;"" />
+                    <em id="txtCode2Handle" class="handler" title="当前持仓"></em>
+                    <div class="txtbox-select-dropdownlist">
+                        <div class="loading tc">
+                            <img src="/stock/images/loading.gif" alt="loading..." width="25" height="25" />
+                        </div>
+                        <ul>
+                        </ul>
+                    </div>
+                </div>
+	                <input type="hidden" name="stockCode" id="stockCode" value="$!{stockCode}" />
+                    <input type="hidden" name="marketType" id="marketType" value="$!{marketType}"/>
+                    <input type="hidden" name="stockType" id="stockType" value="$!{stockType}"/>
+                    <div class="error-msg"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="field">卖出价格</td>
+                <td>
+                    <div class="txtbox txtbox-up-down txtbox-up-down-155 fl">
+                        <span class="fr">
+                            <i class="down"></i>
+                            <i class="up"></i>
+                        </span>
+                        <input type="text" name="entrustPrice" id="price" class="txtbox inp-txt price" value="0.00" onpaste="return false" oncopy="return false" oncut="return false" />
+                    </div>
+                    <span class="unit fl">元</span>
+                    <div class="error-msg"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="field" style="vertical-align:top">最大可卖</td>
+                <td>
+                    <div class="clearfix">
+                        <input id="enableSell" data="0" type="text" class="txtbox fl" style="width:140px;" disabled />
+                        <span class="unit fl amountunit">股</span>
+                    </div>
+                    <ul class="custom-checkbox custom-checkbox-55-25 clearfix mt10">
+                        <li id="cost_four" data-quart="4">1/4</li>
+                        <li id="cost_three" data-quart="3">1/3</li>
+                        <li id="cost_two" data-quart="2">1/2</li>
+                        <li id="cost_all" data-quart="1">全部</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="field">卖出数量</td>
+                <td>
+                    <div class="txtbox txtbox-up-down txtbox-up-down-155 fl">
+                        <span class="fr">
+                            <i class="down"></i>
+                            <i class="up"></i>
+                        </span>
+                        <input type="text" name="entrustAmount" id="entrustAmount" class="txtbox inp-txt" maxlength="9"onpaste="return false" oncopy="return false" oncut="return false" autocomplete="off" />
+                    </div>
+                    <span class="unit fl amountunit">股</span>
+                    <div class="error-msg"></div>
+                </td>
+            </tr>
+        </table>
+        </form>
+        <div class="tc">
+            <a id="btnSubmit" href="javascript:;" class="btn btn-123-40 mt30">委托卖出</a>
+        </div>
+    </div>
+    #parse("/cms/stockHq.vm")
+</div>
+#define( $privatejs )	    
+<script src="#C/stock/js/common/JRJPassword.v2.js"></script>
+<script type="text/javascript" src="#C/stock/js/trade/trade_pwd.js"></script>
+<script type="text/javascript" src="#C/stock/js/trade/tradeCommon.js"></script>
+<script src="#C/stock/js/trade/doCancelAjax.js"></script>
+<script src="#C/stock/js/trade/sellCheck.js"></script>
+<script type="text/javascript" src="#C/stock/js/util/swfobject-2.2.js"></script>
+<script type="text/javascript" src="#C/stock/js/util/HqTiming.js"></script>
+<script type="text/javascript" src="#C/stock/js/trade/stockHq.js"></script>
+<script>
+var stockAble = false;
+var sellAble = false;
+$(function(){
+	$('.custom-checkbox li').tooltipster({
+		theme: 'tooltipster-light'
+	});
+	$('#txtCode2Handle').tooltipster({
+		theme: 'tooltipster-light'
+	});
+	var _stockCode = $("#stockCode").val();
+	//XJB.HQ.searchBox("com_combox_input","com_combox_btn",hq_call_back,false);
+	
+	if(_stockCode !="代码/简称/拼音" && _stockCode != ""){
+	    initType(initcall_back);
+	}else{
+		XJB.HQ.searchBox("stockCode_show",null,hq_call_back,true,true);
+		XJB.HQ.hqFlash("","flash_div_sf","215","140");
+	}
+	$('#txtCode2Handle').click(function (e) {
+		$.ajax({
+			url:'/stock/'+_accountId+'/ajaxQueryPosition.jspa',
+			type:'get',
+			dataType: 'json',
+			timeout:1000,
+			cache:false,
+			success:function(data){
+				$('.txtbox-select-dropdownlist').find('.loading').hide();
+				if(data.positions.length>0){
+					$.each(data.positions,function(i,v){
+						$('.txtbox-select-dropdownlist').find('ul').append('<li data-code="'+v.stockCode+'" data-name="'+v.stockName+'" data-stype="'+v.stockType+'"><span>'+v.stockCode+'</span><span>'+v.stockName+'</span></li>');
+					});
+				}else{
+					$('.txtbox-select-dropdownlist').find('ul').append('<li><span class="tc">暂无持仓</span></li>');
+				}
+			}
+		});
+		e.stopPropagation();
+		$('.txtbox-select-dropdownlist').find('ul').empty();
+		$('.txtbox-select-dropdownlist').show().find('.loading').show();
+	});
+	$('.txtbox-select-dropdownlist ul li').live('click',function(e){
+		e.stopPropagation();
+		var stockCode=$(this).attr('data-code');
+		var stockName=$(this).attr('data-name');
+		var stype=$(this).attr('data-stype');
+		if(typeof stockCode != 'undefined' && stockCode!= null && typeof stockName != 'undefined' && stockName!=null){
+			$('#stockCode').val(stockCode);
+			if(stype=='3'){//封闭基金
+			stype='f'
+			}else{
+			stype='s'
+			}
+			hq_call_back({code:stockCode,name:stockName,type:stype});
+		}
+		$('.txtbox-select-dropdownlist').hide();
+	});
+	$(document).click(function () {
+		$('.txtbox-select-dropdownlist').hide();
+	});
+
+});
+function initcall_back(stockCode){
+        sellAble=true;
+        XJB.HQ.hqFlash(stockCode,"flash_div_sf","215","140",$("#stockType").val());
+		XJB.HQ.showHq(stockCode,$("#stockType").val(),function(mainQuote){
+		if(sellAble){
+			var columns = mainQuote.Column;
+	        var	data = mainQuote.HqData[0];
+	        var b1price=data[columns["bp1"]];
+		   $("#price").val(b1price);
+	        sellAble=false;
+		}
+		highLightPrice($("#price").val());
+	});
+		if($("#stockType").val().indexOf("f")!=-1||$("#stockType").val().indexOf("r")!=-1){
+	     changepricelimit(0.001,3);
+	     }else{
+	     changepricelimit(0.01,2);
+	     }
+}
+function hq_call_back(stock){
+	_stockType=stock.type;
+    sellAble=true;
+	XJB.HQ.hqFlash(stock.code,"flash_div_sf","215","140",stock.type);
+	XJB.HQ.showHq(stock.code,stock.type,function(mainQuote){
+	if(sellAble){
+	var columns = mainQuote.Column;
+	var	data = mainQuote.HqData[0];
+	var b1price=data[columns["bp1"]];
+	$("#price").val(b1price);
+	sellAble=false;
+	}
+	highLightPrice($("#price").val());
+	});
+	$('#stockCode_show').val(stock.code + ' ' + stock.name);			
+	$("#stockCode").val(stock.code);
+	var scode = $("#stockCode").val();
+	if(scode=="代码/简称/拼音" || scode==""){
+	 	clearInfo();	
+		return;
+	}
+	if(isNaN(scode)){
+		showError('stockCode','请输入正确股票代码或简称');
+		clearInfo();
+		return;
+	}
+	checkSell();
+	if(stock.type.indexOf("f")!=-1||stock.type.indexOf("r")!=-1){
+	changepricelimit(0.001,3);
+	}else{
+	changepricelimit(0.01,2);
+	}
+	
+	changeAmountStep(stock);
+}
+function showMsg(data){
+	if(data.errMsg != ''){
+		showGloableError(data.errMsg);
+		return;
+	}
+	showSuccessMsg('提交成功！');
+	clearInfo();
+	//console.log(data);
+}
+var TRADlg = jQuery.extend(true,{}, JRJ.Dialogs);
+function submitCallBack(data){
+	if(typeof data.errMsg != 'undefined'){
+		showGlobalError(data.errMsg);
+		return;
+	}
+/* #if($qsFlag=="ZSZQ")*/
+	var url = data.url;
+	var params = data.params;
+	for(key in params){
+		url = urlAppend(url,key + '=' + encodeURIComponent(params[key]));
+	}
+	JRJ.Dialogs.iframeDialog({
+		width: 350,
+		hasOkBtn: false,
+		title: '卖出确认',
+		titleRight:'',
+		ifrReHeight:false,
+		ifrHeight:300,
+		ifrScroll:'no',
+		hasBtn:false,
+		hasCancelBtn: false,
+		enableKeyCtrl: true,
+		ifrSrc: url
+   });
+/* #else*/
+var priceUnit="元/股";
+if(_stockType!=undefined&&_stockType.indexOf("r")!=-1){
+	priceUnit="";
+}
+	//确认
+	TRADlg.standardDialog({
+		title: "确认卖出",
+		width:350,
+		content: ['<div class="dialog-cnt">',
+						'<table class="table-p5">',
+							'<tr>',
+								'<td style="width:70px;">委托股票</td>',
+								'<td>' + data.stockName + '(' + data.stockCode + ')</td>',
+							'</tr>',
+							'<tr>',
+								'<td>委托价格</td>',
+								'<td>' + data.entrustPrice + priceUnit +'</td>',
+							'</tr>',
+							'<tr>',
+								'<td>委托数量</td>',
+								'<td>' + data.entrustAmount +amountUnit+ '</td>',
+							'</tr>',
+							'<tr>',
+								'<td class="field">交易密码</td>',
+								'<td>',
+								'<div id="td_tradePWD"></div>',
+								'<div class="error-msg"></div>',
+								'</td>',
+							'</tr>',
+						'</table>',
+				  '</div>'].join(''),
+		okBtnText: "确认",
+		cancelBtnText: "取消",
+		hasCloseBtn: true,
+		hasOkBtn: true,
+		hasCancelBtn: true,
+		okCallback: okCallBack,
+		cancelCallback: function () {if(tradePWD!=null)tradePWD.destory(); },
+		isFixed: true
+	});
+	//dialog------------------------------------------------
+ 	tradePWD = new JRJZQTPassword('#td_tradePWD',_accountId,JRJZQTPassword.Action.TRADE);
+/* #end*/
+}
+function okCallBack(){
+	tradePWD.check(function(data){
+		if(data==0){
+			$.ajax({
+				url : '/stock/'+_accountId+'/ajaxSellStep3.jspa',
+				data : {password: tradePWD.value(), 
+				userMac: tradePWD.mac(),
+				type:tradePWD.type,
+				"xjb.token.name":getTokenName(),
+				"xjb.token":getToken(),
+				"local_network":tradePWD._mac,
+				"local_disk":tradePWD._disk,
+				"local_cpu":tradePWD._nic
+				},
+				type : 'post',
+				dataType : 'json',
+				timeout : 5000,
+				cache : false,
+				success : function(data){
+					resetToken(data.token);
+					if(typeof data.mutiple_request_error != 'undefined'){
+							window.location.reload();
+					}else if(typeof data.result != 'undefined'){
+					if(_stockType!=undefined&&_stockType.indexOf("r")!=-1){
+						showSuccessMsg('提交成功，合同号：'+data.result.entrustNo);
+					}else{
+						showSuccessMsg('提交成功，合同号：'+data.result.entrustNo,'快速撤单',confirmCancel,{stockCode:data.stockCode,stockName:data.stockName,direction:'卖出',price:data.entrustPrice,amount:data.entrustAmont,entrustNo:data.result.entrustNo});
+					}
+						clearInfo();
+						if(tradePWD!=null){
+							tradePWD.destory();
+						}
+					}else if("-406"==data.errCode){
+							showTradePwdDlg(_accountId,okCallBack);
+							return;
+				}else{
+						//showGlobalError(data.errMsg);
+						showError('td_tradePWD',data.errMsg);
+						return;
+					}
+					TRADlg.close();
+				}
+			});		
+		}else if(data == -100){
+			showError('td_tradePWD','密码不能为空');
+			//JRJ.Dialogs.close();
+		}else if(data == -99){
+			showError('td_tradePWD','为了您的交易安全，请安装安全控件');
+		}else{
+			showError('td_tradePWD','您输入的密码有误');
+		}
+	});
+	return true;	
+}
+</script>
+#end

@@ -1,0 +1,69 @@
+#if($errMsg)
+<input type="hidden" value="0" id="countsize"/>
+<input type="hidden" value="1" id="pageNum"/>
+<table class="table-general table-general-p3">
+	<tbody>
+		<tr>
+			<td class="tc red last">错误提示：$!{errMsg}</td>
+		</tr>
+    </tbody>		
+    </table>
+#else
+<input type="hidden" value="$!{queryList.size()}" id="countsize"/>
+<input type="hidden" value="$!{pageNum}" id="pageNum"/>
+<input type="hidden" value="$!{accountId}" id="accountId"/>
+<table class="table-general table-general-p3">
+    <thead>
+        <tr>
+           	<th class="tc">委托编号</th>
+         	<th class="tc" style="width:60px;">委托时间</th>
+            <th class="tc">代码</th>
+            <th class="tc" style="width:100px;">名称</th>
+            <th class="tc" style="width:30px">方向</th>
+            <th class="tr">委托价格</th>
+            <th class="tr">委托数量</th>
+            <th class="tc" style="width:60px;">报价方式</th>
+            <th class="tr">成交数量</th>
+            <th class="tc" style="width:60px;">状态说明</th>
+            <th class="tc last" style="width:65px;">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    #if($queryList.size()>0)
+		#foreach($vo in $queryList)
+		#set($canCancelCount = $vo.entrustAmount - $vo.businessAmount)
+        #if($velocityCount % 2 == 0)
+        <tr class="alt">
+        #else
+        <tr>
+        #end
+            <td class="tc">$!{vo.orderNo}</td>
+         	<td class="tc"><span title="$!{dateTool.format("yyyy-MM-dd",$vo.orderSubmitDatetime)}">$!{dateTool.format("HH:mm:ss",$vo.orderSubmitDatetime)}</span></td>
+            <td class="tc"><a href="http://hk.jrj.com.cn/share/$!{vo.instrumentNo}/index.shtml" target="_blank" class="link">$!{vo.instrumentNo}</a></td>
+            <td class="tc"><a href="http://hk.jrj.com.cn/share/$!{vo.instrumentNo}/index.shtml" target="_blank" class="link">$!{vo.instrumentName}</a></td>
+            <td class="tc #if($vo.bidAskType.getValue() == "B") red #else green #end">$!{vo.bidAskType.getName()}</td>
+            <td class="tr">$!{numberTool.format("0.00",$vo.price)}</td>
+            <td class="tr">$!{vo.quantity}</td>
+            <td class="tc">$!{vo.matchingType.getName()}</td>
+            <td class="tr">$!{vo.executedQuantity}</td>
+            <td class="tc">$!{vo.orderStatus.getName()}</td>
+            <td class="tc middle last" style="border-right: 0;">
+            #if($vo.orderStatus=="CA" || $vo.orderStatus=="EJ" || $vo.orderStatus=="FF" || $vo.orderStatus=="EX")撤单 <span class="split" style="margin:0;">|</span> 改单#else
+			<a onclick="confirmCancel({stockCode:'$!{vo.instrumentNo}',stockName:'$!{vo.instrumentName}',direction:'$!{vo.bidAskType.getName()}',price:'$!{vo.price}',amount:'$!{vo.quantity.subtract($vo.executedQuantity)}',entrustNo:'$!{vo.orderNo}'})" class="link">撤单</a>
+            <span class="split" style="margin:0;">|</span>
+            <a onclick="confirmModify({stockCode:'$!{vo.instrumentNo}',stockName:'$!{vo.instrumentName}',direction:'$!{vo.bidAskType.getName()}',price:'$!{vo.price}',amount:'$!{vo.quantity}',entrustNo:'$!{vo.orderNo}',matchingType:'$!{vo.matchingType.getValue()}'})" class="link">改单</a>#end
+           </td>
+        </tr>
+        #end
+        #else
+        <tr>
+		  <td colspan="11" class="tc middle last">
+          <div class="mt20">
+                <img src="#C/stock/images/icon-alert.png"><span class="ml10 f16" style="font-weight:bold;">您在当前时段没有任何撤单记录</span>
+           </div>
+          </td>
+     	</tr>
+        #end
+    </tbody>
+   </table>
+#end

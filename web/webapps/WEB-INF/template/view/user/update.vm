@@ -1,0 +1,28 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="完善个人信息")
+    	 <!--完善个人信息-->
+         <div class="zqt_md">
+            <strong class="hd">
+                <span class="mh-title">完善个人信息</span>
+            </strong>
+           <div class="bd w100">
+           <div class="frm myinfo-form">
+           	  <form id="updateForm" action="/stock/update.jspa#if($from && $from !="")?from=$!{from}#end" method="post">
+              <ul>
+                <li>
+                  <p><span class="tt">您的真实姓名：</span><input type="text" id="realname" name="realname" class="txt txt_s1"/><em class="required">*</em></p>
+                  <p class="tip">真实姓名只能是中文</p>
+                </li>
+                 <li>
+                  <p><span class="tt">您的身份证号：</span><input type="text" id="idnumber" name="idnumber" class="txt txt_s1"/><em class="required">*</em></p>
+                  <p class="tip">请填写18位身份证号，如末位是X，请输入大写X</p>
+                </li>
+              </ul>
+              <div class="jrj-tc"><button class="btn btn_s1" id="update-btn">完成</button></div>
+              </form>
+           </div>
+           </div>
+         </div>
+#define( $privatejs )
+<script src="/stock/js/regist/regist.js"></script>
+#end

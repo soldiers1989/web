@@ -1,0 +1,29 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="银证业务")
+#set($breadCrumb ="证券账户")
+#set($option_nav="transe")
+#parse("/common/option-nav.vm")
+<ul class="sub-tabbar">
+    <li id="menu_1" ><a href="#C/stock/$!{accountId}/bankIndex.jspa">资金转入/转出</a></li>
+    <li id="menu_3" class="cur"><a href="#C/stock/$!{accountId}/fundQuery.jspa">转账记录</a></li>
+</ul>
+<div id="con_3">
+#if($errMsg)
+<table class="table-general">
+	<input type="hidden" value="0" id="countsize"/>
+	<input type="hidden" value="1" id="pageNum"/>
+	<tbody>
+		<tr style="text-align:center;color:red">
+			<td>错误提示：$!{errMsg}</td>
+		</tr>
+    </tbody>	
+</table>	
+#else
+  <iframe width="100%" align="center" height="650" id="win" name="win" frameborder="0" scrolling="no" src="$!{url}">
+</iframe>
+#end
+</div>
+<!-- main-right -->
+#define( $privatejs )
+	
+#end

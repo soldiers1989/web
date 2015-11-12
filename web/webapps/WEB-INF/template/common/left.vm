@@ -1,0 +1,72 @@
+<!--site-main-left-->
+<div class="site-main-left" data-sr="enter left please, and hustle 20px  scale 0%">
+  <div class="site-menu site-menu-cur">
+    <div class="site-menu-title"> <span class="fr"><a href="/stock/accountManager.jspa" class="stop">管理</a></span> <span><span>全部账户</span></span> <em></em> </div>
+    <div class="site-menu-cnt">
+       <!-- 账户列表 -->
+       #set($accountList=$commonDataUtils.getAccUserList($selfUserId))
+       #foreach($account in $accountList)
+       #set($loadinggif="loading2.gif")
+	   #if($account.brokerId!='CJZQ'&&$account.brokerId!='ZXZQ'&&$account.brokerId!='ITN_HAITZQ'&&$account.brokerId!='ITN_DHZQ'&&$account.brokerId!='ITN_DFZQ'&&$account.brokerId!='ITN_CFZQ'&&$account.brokerId!='ITN_XNZQ')
+       <div id="account_$!{account.accountId}" data-accountid="$!{account.accountId}" class="account-menu-block #if($account.accountId == $accountId)account-menu-block-cur#end">
+       #if($account.marketType==2)
+       <em class="hk"></em>#end
+       #if($account.accountId != $accountId)#set($loadinggif="loading1.gif")
+       <a href="/stock/#if($account.marketType==2)hk/#end$!{account.accountId}/stockInfoIndex.jspa" onclick="this.blur();">#end
+           <div class="row-1 clearfix">
+                <img src="#brokerImage($!{account.brokerId},'s')" class="fl" />
+               <div>
+                 <p>
+                   <span class="fr clientName"><img src="#C/stock/images/$!{loadinggif}" width="16" height="11" alt="loading..." /></span>
+                   <span>$!{account.brokerName}</span>
+                 </p>
+                 <p class="tr updateTime"><img src="#C/stock/images/$!{loadinggif}" width="16" height="11" alt="loading..." /></p>
+               </div>
+            </div>
+            <div class="row-2">
+                <p>
+                    <span class="fr assetBalance"><img src="#C/stock/images/$!{loadinggif}" width="16" height="11" alt="loading..." /></span>
+                    <span>账户资产</span>
+                </p>#if($account.marketType==1)
+                <p>
+                    <span class="fr todayGenLose"><img src="#C/stock/images/$!{loadinggif}" width="16" height="11" alt="loading..." /></span>
+                    <span>今日盈亏</span>
+                </p>#end
+            </div>
+       #if($account.accountId != $accountId)
+       </a>#end
+       </div>
+	   #end
+       #end
+       <!-- 账户列表 end -->
+        <p class="tc mt5">
+            <a href="/stock/accountManager.jspa" class="btn btn-addaccount">账户管理</a>
+        </p>
+    </div>
+  </div><!--
+  <div class="site-menu">
+    <a href="http://t.jrj.com.cn/mystock/index.jspa" class="site-menu-title"> 
+        <span><span>我的自选股</span></span>
+        <em></em>
+    </a>
+  </div>
+  <div class="site-menu">
+    <a href="http://itougu.jrj.com.cn/account/dynamic.jspa" class="site-menu-title">
+    	<span><span>投顾服务</span></span>
+    	<em></em>
+    </a>
+  </div>-->
+<div class="feedback-block">
+    <a class="feedback-item clearfix middle" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDA4OTg4N18xNjM0NzRfODAwMDg5ODg3XzJf" target="_blank">
+        <i class="feedback-qq"></i>
+        <span class="f16 ml10">客服在线咨询</span>
+    </a>
+    <div class="feedback-item feedback-item-phone clearfix">
+        <i class="feedback-phone fl"></i>
+        <div class="fl">
+            <p>客服电话：</p>
+            <p class="feedback-item-num">400-166-1188</p>
+        </div>
+    </div>
+</div>
+</div>

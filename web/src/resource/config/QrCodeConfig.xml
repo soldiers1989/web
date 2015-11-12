@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<apps>
+	<app>
+		<type>open</type><!-- 二维码类型 -->
+		<broker>CJZQ</broker><!-- 券商ID -->
+		<name>长江证券</name><!-- 券商名字 -->
+		<appUrl>http://wap.95579.com/cjekh/jrj/index.html</appUrl><!-- 券商开户APP下载地址 -->
+		<logo>asserts/cjzq_logo.png</logo><!-- 二维码水印logo -->
+		<qrWidth>280</qrWidth><!-- 二维码宽度 -->
+		<qrHeight>280</qrHeight><!-- 二维码高度 -->
+	</app>
+	<app>
+		<type>open</type><!-- 二维码类型 -->
+		<broker>CCZQ</broker><!-- 券商ID -->
+		<name>长城证券</name><!-- 券商名字 -->
+		<appUrl><![CDATA[http://t.jrj.com.cn/cckh/index.html?qdcode=7K7RY3HW&source=88000921]]></appUrl><!-- 券商开户APP下载地址 -->
+		<logo>asserts/cczq_logo.png</logo><!-- 二维码水印logo -->
+		<qrWidth>280</qrWidth><!-- 二维码宽度 -->
+		<qrHeight>280</qrHeight><!-- 二维码高度 -->
+	</app>
+	
+	<!--海通证券开户 配置的是自接券商区别于ITN券商  -->
+	<app>
+		<type>open</type><!-- 二维码类型 -->
+		<broker>HAITZQ</broker><!-- 券商ID -->
+		<name>海通证券</name><!-- 券商名字 -->
+		<appUrl><![CDATA[https://khmobile.htsec.com/p/omGegT]]></appUrl><!-- 券商开户APP下载地址 -->
+		<logo></logo><!-- 二维码水印logo -->
+		<qrWidth>280</qrWidth><!-- 二维码宽度 -->
+		<qrHeight>280</qrHeight><!-- 二维码高度 -->
+	</app>
+	<app>
+		<type>open</type><!-- 二维码类型 -->
+		<broker>PAZQ</broker><!-- 券商ID -->
+		<name>平安证券</name><!-- 券商名字 -->
+		<appUrl><![CDATA[http://stock.pingan.com/huodong/commonpage/jrjkaihu.html]]></appUrl><!-- 券商开户APP下载地址 -->
+		<logo></logo><!-- 二维码水印logo -->
+		<qrWidth>280</qrWidth><!-- 二维码宽度 -->
+		<qrHeight>280</qrHeight><!-- 二维码高度 -->
+	</app>
+	<app>
+		<type>open</type><!-- 二维码类型 -->
+		<broker>ZXZQ</broker><!-- 券商ID -->
+		<name>中信证券</name><!-- 券商名字 -->
+		<appUrl><![CDATA[http://www.cs.ecitic.com/sjkhdz/mobileapp.html]]></appUrl><!-- 券商开户APP下载地址 -->
+		<logo></logo><!-- 二维码水印logo -->
+		<qrWidth>280</qrWidth><!-- 二维码宽度 -->
+		<qrHeight>280</qrHeight><!-- 二维码高度 -->
+	</app>
+</apps>

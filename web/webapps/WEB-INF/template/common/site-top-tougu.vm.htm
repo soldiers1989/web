@@ -1,0 +1,34 @@
+<!--site-top-->
+#set($itouguUserInfo=$commonDataUtils.getItouGuUserInfo($selfUserId))
+<div class="site-top">
+        <div class="wrapper">
+            <div class="after-login" id="loginAfter">
+                <div class="userop">
+                    <span class="split fl">|</span>
+                    <div class="userop-msg fl">
+                        <div class="userop-msg-hover"></div>
+                        <div class="userop-msg-block">
+                            <ul>
+                                <li><a href="http://itougu.jrj.com.cn/message/list/ask.jspa">您收到<span id="msgAnswer">0</span>个新回答</a></li>
+                                <li><a href="http://itougu.jrj.com.cn/message/list/portfolio.jspa">投资组合有<span id="msgOp">0</span>个新操作</a></li>
+                                <li><a href="http://itougu.jrj.com.cn/message/list/stockremind.jspa">自选股有<span id="msgNotify">0</span>个新提醒</a></li>
+                                <li><a href="http://itougu.jrj.com.cn/message/list/sys.jspa">您收到<span id="msgSys">0</span>条系统消息</a></li>
+                                <li class="more"><a href="http://itougu.jrj.com.cn/message/list/ask.jspa" class="link">查看全部</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <span class="split fl">|</span>
+                    <a href="" class="link-studio link-studio-on fl">我的投顾空间</a>
+                </div>
+                <div class="userinfo">
+                    <div class="middle fl" href="http://i.jrj.com.cn/main" target="_blanks">
+                        <img src="$!{itouguUserInfo.headImage}" data-bd-imgshare-binded="1">
+                        <span>$!{itouguUserInfo.userName}</span>
+                    </div>
+                    <span class="split fl">|</span>
+                    <a href="/stock/logout.jspa"><span class="fl">退出</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--site-top-->

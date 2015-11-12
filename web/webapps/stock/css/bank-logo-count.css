@@ -1,0 +1,34 @@
+.bank-logo-guojin,.open-logo-guojin { background: url(../images/bank-logo/guojin.png) 50% 50% no-repeat; }
+.bank-logo-qilu ,.open-logo-qilu{ background: url(../images/bank-logo/qilu.png) 50% 50% no-repeat; }
+.bank-logo-ZSZQ,.bank-logo-ITN_ZSZQ,.bank-logo-zhongshan,.open-logo-ZSZQ,.open-logo-ITN_ZSZQ,.open-logo-zhongshan { background: url(../images/bank-logo/zhongshan.png) 50% 50% no-repeat; overflow: hidden;position: relative;}
+.bank-logo-ZXZQ,.bank-logo-ITN_ZXZQ,.bank-logo-zhongxin,.open-logo-ZXZQ,.open-logo-ITN_ZXZQ,.open-logo-zhongxin { background: url(../images/bank-logo/zhongxin.png) 50% 50% no-repeat; }
+.bank-logo-CCZQ,.bank-logo-ITN_CCZQ,.bank-logo-changcheng,.open-logo-CCZQ,.open-logo-ITN_CCZQ,.open-logo-changcheng{ background: url(../images/bank-logo/changcheng.png) 50% 50% no-repeat; }
+.bank-logo-HTZQ,.bank-logo-ITN_HTZQ,.bank-logo-hengtai,.open-logo-HTZQ,.open-logo-ITN_HTZQ,.open-logo-hengtai { background: url(../images/bank-logo/hengtai.png) 50% 50% no-repeat; }
+.bank-logo-ZJZQ,.bank-logo-ITN_ZJZQ,.bank-logo-zhongjin,.open-logo-ZJZQ,.open-logo-ITN_ZJZQ,.open-logo-zhongjin { background: url(../images/bank-logo/zhongjin.png) 50% 50% no-repeat; }
+.bank-logo-HKZXGJ,.bank-logo-zhengxing,.open-logo-HKZXGJ,.open-logo-zhengxing{
+     background: url(../images/bank-logo/zhengxing.png) 50% 50% no-repeat; overflow: hidden;position: relative;
+}
+.bank-logo-CJZQ,.bank-logo-ITN_CJZQ,.bank-logo-changjiang,.open-logo-CJZQ,.open-logo-ITN_CJZQ,.open-logo-changjiang { background: url(../images/bank-logo/changjiang.png) 50% 50% no-repeat; }
+/** ITN券商logo **/
+.bank-logo-CFZQ,.bank-logo-ITN_CFZQ,.open-logo-CFZQ,.open-logo-ITN_CFZQ { background: url(../images/bank-logo/ITN_CFZQ.png) 50% 50% no-repeat; }
+.bank-logo-DBZQ,.bank-logo-ITN_DBZQ,.open-logo-DBZQ,.open-logo-ITN_DBZQ { background: url(../images/bank-logo/ITN_DBZQ.png) 50% 50% no-repeat; }
+.bank-logo-DFZQ,.bank-logo-ITN_DFZQ,.open-logo-DFZQ,.open-logo-ITN_DFZQ { background: url(../images/bank-logo/ITN_DFZQ.png) 50% 50% no-repeat; }
+.bank-logo-DGZQ,.bank-logo-ITN_DGZQ,.open-logo-DGZQ,.open-logo-ITN_DGZQ { background: url(../images/bank-logo/ITN_DGZQ.png) 50% 50% no-repeat; }
+.bank-logo-HAITZQ,.bank-logo-ITN_HAITZQ,.open-logo-HAITZQ,.open-logo-ITN_HAITZQ { background: url(../images/bank-logo/ITN_HAITZQ.png) 50% 50% no-repeat; }
+.bank-logo-HAZQ,.bank-logo-ITN_HAZQ,.open-logo-HAZQ,.open-logo-ITN_HAZQ { background: url(../images/bank-logo/ITN_HAZQ.png) 50% 50% no-repeat; }
+.bank-logo-PAZQ,.bank-logo-ITN_PAZQ,.open-logo-PAZQ,.open-logo-ITN_PAZQ { background: url(../images/bank-logo/ITN_PAZQ.png) 50% 50% no-repeat; }
+.bank-logo-WKZQ,.bank-logo-ITN_WKZQ,.open-logo-WKZQ,.open-logo-ITN_WKZQ { background: url(../images/bank-logo/ITN_WKZQ.png) 50% 50% no-repeat; }
+.bank-logo-WLZQ,.bank-logo-ITN_WLZQ,.open-logo-WLZQ,.open-logo-ITN_WLZQ { background: url(../images/bank-logo/ITN_WLZQ.png) 50% 50% no-repeat; }
+.bank-logo-XNZQ,.bank-logo-ITN_XNZQ,.open-logo-XNZQ,.open-logo-ITN_XNZQ { background: url(../images/bank-logo/ITN_XNZQ.png) 50% 50% no-repeat; }
+.bank-logo-XSDZQ,.bank-logo-ITN_XSDZQ,.open-logo-XSDZQ,.open-logo-ITN_XSDZQ { background: url(../images/bank-logo/ITN_XSDZQ.png) 50% 50% no-repeat; }
+.bank-logo-ZHESZQ,.bank-logo-ITN_ZHESZQ,.open-logo-ZHESZQ,.open-logo-ITN_ZHESZQ { background: url(../images/bank-logo/ITN_ZHESZQ.png) 50% 50% no-repeat; }
+.bank-logo-ZXJTZQ,.bank-logo-ITN_ZXJTZQ,.open-logo-ZXJTZQ,.open-logo-ITN_ZXJTZQ { background: url(../images/bank-logo/ITN_ZXJTZQ.png) 50% 50% no-repeat; }
+.bank-logo-XBZQ,.bank-logo-ITN_XBZQ,.open-logo-XBZQ,.open-logo-ITN_XBZQ { background: url(../images/bank-logo/ITN_XBZQ.png) 50% 50% no-repeat; }
+.bank-logo-DEBZQ,.bank-logo-ITN_DEBZQ,.open-logo-DEBZQ,.open-logo-ITN_DEBZQ { background: url(../images/bank-logo/ITN_DEBZQ.png) 50% 50% no-repeat; }
+.bank-logo-DHZQ,.bank-logo-ITN_DHZQ,.open-logo-DHZQ,.open-logo-ITN_DHZQ { background: url(../images/bank-logo/ITN_DHZQ.png) 50% 50% no-repeat; }
+
+.bank-logo-zhongxin-unavailable { background: url(../images/bank-logo/zhongxin-unavailable.png) 50% 50% no-repeat; }
+.bank-logo-zhongshan-unavailable { background: url(../images/bank-logo/zhongshan-unavailable.png) 50% 50% no-repeat; }
+
+/***********账户管理页-开户绑定平台标签*************/
+.open-logo-CCZQ,.open-logo-ITN_CCZQ,.open-logo-changcheng{ background: url(../images/open-logo/changcheng.png) 50% 50% no-repeat; }

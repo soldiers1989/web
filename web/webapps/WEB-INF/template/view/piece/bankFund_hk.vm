@@ -1,0 +1,49 @@
+<input type="hidden" value="$!{queryList.size()}" id="countsize"/>
+<input type="hidden" value="$!{pageNum}" id="pageNum"/>
+<input type="hidden" value="$!{selecttype}" id="selectT"/>
+<input type="hidden" value="$!{startDate}" id="sData"/>
+<input type="hidden" value="$!{endDate}" id="eData"/>
+
+<table class="table-general">
+#if($errMsg)
+	<tbody>
+		<tr>
+			<td class="tc red last">错误提示：$!{errMsg}</td>
+		</tr>
+    </tbody>	
+#else
+
+    <thead>
+        <tr>
+            <th class="tc">转账日期</th>
+            <th class="tc">到账日期</th>
+            <th class="tc">转账类型</th>
+            <th class="tc" style="width:110px;">转账银行</th>
+			<th class="tc">币种</th>
+            <th class="tc">转账金额</th>
+        </tr>
+    </thead>
+    <tbody>
+    #if($queryList.size() >0)
+		#foreach($fund in $queryList)
+		<tr>
+            <td class="tc">$!{dateUtils.format($fund.transactionDate,"yyyy-MM-dd hh:mm:ss")}</td>
+            <td class="tc">$!{dateUtils.format($fund.valueDate,"yyyy-MM-dd hh:mm:ss")}</td>
+            <td class="tc">$!{fund.movementType.name}</td>
+            <td class="tr">$!{fund.bank}</td>
+            <td class="tr">$!{fund.currency.name}</td>
+			<td class="tr last">$!{numberTool.format("0.00",$fund.amount)}</td>
+        </tr>
+		#end	
+	#else
+		<tr>
+			 <td colspan="6" class="tc middle last">
+			  <div class="mt20">
+                <img src="#C/stock/images/icon-alert.png"> <span class="ml10 f16" style="font-weight:bold;">您在当前时段没有任何转账记录</span>
+			</div>
+			</td>
+		</tr>
+	#end	
+    </tbody>
+#end
+</table>

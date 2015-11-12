@@ -1,0 +1,63 @@
+#set($layout="layout/stock_noasset_layout.vm")
+#set($title="开户页")
+#set($breadCrumb ="账户管理")
+        <ul class="tab tab-2890 clearfix mt10 wBox">
+            <li id="wmenu_1" class="cur">现有账户</li>
+            <li id="wmenu_2" class="">开户平台</li>
+            <li id="wmenu_3" class="" style="border-right:1px solid #ececec;">账户绑定</li>
+        </ul>
+        <div id="wcon_1" class="pt20">
+            #parse("/cms/account/own_account.vm")
+        </div>
+        <div id="wcon_2" class="pt20"  style="display:none">
+         	#parse("/cms/account/open_account.vm")
+        </div>
+        <div id="wcon_3" class="pt20"  style="display:none">
+            #parse("/cms/account/bind_account.vm")
+        </div>
+		<input type="hidden" id="realnamecache" name="realnamecache"/>
+		<input type="hidden" id="idnumbercache" name="idnumbercache"/>
+		<input type="hidden" id="mobilecache" name="mobilecache"/>
+		<input type="hidden" id="emailcache" name="emailcache"/>
+				
+#define( $privatejs )
+<script type="text/javascript">var _selfUserName='$!{selfUserName}'</script>
+<script src="#C/stock/js/common/JRJPassword.v2.js"></script>
+<script src="#C/stock/js/account/accountManager.js"></script>
+<script src="#C/stock/js/account/inviteCode.js"></script>
+<script src="#C/stock/js/account/hkBind.js"></script>
+<script src="#C/stock/js/account/accountProtocol.js"></script>
+<script src="#C/stock/js/account/hgt.js"></script>
+<script>
+##if(!window.console){
+##  window.console = {log : function(){}};
+##}
+window.console = window.console || (function(){ 
+	var c = {}; c.log = c.warn = c.debug = c.info = c.error = c.time = c.dir = c.profile 
+	= c.clear = c.exception = c.trace = c.assert = function(){}; 
+	return c; 
+})();
+
+    var jsonbrokerlist=$!{jsonbrokerlist}
+    //var obj = jQuery.parseJSON(banks);
+	///alert(banks.bankList);
+	//var json = eval("(" + banks + ")");
+	//alert(brokerlist.brokerlist);
+    var tab = new JRJ.ui.TabSwitch({
+                menuPre: "wmenu_",
+                conPre: "wcon_",
+                total: 3,
+                onClass: "cur",
+                eventType: 'click',
+                onSwitch: {
+                    fcn: function () {
+
+                    }, args: []
+                }
+            });
+    $('.my-account-item').click(function(){
+    	$('.my-account-item').removeClass('focus');
+    	$(this).addClass('focus');
+    });
+</script>
+#end

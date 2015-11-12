@@ -1,0 +1,29 @@
+<html >
+<head >
+ <base target="_self">
+</head>
+<script src="/stock/js/jquery/jquery-1.4.4.min.js"></script>
+<div >
+		模拟中信认证：	
+		<form action="/stock/bind/zx.jspa" method="get">
+        		<hr>
+        		token:
+        		<input type="text" name="token"  value="$!{token}"/><br />
+        		资金帐号：
+        		<input type="text" name="fundid" value="600511005"/><br />
+        		客户号：
+        		<input type="text" name="userid" value="905807"/><br />
+        		营业部：
+        		<input type="text" name="branchNo" value="6"/><br />
+        		系统号：
+        		<input type="text" name="sysnode" value="2"/><br />
+        		签名：
+        		<input type="text" name="s" /><br />
+        		
+        		<input type="submit"  id="testBtn" value="授权" />
+		</form>
+</div>
+<div id="content">
+	
+</div>
+</html>

@@ -1,0 +1,7 @@
+<link href="#C/stock/css/styles.min.css" rel="stylesheet" />
+<div class="register-success register-success-nomargin" style="width:240px;">
+    <p class="title mt10">感谢您绑定证券通产品</p>
+</div>
+<p class="mt10 tc">
+	<a type="button" class="btn btn-113-30" onclick="javascript:frameElement._thisDialog.close();window.parent.location.reload();">确定</a>
+</p>

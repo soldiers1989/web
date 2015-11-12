@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>填写用户信息-绑定证券通-金融界</title>
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <link href="/stock/css/regist/reset-min.css" rel="stylesheet" />
+    <link href="/stock/css/regist/common201304.css" rel="stylesheet" />
+    <link href="/stock/css/regist/css.css?_v=mc20140306" rel="stylesheet" />
+    <!-- 股票账户注册 -->
+    <link rel="stylesheet" type="text/css" href="/stock/css/regist/stock.min.css">
+    <script src="/stock/js/jquery/jquery-1.4.4.min.js"></script>
+    <!--[if IE 6]>
+    <script src="/js/ie-png-fix.js"></script>
+    <script>
+      DD_belatedPNG.fix('.png_bg');
+    </script>
+    <![endif]-->
+</head>
+<body>
+    <div class="popup-wrap popup-wrap-padding">
+        <div class="stock-register-popup">
+            <h1 class="jrj-tc">您的证券通账户：<span class="highlight">$!{selfUserName}</span></h1>
+            <p class="jrj-tc mt5">您现在正在绑定券商账户，请您在确认绑定完成后关闭此窗口。</p>
+        </div>
+        <div class="dahsedline-3 jrj-tr qq-wrap mt30"></div>
+        <div class="jrj-tc mt30 stock-register-popup-phone middle">
+            <i></i><span>有问题请您联系客服： </span><span class="highlight">400-166-1188</span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<h2 style="font-size:16px;font-weight:normal;"><em>用户您好，证券通暂时无法提供中信、海通、长江证券的交易功能，请到券商官网下载专用软件交易。</em></h2>
+<div class="my-account-block mt10">
+<!-- 查询绑定信息 -->
+#foreach($UserAuthVo in $accauthList)
+<div class="my-account-item clearfix">
+    <div class="my-account-item-left">
+        <div class="bank-logo bank-logo-$!{UserAuthVo.brokerId}">
+        </div>
+        <em></em>
+         #if($!UserAuthVo.def =="true")
+        <i></i>
+        #end
+    </div>
+    <div class="my-account-item-right">
+        <p>
+            <span class="field">账户状态：</span>
+            <span class="f14">
+                $!{UserAuthVo.message}&nbsp;&nbsp;
+                #if($!UserAuthVo.brokerId =='HKZXGJ')
+                <a href="javascript:void(0);" onclick="changeHkPass('$!UserAuthVo.brokerId');"  class="link">修改密码</a>
+                #end
+                #if($!UserAuthVo.status =="101")
+                    <a href="javascript:void(0);" onclick="ajaxAcceptRequest($!UserAuthVo.accountId);" class="link">验证通过</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="ajaxRefuseRequest($!UserAuthVo.accountId);" class="link">拒绝</a></span>
+                #elseif($!UserAuthVo.status =="102")
+                    <a href="javascript:void(0);" onclick="ajaxCancelRequest($!UserAuthVo.accountId);" class="link">解除绑定</a>
+                #end
+                #if($!UserAuthVo.status =="100" || $!UserAuthVo.status =="102" || $!UserAuthVo.status =="202")
+                    <span class="field">&nbsp;&nbsp;&nbsp;&nbsp;股东姓名：</span><span id="$!{UserAuthVo.accountId}_trueName" class="f14"><img src="#C/stock/images/loading1.gif" width="16" height="11" alt="loading..." /></span>
+                #end
+                #if($!UserAuthVo.status == "201" || $!UserAuthVo.status == "203")
+                	<a href="javascript:void(0);" onclick="ajaxDeleteAuthRecord($!UserAuthVo.accountId,this);" class="link">删除</a>
+                #end
+            </span>
+            <span class="time"></span>
+			#if($!UserAuthVo.brokerId !="ZXZQ")
+			<!-- 只有100自己控制中  102被别人控制中 才显示沪港通链接-->
+			#if($!UserAuthVo.status =="100"||$!UserAuthVo.status =="102")
+			<a class="openHgt" data-brokerid="$!{UserAuthVo.brokerId}" href="#" target="_blank"style="display:none">开通沪港通、创业板？</a>
+			#end
+			#end
+        </p>
+        <p class="mt10">
+            <input type="hidden" id="accountIds" name="accountIds" value="$!UserAuthVo.accountId"/>
+			#if($!UserAuthVo.brokerId =="ZXZQ")
+            <span>交易请下载中信证券专用软件进行(<a href="http://download.cs.ecitic.com/index.html" target="_blank">http://download.cs.ecitic.com/index.html</a>)</span>
+            #elseif($!UserAuthVo.brokerId =="ITN_DHZQ" || $!UserAuthVo.brokerId =="ITN_DFZQ" || $!UserAuthVo.brokerId =="ITN_CFZQ" || $!UserAuthVo.brokerId =="ITN_XNZQ")
+            <span>证券通暂时无法进行供交易，请至券商官网下载软件，或到开户平台开通其他账户享受相关服务。</span>
+			#else
+			   #if($!UserAuthVo.status =="100" || $!UserAuthVo.status =="102" || $!UserAuthVo.status =="202")
+            <input type="hidden" id="accountIdAs" name="accountIdAs" value="$!UserAuthVo.accountId"/>
+            <span class="field">资金账户：</span><span id="$!{UserAuthVo.accountId}_fundAccount" class="f14"><img src="#C/stock/images/loading1.gif" width="16" height="11" alt="loading..." /></span>
+                #if($!{stockUtils.brokerType("$UserAuthVo.brokerId").type} == 1 )
+                    <span class="split">|</span>
+                    <span class="field">沪A股东号：</span><span id="$!{UserAuthVo.accountId}_shstockAccount" class="f14"><img src="#C/stock/images/loading1.gif" width="16" height="11" alt="loading..." /></span>
+                    <span class="split">|</span>
+                    <span class="field">深A股东号：</span><span id="$!{UserAuthVo.accountId}_szstockAccount" class="f14"><img src="#C/stock/images/loading1.gif" width="16" height="11" alt="loading..." /></span>
+                #end
+               #end
+			#end
+        </p>
+        #if($!UserAuthVo.status != "201" && $!UserAuthVo.status != "203" && $!UserAuthVo.status != "200")
+        <div class="move-handler">
+            <i class="move-handler-up" data-hover="move-handler-up-hover" data-direction="up"></i>
+            <i class="move-handler-down" data-hover="move-handler-down-hover" data-direction="down"></i>
+        </div>
+        #end
+    </div>
+</div>
+#end
+<!-- 查询绑定信息 -->
+#foreach($StockAccountStatusVo in $stockAccountList)
+<div class="my-account-item clearfix">
+    <div class="my-account-item-left">
+        <div class="bank-logo bank-logo-$!{StockAccountStatusVo.strBrokerId}">
+        </div>
+        <em></em>
+    </div>
+    <div class="my-account-item-right">
+        <p><span class="field">账户状态：</span>
+            <span class="f14">
+            $!{StockAccountStatusVo.stateName}&nbsp;   
+            #if($!StockAccountStatusVo.state =="6")
+                #if($!StockAccountStatusVo.strBrokerId !="CCZQ")
+                    #if($!StockAccountStatusVo.strBrokerId =="HKZXGJ")
+                        <input id="agree$!velocityCount" type="checkbox" /> <a onclick="dlgProtocol('$!StockAccountStatusVo.strBrokerId','$!velocityCount');" href="javascript:void(0)" class="link">已阅读并同意协议</a>&nbsp;&nbsp;
+						<a href="javascript:void(0)" onclick="flFoZxHk('$!StockAccountStatusVo.strBrokerId','$!velocityCount');" class="link">立即绑定</a>
+                    #elseif($!StockAccountStatusVo.strBrokerId =="HAITZQ"||$!StockAccountStatusVo.strBrokerId=="PAZQ")
+						 &nbsp;&nbsp;
+						<a href="javascript:void(0)"  class="link ITN_btnbind_open" data-brokerid="$!StockAccountStatusVo.strBrokerId" data-agree="agree$!velocityCount">立即绑定</a>
+					#elseif($!StockAccountStatusVo.strBrokerId =="CJZQ"||$!StockAccountStatusVo.strBrokerId =="ZXZQ")
+					#else
+                        <input id="agree$!velocityCount" type="checkbox" /> <a onclick="dlgProtocol('$!StockAccountStatusVo.strBrokerId','$!velocityCount');" href="javascript:void(0)" class="link">已阅读并同意协议</a>&nbsp;&nbsp;
+						<a href="javascript:void(0)" onclick="flFoZx('$!StockAccountStatusVo.strBrokerId','$!velocityCount');" class="link">立即绑定</a>
+                    #end
+                #end
+            #end
+            </span>
+            #if($!StockAccountStatusVo.strAccountType =="2" && $!StockAccountStatusVo.state =="-1")
+                <i class="icon icon-tooltip" title="温馨提示：请带上您的身份证去原来指定的证券营业部，撤销上海指定交易或直接开通深圳账户。"></i>
+            #end
+           <!--  <span class="time">添加日期：$!{StockAccountStatusVo.strCreateTime}</span>-->
+            #set($Integer = 0)   &nbsp;&nbsp;
+             #if($Integer.parseInt($StockAccountStatusVo.state) < 0)
+	             #if($!StockAccountStatusVo.strBrokerId !="ZSZQ" && $!StockAccountStatusVo.strBrokerId !="ITN_ZSZQ")
+	            <button class="times" id="$!{StockAccountStatusVo.strBrokerId}">状态刷新</button>
+	            #end	
+			 #end
+			#if($!StockAccountStatusVo.state =="6")
+				<a class="openHgt" data-brokerid="$!{StockAccountStatusVo.strBrokerId}" href="#" target="_blank" style="display:none">开通沪港通、创业板？</a>
+			#end
+        </p>
+        <p class="mt10">
+            #parse("/cms/account/openaccount.vm")
+        </p>
+    </div>
+</div>
+#end
+</div>
+<h2 class="block-title mt15">常见问题</h2>
+<ul class="clearfix mt15">
+  <li><img src="images/zsample_01.jpg" width="725" alt=""></li>  
+</ul>

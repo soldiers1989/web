@@ -1,0 +1,51 @@
+<div class="enter">
+		<div class="enbn">
+			<div class="en_left">
+				<span class="en_left-inner"><a href="http://www.jrj.com.cn/">金融界首页</a><i>|</i><a href="http://finance.jrj.com.cn/">资讯</a><i>|</i><a href="http://stock.jrj.com.cn/">股票</a><i>|</i><a href="http://fund.jrj.com.cn/">基金</a><i>|</i><a href="http://gold.jrj.com.cn/">贵金属</a><i>|</i><a href="http://insurance.jrj.com.cn/">保险</a><i>|</i><a href="http://bank.jrj.com.cn/">银行</a></span>
+				<div class="en_left-inner dropdownlist dropdownlist-more">
+				    <i></i>
+				    <span>更多</span>
+				    <ul>
+				        <li>更多</li>
+				        <li><a href="http://blog.jrj.com.cn/">博客</a></li>
+				        <li><a href="http://bbs.jrj.com.cn/">论坛</a></li>
+				    </ul>
+				</div>
+				<div class="en_left-inner">
+				    <a href="http://www.jrj.com.cn/sitemap.shtml">网站地图</a>
+				</div>
+			</div>
+			<div class="en_right">
+				<div class="login" id="loginbefore" style="display: none;">
+				    <a target="_self" href="http://sso.jrj.com.cn/sso/ssologin?ReturnURL=http://stock.jrj.com.cn/list/stockgszx.shtml">登录</a><i>|</i><a href="http://i.jrj.com.cn/register.faces?ReturnURL=http://www.jrj.com.cn">注册</a>
+					<label style="display:none"><span>用户名：</span><input type="text" class="tx" id="LoginID"></label>
+					<label style="display:none"><span>密　码：</span><input type="password" class="tx" id="Passwd"></label>
+					<a style="display:none" href="javascript:void(0)" target="_self" id="ssoLogin">[登录]</a>
+					<a style="display:none" href="http://i.jrj.com.cn/register.faces?SysID=www.jrj.com.cn">[5秒注册]</a>
+					<a style="display:none" href="http://i.jrj.com.cn/retrievePWD.faces">[忘记密码]</a>
+				</div>
+				<div class="loginnew" id="loginafter" style="display: block;"><ul><li><span class="mo0">您好，</span><span>&nbsp;</span></li><li><a class="username" href="http://i.jrj.com.cn/main">$!{jrjUserName}</a><span>|</span></li><li class="qx"><a href="http://i.jrj.com.cn/main" class="pos btntop" id="home_lgt_lead">选择去向</a><div id="userInfoBox" style="display: none;" class="userInfoBox"></div></li><li class="m01"><a href="javascript:logout();">退出</a><span>&nbsp;</span></li></ul><span class="nub" id="home_lgt_user_info"><a href="http://i.jrj.com.cn/app/msg/inbox.jspa">消息(<b id="home_lgt_user_info_num">0</b>)</a></span></div>
+			</div>
+		</div>
+	</div>
+<script>
+function logout(){
+	var form= $("<form></form>", {
+				action : "http://sso.jrj.com.cn/sso/ssologin",
+				method : "post"
+			});
+	 var inputA=$("<input />",{
+	 		type:"hidden",
+	 		name:"action",
+	 		val:"logout"
+	 });
+	 var inputB=$("<input />",{
+	 		type:"hidden",
+	 		name:"ReturnURL",
+	 		val:"#C('host')/stock/logout.jspa"
+	 });
+	 form.append(inputA).append(inputB);		
+	 form.appendTo("body");
+	 form.submit();
+}
+</script>

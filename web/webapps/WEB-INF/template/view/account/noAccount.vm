@@ -1,0 +1,32 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="我的证券通账户页")
+#set($breadCrumb ="证券账户")
+#define( $privatecss )
+<style>
+.site-main-right {
+width: 765px;
+padding: 0;
+}
+</style>
+#end
+##  <div class="account-empty tc"> <a href="/stock/accountManager.jspa" class="btn btn-204-49">选择券商</a> </div>
+  <div class="site-main-right site-main-right-nopadding">
+        <div class="account-empty tc">
+            <a id="na_kaihu" href="/stock/accountManager.jspa?go=kaihu" class="btn btn-204-49" style="width:216px;font-size:18px;margin-right:72px">还没有账户，立即开户</a>
+            <a id="na_bind" href="/stock/accountManager.jspa?go=bind" class="btn btn-204-49" style="width:216px;font-size:18px">已有账户，立即使用</a>
+        </div>
+    </div>
+<script>
+    function GetQueryString(name){
+	     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	     var r = window.location.search.substr(1).match(reg);
+	     if(r!=null)return  unescape(r[2]); return null;
+	}
+	var from = GetQueryString('from');
+	var fromId = GetQueryString('fromId');
+	var tgqdcode=GetQueryString('tgqdcode');
+	if(tgqdcode!= "" && tgqdcode!=undefined && tgqdcode!=null){
+		$('#na_kaihu').attr("href",$("#na_kaihu").attr("href")+'&tgqdcode='+tgqdcode+'&from='+from+'&fromId='+fromId);
+		$('#na_bind').attr("href",$("#na_bind").attr("href")+'&tgqdcode='+tgqdcode+'&from='+from+'&fromId='+fromId);
+	}
+</script>

@@ -1,0 +1,34 @@
+#if($listStatus && $listStatus == 0)
+<data>
+	<nodata>1</nodata>
+</data>
+#else	
+<graph caption='市场投入' outCnvBaseFontSize='13' divlinecolor='F47E00' numdivlines='4' showAreaBorder='1' areaBorderColor='000000' numberPrefix='￥' showNames='1' numVDivLines='29' vDivLineAlpha='30' formatNumberScale='1' rotateNames='1'  decimalPrecision='0'>
+ 
+   #if($dataMap.size() >1)
+    	<categories>
+    	 #foreach($date in $dataMap.entrySet())
+    		<category name='$!{date.key}'/> 
+    	 #end	
+       </categories>
+       <dataset seriesname='' color='FF5904' showValues='0' areaAlpha='50' showAreaBorder='1' areaBorderThickness='2' areaBorderColor='FF0000'>
+          #foreach($data in $dataMap.entrySet())
+    		<set value='$!{data.value}'/> 
+    	 #end	 
+       </dataset>	
+	#elseif($dataMap.size() >0)
+		<categories>
+    		 #foreach($date in $dataMap.entrySet())
+				<category name='$!{date.key}'/> 
+				<category name='$!{date.key}'/> 
+			 #end	
+       </categories>
+       <dataset seriesname='' color='FF5904' showValues='0' areaAlpha='50' showAreaBorder='1' areaBorderThickness='2' areaBorderColor='FF0000'>
+    		#foreach($data in $dataMap.entrySet())
+				<set value='$!{data.value}'/> 
+				<set value='$!{data.value}'/> 
+			#end	
+       </dataset>
+	#end	 
+</graph> 
+#end

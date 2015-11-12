@@ -1,0 +1,11 @@
+<graph caption='持仓比例' showValues="0" showLabels="0" showLegend="1">
+	#if($queryList.size()>0)
+		<set name='可用资金' value='$!{fund.enableBalance}' ></set>
+		#foreach($vo in $queryList)			
+            <set name='$!{vo.stockName}' value='$!{vo.marketValue}' ></set>
+		#end
+	#else
+        <set name='总资产' value='1' ></set>
+	#end	
+   
+</graph>

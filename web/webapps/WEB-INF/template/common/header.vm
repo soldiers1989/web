@@ -1,0 +1,42 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>#if($commonTitleStart)$commonTitleStart#else#C('web_common_title_start')#end - $!{title} - #if($commonTitleEnd)$commonTitleEnd#else#C('web_common_title_end')#end</title>
+<meta content="#if($keywords)$keywords#else#C('keywords')#end" name="keywords" />
+<meta content="#if($description)$description#else#C('description')#end" name="description" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+<link href="#C/stock/css/reset-min.css" rel="stylesheet" />
+<link href="#C/stock/css/dialog.effect.css" rel="stylesheet" />
+<link href="#C/stock/css/header-css.css" rel="stylesheet" />
+<link href="#C/stock/css/styles.css" rel="stylesheet" />
+<link href="#C/stock/css/tooltipster.min.css" rel="stylesheet" />
+<link href="#C/stock/css/tooltipster-light.min.css" rel="stylesheet" />
+
+<script src="#C/stock/js/jquery/jquery-1.7.2.min.js"></script>
+<script src="#C/stock/js/jquery/jquery.md5.js"></script>
+<script src="#C/stock/js/lib/jrjbase-min.js"></script>
+<script src="#C/stock/js/common/rAF-Polyfill.js"></script>
+<script src="#C/stock/js/dialogs/dialogs-effect.js"></script>
+<script src="#C/stock/js/common/common.urls.js"></script>
+<script src="#C/stock/js/common/common.util.js"></script>
+<script src="#C/stock/js/util/mustache-min.js"></script>
+<script src="#C/stock/js/util/SearchBox.js"></script>
+<script src="#C/stock/js/jquery/jquery.cookie.js"></script>
+<script src="#C/stock/js/jquery/jquery.watermark.min.js"></script>
+<script src="#C/stock/js/jquery/jquery.bgiframe.pack.js"></script>
+<script src="#C/stock/js/jquery/jquery.tooltipster.min.js"></script>
+<script src="#C/stock/js/lib/countUp.js"></script>
+<script src="#C/stock/js/lib/scrollReveal.min.js"></script>
+<script src="#C/stock/js/common/ie6fixed-min.js"></script>
+<script src="#C/stock/js/lib/TabSwitch.2.0-min.js">
+</script>
+<!--[if gt IE 7]><!-->
+<link href="#C/stock/css/dataurl.css" rel="stylesheet" />
+<script data-pace-options='{ "ajax": false }' src="#C/stock/js/lib/pace.min.js"></script>
+<!--<![endif]-->
+<!--IE字体特殊处理样式-->
+<!--[if lt IE 8]><link rel="stylesheet" href="#C/stock/css/ie-family.css" /><![endif]-->
+$!{privatecss}
+</head>

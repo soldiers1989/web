@@ -1,0 +1,51 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="绑定证券账户")
+<input type="hidden" value="$errMsg" id="errMsg"/>
+<div class="site-main-2 xjb-wrap-login shadow-2 jrj-clear">
+    <div class="xjb-login-content jrj-fl">
+        <div class="xjb-progress-v2">
+            <div class="bPath-1"></div>
+			<div class="register-note">
+				<span>温馨提示：</span><p>抱歉，您本次绑定操作未成功。</p>
+			</div>
+        </div>
+        <div class="xjb-login-content-inner mt30">
+                <h2 class="title-s3 middle"><i class="register-icon register-icon-filldown mr5"></i><span>您选择的证券账户</span></h2>
+                <div class="jrj-clear">
+                    <input type="hidden" value="$!{redirect}" name="redirect">
+                    #foreach($broker in $brokerList)
+						<div class="bank-block-wrap middle">
+                        <span class="radio-wrap">
+                            <input  name="brokerId" value="$!{broker.brokerId}" data-name="$!{broker.sname}" type="radio" checked="checked" class="styled" style="display:none;">
+                        </span>
+                        <a class="bank-img" data-brokerId="$!{broker.brokerId}" title=""><img width="168px" height="38px" src="#brokerImage($broker.brokerId)"></a>
+                    </div>
+					#end
+					<div class="bank-block-links">
+						<p><a class="link" onclick="return false" id="kaihu">没有股票账户？去中信开户</a></p>
+						<div class="msg-block" style="display:none">
+                            <p>您即将离开金融界网站，进入中信证券的开户流程</p>
+                            <div class="msg-block-wrap"><a href="javascript:void(0)" onclick="return false" class="btn-noie btn-4-noie" id="btn_noie">确 定</a></div>
+						</div>
+						<p><a  href="javascript:void(0)" onclick="return false" class="link" id="changeBroker" >其他券商账户？马上去转户</a></p>
+					</div>
+                </div>
+				<div class="bottom-note-stock">
+                    <h2>绑定遇到的问题：</h2>
+                    <p><span>可以使用他人名字进行劵商绑定吗？</span><span class="ml30">答：不可以。为了您的资金安全，请使用本人的劵商账号绑定。</span></p>
+                </div>
+                <input id="txtChannelId_hide" type="hidden" name="channelid" value="8406">
+                <div class="stock-line stock-line-2 mt"></div>
+				<div class="f14 mt mb jrj-tc middle">
+					<input id="agree" type="checkbox" checked="checked" class="styled mr10" /><span class="mr10">已阅读并同意<a class="agreement link" data-type="open-account">《证券通用户服务协议（网上证券交易信息服务）》</a></span>
+				</div>
+				 <div class="jrj-tc mt30  btn-wrap-stock">
+					<a class="btn btn-gotobind" id="nextBtn" id="nextBtn" onclick="return false;"></a>
+					<div class="btn-note">您即将进入券商认证页面进行账户认证</div>		
+				</div>
+            </div>
+    </div>
+</div>
+#define( $privatejs )
+<script src="/stock/js/bind/bind.security.step1.js"></script>
+#end

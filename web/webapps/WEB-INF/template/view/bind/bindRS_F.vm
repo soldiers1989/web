@@ -1,0 +1,24 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="绑定证券账户")
+#parse("/common/css.vm")
+<div class="hpbox mt">
+ </p></div>
+     <strong class="hphd"><span class="mh-title mh-none">账户绑定</span></strong>
+     <div class="bdok">
+          <strong><span class="nook">非常遗憾，您的$!{qsName}帐户与证券通绑定失败。</span></strong>
+          <p class="testblue">证券通一站式交易服务，让投资更简单，安全交易有保障</p>
+          <input id="txtChannelId_hide" type="hidden" name="channelid" value="8406">
+          <p class="btn-two"><input type="hidden" id="brokerId_bind" name="brokerId_bind" value="$!{qsFlag}"/>
+          <a class="btn-hp" href="javascript:void(0);" id="btnbind" data-brokerId="$!{qsFlag}">重新绑定</a>
+          #if(!$type)
+          <a class="btn-hp" href="/stock/noBindIndex.jspa">选择其他券商</a>
+          #elseif($status != 6)
+          <a href="javascript:;" class="btn-hp" onclick="updatekaihuState('reload','-2','/stock/noBindIndex.jspa');">选择其他券商</a>
+          #else
+          #end          
+          </p>
+     </div>
+</div>
+#define( $privatejs )
+<script src="/stock/js/bind/bind.security.step1.js"></script>
+#end

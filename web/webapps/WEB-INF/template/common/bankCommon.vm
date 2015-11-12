@@ -1,0 +1,42 @@
+<div class="block-title middle">
+    <span>       
+        <span>账户概况</span>
+        <a class="tooltip">
+            <i class="block-title-info png_bg"></i>
+            <span class="tooltip-content" style="left: 112px; top: 9px; display: none;"><i class="tooltip-arrow"></i>了解您的证券账户信息</span>
+        </a>
+    </span>
+</div>
+<div class="my-stock">
+    <h3 class="analysis-title">我的券商</h3>
+    <ul class="broker-info">
+        <li>股东姓名：$!{selfUserName}</li>
+        <li>资金账户：$!{fundAccount.fundAccount}</li>
+        <li class="unline">开户营业部：$!{brankName}</li>
+    </ul>
+    <div class="broker-name">
+        <a style="cursor:default" href="javascript:void(0)"><img src="#brokerImage($broker_id)" width="293" height="78" alt="$!{qsName}"></a>
+    </div>
+</div>
+<div class="clear"></div>
+<h3 class="analysis-title">股东列表</h3>
+<table class="table-list buy-line account" style="border-bottom:none">
+    <thead>
+        <tr>
+            <th width="28%">股东代码</th>
+            <th width="28%">股东姓名</th>
+            <th width="28%">市场类别</th>
+            <th width="18%">资金帐号</th>
+        </tr>
+    </thead>
+    <tbody>
+		#foreach($vo in $stockAccountList)
+			<tr>
+            <td>$!{vo.stockAccount}</td>
+            <td>$!{selfUserName}</td>
+            <td>$!{vo.exchangeType.name}</td>
+            <td>$!{fundAccount.fundAccount}</td>
+        </tr>
+		#end	
+    </tbody>
+</table>

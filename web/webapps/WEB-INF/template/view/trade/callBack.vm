@@ -1,0 +1,7 @@
+#set($layout="layout/default_layout.vm")
+<script src="#C/stock/js/jquery/jquery-1.7.2.min.js"></script>
+<script>
+var data={"errMsg":"$!{errMsg}","entrustNo":"$!{result.entrustNo}","stockCode":"$!{stockCode}","stockName":"$!{stockName}","entrustPrice":"$!{entrustPrice}","entrustAmont":"$!{entrustAmont}"};
+window.parent.showMsg(data);
+window.parent.JRJ.Dialogs.close();
+</script>

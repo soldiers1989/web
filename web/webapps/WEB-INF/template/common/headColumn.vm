@@ -1,0 +1,64 @@
+<div class="nav_new_header">
+        <ul class="jrj-clear">
+            <li data-flag="stock-index"><a href="http://stock.jrj.com.cn/" onfocus="this.blur()" target="_self">股票首页</a></li>
+            <li class="cur">
+            	<a href="/stock/" onfocus="this.blur()">证券通</a>
+            </li>
+			<li data-flag="stock-zx">
+            	<a href="http://stock.jrj.com.cn/list/stockgszx.shtml" target="_self">股票资讯</a>
+                <p class="nav_fc" style="display: none;">
+                	<a href="http://stock.jrj.com.cn/list/stockgszx.shtml" target="_self">股市要闻</a>
+                	<a href="http://stock.jrj.com.cn/invest/" target="_blank">大盘</a>
+                	<a href="http://stock.jrj.com.cn/hotstock/" target="_blank">个股</a>
+                	<a href="http://stock.jrj.com.cn/skzj/" target="_self">市况直击</a>
+                	<a href="http://stock.jrj.com.cn/ipo/" target="_blank">新股</a>
+                	<a href="http://hk.jrj.com.cn/" target="_blank">港股</a>
+                	<a href="http://usstock.jrj.com.cn/" target="_self">美股</a>
+                	<a href="http://stock.jrj.com.cn/list/ytgs.shtml" target="_self">亚太股市</a>
+                	<a href="http://focus.jrj.com.cn/stock.shtml" target="_blank">专题</a>
+                </p>
+            </li>
+            <li data-flag="stock-hq">
+            	<a href="http://summary.jrj.com.cn/" target="_self">股票行情</a>
+                <p class="nav_fc" style="display: none;">
+                	<a href="http://summary.jrj.com.cn/" target="_blank">沪深市场</a>
+                	<a href="http://summary.jrj.com.cn/hk/zyzs.shtml" target="_blank">香港股市</a>
+                	<a href="http://summary.jrj.com.cn/global/zygs.shtml" target="_blank">全球市场</a>
+                	<a href="http://stock.jrj.com.cn/concept/" target="_blank">概念股大全</a>
+                </p>
+            </li>
+            <li data-flag="stock-ssgs">
+            	<a href="http://stock.jrj.com.cn/list/stockssgs.shtml" target="_self">上市公司</a>
+                <p class="nav_fc" style="display: none;">
+                	<a href="http://stock.jrj.com.cn/list/stockssgs.shtml" target="_self">公司概况</a>
+                	<a href="http://stock.jrj.com.cn/report/" target="_blank">财务报告</a>
+                	<a href="http://stock.jrj.com.cn/yanbao/" target="_blank">研究报告</a>
+                </p>
+            </li>
+            <li>
+                <a href="http://istock.jrj.com.cn/" onfocus="this.blur()" target="_blank">股吧</a>
+            </li>
+            <li>
+            	<a href="http://zhibo.jrj.com.cn/" onfocus="this.blur()" target="_blank">实盘直播</a>
+            </li>
+	    	<li>
+            	<a href="http://win.jrj.com.cn/" onfocus="this.blur()" target="_blank">虚拟炒股</a>
+            </li>
+            <li data-flag="stock-zs">
+            	<a href="http://stock.jrj.com.cn/jyts/" target="_self">投资助手</a>
+                <p class="nav_fc" style="display: none;">
+                	<a href="http://stock.jrj.com.cn/jyts/" target="_self">交易提示</a>
+                	<a href="http://v.jrj.com.cn/" target="_blank">股票课堂</a>
+                	<a href="http://shop.jrj.com.cn/" target="_blank">投资软件</a>
+                	<a href="http://stock.jrj.com.cn/wen/" target="_blank">个股问诊</a>
+                </p>
+            </li>
+            <li>
+            	<a href="http://sso.jrj.com.cn/sso/ssologin?ReturnURL=http://i.jrj.com.cn/app/stock/group/index.jspa" onfocus="this.blur()" target="_blank">我的自选股<i id="stock_nav_2014"></i></a>
+            </li>
+            <li class="last">
+            	<a href="http://bbs.jrj.com.cn/gupiao" onfocus="this.blur()" target="_blank">股票论坛</a>
+            </li>
+        
+        </ul>
+    </div>

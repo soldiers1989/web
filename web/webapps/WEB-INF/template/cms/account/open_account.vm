@@ -1,0 +1,116 @@
+<h2 class="block-title">通过以下券商进行开户，即可<em class="red">免费签约“爱投顾”中的投资顾问，</em>享受一对一专属服务</h2>
+<h2 style="font-size:15px;font-weight:normal;text-indent:1em;">用户您好，证券通暂时无法提供中信、海通、长江证券的交易功能，请到券商官网下载专用软件交易。</h2>
+<input type="hidden" id="brokerId" name="brokerId" value="ZSZQ">
+<input type="hidden" id="idBindOld" name="idBindOld" value="1">
+<input type="hidden" id="isValid" name="isValid" value="true">
+<input type="hidden" id="isEmailValid" name="isEmailValid" value="true">
+<input type="hidden" id="isTxPwd" name="isTxPwd" value="0">
+<div class="con_2" style="position:relative">
+ <div class="open-account-block mt10">
+    <ul class="stock-comp-list clearfix">
+     	#foreach($Broker in $brokerlist)
+	     	#if( $!Broker.brokerType =="0" && $!Broker.type =="1")
+	      	<li data-id="$!{velocityCount}" isbind="$!{Broker.idBindOld}" broker="$!{Broker.brokerId}">
+				<div class="open-logo-$!{Broker.brokerId}">
+	              #if($!Broker.angleMark !="0")
+	            	<img class="jiao-0$!{Broker.angleMark}" src="#C/stock/images/$!{Broker.angleMarkImg}" alt="new" />
+				  #end
+                </div>
+	        </li>
+	        #end
+       	#end
+    </ul>
+</div>
+<div class="stock-comp-popup stock-comp-popup_02" style="display:none;z-index:100;">
+    <div class="stock-comp-popup-cnt clearfix" id="stock-comp-popup-cnt-7" style="display:block;">
+       <p class="f14" id="mod1_p">立享万分之2.5的业界最低佣金，136家营业部一柜通服务，更享快易贷产品，享受低成本的融资服务</p>
+        <div class="popup-cnt-wj clearfix">
+            <div class="fl">
+                <h2>我要开户</h2>
+                <p>未在任何一家证券公司开立账户</p>
+                <a href="javascript:void(0)" class="kaihu_div" title="">立即开户</a>
+            </div>
+            <div class="fr">
+                <h2>一人多户</h2>
+                <p>已在另一家证券公司开立账户</p>
+                <a href="javascript:void(0)" class="kaihu_div" title="">立即开户</a>
+            </div>
+        </div>
+        <p class="bind-other tr">
+            <a href="javascript:void(0)" title="" class="f14 link bindOrderUser">绑定其他账户>></a>
+        </p>
+		<div style="position:relative;">
+            <img id="mod1_bank" src="" alt="">
+             <a style="position:absolute; left:159px; top:112px; color:#5079bd; text-decoration:underline;" 
+				class="f14 link" title="" href="http://t.jrj.com.cn/khlc/bank-guide.html" target="_blank">开通步骤请点击 &gt;&gt;</a>
+         </div>
+        
+    </div>                                       
+  </div>
+</div>
+<p class="blue"><a href="javascript:void(0)" title="" onclick="gobindTob('3')" class="link f14">已有A股账户，立即使用</a></p>
+<div class="mt10" style="position:relative">
+    <img src="images/kzhzb_01.jpg">
+    <!--<i class="icon icon-tooltip kzhzb_01" title="您本人名下的银行卡，见证时需要原件"></i>-->
+</div>
+<div class="mt30 clearfix">
+    <div class="fl">
+        <h2 class="block-title">开通/绑定港股账户</h2>
+    </div>
+</div>
+<div class="con_3" style="position:relative;">
+     <div class="open-account-block mt10">
+    <ul class="stock-comp-list clearfix">
+    	#foreach($Broker in $brokerlist)
+	     	#if( $!Broker.brokerType =="0" && $!Broker.type =="2")
+	      	<li data-id="$!{velocityCount}" isbind="$!{Broker.idBindOld}" broker="$!{Broker.brokerId}">
+	            <div class="bank-logo-$!{Broker.brokerId}">
+	             #if($!Broker.angleMark !="0")
+	            	<img class="jiao-0$!{Broker.angleMark}" src="#C/stock/images/$!{Broker.angleMarkImg}" alt="new" />
+	              #end
+	            </div>
+	        </li>
+	        #end
+       	#end
+    </ul>
+</div>
+<div class="stock-comp-popup" style="display:none;z-index:100">
+  <div class="stock-comp-popup-cnt clearfix" id="stock-comp-popup-cnt-5">
+        <p class="f14" id="mod2_p">立享万分之2.5的业界最低佣金，136家营业部一柜通服务，更享快易贷产品，享受低成本的融资服务</p>
+        <div class="popup-cnt-wj clearfix">
+            <div class="fl" style="width:639px">
+                <h2>我要开户</h2>
+                <p>提前布局港股市场，即刻开户体验更多交易品类</p>
+                <a href="#" title="" class="kaihu_div" style="margin-left:527px">立即开户</a>
+            </div>
+        </div>
+        <p class="bind-other tr">
+            <a href="javascript:void(0)" title="" class="f14 link bindOrderUser">绑定其他账户>></a>
+        </p>
+        <!-- <img id="mod2_bank" src="" alt="">  -->
+  </div> 
+</div>
+</div>
+<div class="kzhzb_02">
+    <img src="images/kzhzb_02.jpg" alt="">
+    <i class="icon icon-tooltip kzhzb_21" title="由第三方在最近三个月内发出的地址证明，如水，电，煤气，电话单，信用卡或银行卡账单，单据上必须注明用户姓名和地址。见证时需要原件"></i>
+    <i class="icon icon-tooltip kzhzb_22" title="您本人名下的银行卡，见证时需要原件"></i>
+</div>
+<div class="mt10 mb30">
+    <p class="tc intro-banner"><img src="images/banner-1.jpg"></p>
+    <div class="clearfix">
+        <div class="intro-item intro-item-1 intro-item-first">
+            <p class="title">一站管理跨券商,跨品种,多账户</p>
+            <p class="mt10">统一管理你的多个账户，A股、港股、美股...所有账户资产及变化一目了然，第一时间把握市场动态。</p>
+        </div>
+        <div class="intro-item intro-item-2">
+            <p class="title">低廉的交易费率，最优质服务</p>
+            <p class="mt10">超低交易费率，多种金融界及券商提供的独家优质服务，为您的投资决策保驾护航。</p>
+        </div>
+        <div class="intro-item intro-item-3 intro-item-last">
+            <p class="title">银行级安全体系</p>
+            <p class="mt10">所有的交易指令通过证券公司进行委托执行，我们提供了多种安全证书、高等级的信息安全保护机制。</p>
+        </div>
+    </div>
+</div>
+

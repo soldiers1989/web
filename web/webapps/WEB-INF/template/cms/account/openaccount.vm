@@ -1,0 +1,31 @@
+#set ($_brokerName=$StockAccountStatusVo.strBrokerName)
+#set ($_accountType="开户")
+#if($!StockAccountStatusVo.strAccountType =="2")
+  #set ($_accountType="转户")
+#end
+    #if($!StockAccountStatusVo.state =="-2")
+               您未成功开通此券商账户，<a href="javascript:void(0)" onclick="delFailAccount('$!StockAccountStatusVo.strBrokerId',this)" class="link">删除</a>本条记录?
+    #elseif($!StockAccountStatusVo.state =="-1")
+               您已进入$!{_brokerName}$!{_accountType}流程，请在$!{_accountType}申请提交成功后耐心等待审核！
+			   #if($!StockAccountStatusVo.strBrokerId!="ZXZQ")
+               <a href="javascript:void(0)" onclick="openkhFromList('$!StockAccountStatusVo.strBrokerId','$!StockAccountStatusVo.strAccountType')" class="link">继续开户/转户</a>
+               #end
+	#elseif($!StockAccountStatusVo.state =="2")
+    		#if($StockAccountStatusVo.strComplateTime)
+               您已于$!{StockAccountStatusVo.strComplateTime}成功开通$!{_brokerName}账户，$!{_brokerName}将在一个工作日内对您的账户进行审核。
+    		#else
+    			您已成功开通$!{_brokerName}资金账户！
+    		#end
+    #elseif($!StockAccountStatusVo.state =="6")
+    		#if($StockAccountStatusVo.strTradeableTime)
+               您已于$!{StockAccountStatusVo.strTradeableTime}成功开通$!{_brokerName}账户资金账户！
+            #else
+    			您已成功开通$!{_brokerName}资金账户！
+    		#end
+    #elseif($!StockAccountStatusVo.state =="1")
+    	 您的$!{_accountType}申请已成功提交，我们将在一个工作日内短信通知您开户结果。
+    #elseif($!StockAccountStatusVo.state =="-3")
+    	  非常遗憾，您在$!{_brokerName}申请的账户未能通过审核。 
+    	  <a href="javascript:void(0)" onclick="openkhFromList('$!StockAccountStatusVo.strBrokerId','$!StockAccountStatusVo.strAccountType')" class="link">重新开户</a>
+    #end
+	

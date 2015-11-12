@@ -1,0 +1,144 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="我的证券通账户页")
+#set($breadCrumb ="证券账户")	
+<div class="open_account">
+   <div class="tt"><b>开通账户</b>（您需选择券商开通证券账户。已有证券账户？轻松绑定，即可享受证券通交易服务 !)</div>
+   <div class="tab">
+     <ul>
+       <li id="menu_1" ><span>开股票户</span></li>
+       <li id="menu_2"><span>转股票户</span></li>
+       <li id="menu_3" class="cur"><span>绑定股票户</span></li>
+     </ul>
+   </div>
+   <div class="tab_content">
+     <div id="con_1" style="display:none">
+		#if($bindStatus && $bindStatus.accountStatus.value ==-1)
+			<div class="selCount2 jrj-clear">
+                   <div class="success-tip">尊敬的客户：<br/>
+        恭喜您！您的网上开户环节已经完成，感谢您选择证券通。<br/>
+       您的开户信息正在受理中，一个工作日内会有回复，请耐心等待。
+				   </div>
+			</div>
+		#end
+		
+		#if($bindStatus && $bindStatus.accountStatus.value ==1)
+			<div class="selCount2 jrj-clear">
+                   <div class="success-tip">尊敬的客户：<br/>
+        恭喜您！您的网上开户环节已经完成，感谢您选择证券通。<br/>
+        您的账户正在审核中，请在收到审核通过短信后绑定进入交易！！</div>
+                   <div class="company-tag">
+                     <div class="tt">中信证券</div>
+                     <p>客户姓名：$!{bindStatus.realName}</p>
+                     <p>资金账号：$!{bindStatus.fundId}</p>
+                     <p class="sign">客服电话：400 850 7771</p>
+                   </div>
+                   
+               </div>
+		#end
+		#if($bindStatus && $bindStatus.accountStatus.value ==2)
+			 <div class="selCount2 jrj-clear">
+                   <div class="success-tip">尊敬的客户：<br/>
+        恭喜您！您的网上开户成功，感谢您选择证券通。<br/>
+        请绑定进行交易！</div>
+                   <div class="company-tag">
+                     <div class="tt">中信证券</div>
+                     <p>客户姓名：$!{bindStatus.realName}</p>
+                     <p>资金账号：$!{bindStatus.fundId}</p>
+                     <p class="sign">客服电话：400 850 7771</p>
+                   </div>
+                   
+               </div>
+		#end
+       <div class="selCount">
+			#if(!$bindStatus || $bindStatus.accountStatus.value ==-2)
+				<p class="tip1">从未开通过证券账户？马上到证券公司开设账户！进入证券公司开户流程，享受超低佣金</p>
+			#end	      
+           #foreach($broker in $brokerList)
+				<input  name="brokerId_kaihu" value="$!{broker.brokerId}" data-name="$!{broker.sname}" type="radio" checked="checked" class="rad">
+				<img width="123px" height="36px" src="#brokerImage($broker.brokerId)" alt="" class="bor">
+			#end
+       </div>
+	   <div class="msg-block" style="display:none">
+                <p>您即将离开金融界网站，进入中信证券的开户流程</p>
+                <div class="msg-block-wrap"><a href="javascript:void(0)" onclick="return false" class="btn-noie btn-4-noie" id="btn_noie">确 定</a></div>
+		</div>
+       <div class="jrj-tc" style="padding-bottom: 20px;">
+     
+       <button class="btn btn_s3 mt" id="kaihu">我要开户</button>
+       </div>
+     </div>
+     <div id="con_2" style="display:none">
+       <div class="selCount">
+           <p class="tip1">已拥有其他证券账户？马上转户到所选证券公司！</p>
+           #foreach($broker in $brokerList)
+				<input  name="brokerId_change" value="$!{broker.brokerId}" data-name="$!{broker.sname}" type="radio" checked="checked" class="rad">
+				<img width="123px" height="36px" src="#brokerImage($broker.brokerId)" alt="" class="bor">
+			#end
+       </div>
+       <div class="jrj-tc" style="padding-bottom: 20px;">
+     
+       <button class="btn btn_s3 mt" id="changeBroker">我要转户</button>
+       </div>
+     </div>
+     <div id="con_3">
+		#if($bindStatus && $bindStatus.accountStatus.value ==1)
+			<div class="selCount2 jrj-clear">
+                   <div class="success-tip">尊敬的客户：<br/>
+        恭喜您！您的网上开户环节已经完成，感谢您选择证券通。<br/>
+        您的账户正在审核中，请在收到审核通过短信后绑定进入交易！！</div>
+                   <div class="company-tag">
+                     <div class="tt">中信证券</div>
+                     <p>客户姓名：$!{bindStatus.realName}</p>
+                     <p>资金账号：$!{bindStatus.fundId}</p>
+                     <p class="sign">客服电话：400 850 7771</p>
+                   </div>
+                   
+               </div>
+		#elseif($bindStatus && $bindStatus.accountStatus.value ==2)
+			<div class="selCount2 jrj-clear">
+                   <div class="success-tip">尊敬的客户：<br/>
+        恭喜您！您的网上开户环节已经完成，感谢您选择证券通。<br/>
+        您已可以绑定进行交易了！</div>
+                   <div class="company-tag">
+                     <div class="tt">中信证券</div>
+                     <p>客户姓名：$!{bindStatus.realName}</p>
+                     <p>资金账号：$!{bindStatus.fundId}</p>
+                     <p class="sign">客服电话：400 850 7771</p>
+                   </div>
+                   
+               </div>
+			<div class="selCount">
+			#foreach($broker in $brokerList)
+				<input  name="brokerId_bind" value="$!{broker.brokerId}" data-name="$!{broker.sname}" type="radio" checked="checked" class="rad">
+				<img width="123px" height="36px" src="#brokerImage($broker.brokerId)" alt="" class="bor">
+			#end
+       </div>
+       <div class="jrj-tc" style="padding-bottom: 20px;">
+       <p class="signAgree f_blue"><span class="ck-w"><input type="checkbox" class="ck" id="agree"/></span>已阅读并同意<a href="javascript:void(0)" onclick="return false" class="agreement_user">《证券通用户协议》</a></p>
+         <p class="signAgree f_blue"><span class="ck-w">&nbsp;</span>已阅读并同意<a href="javascript:void(0)" onclick="return false" class="agreement_trade">《证券通用户服务协议（网上证券交易信息服务）》</a></p>  <p class="signAgree f_blue"><span class="ck-w">&nbsp;</span>已阅读并同意<a href="javascript:void(0)" onclick="return false" class="agreement_zxzq">《中信证券股份有限公司客户互联网第三方交易系统使用风险告知书》</a></p>
+       <button class="btn btn_s3 mt20" id="nextBtn">我要绑定</button>
+       </div>   
+			   
+		#else
+			<div class="selCount2 jrj-clear">
+                   <div class="success-tip">尊敬的客户：<br/>
+         请先进行开户或转户操作，之后您会收到审核成功的短信通知，即可绑定证券通进行交易。</div>
+                                  
+               </div>
+		#end	
+     </div>
+   </div>
+</div>
+
+#define( $privatejs )
+<script type="text/javascript">
+	var redirect ="$!{redirect}";
+	JRJ.Alerts.alert({
+				title: "温馨提示",  //标题
+				width:400,
+				message: "尊敬的客户  ：</br>您需先绑定证券账户号，然后进入交易"     //提示语
+	});
+</script>
+<script type="text/javascript" src="#C/stock/js/TabSwitch.2.0-min.js"></script>
+<script src="#C/stock/js/bind/bind.security.step1.js"></script>
+#end

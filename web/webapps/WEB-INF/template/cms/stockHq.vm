@@ -1,0 +1,94 @@
+<div class="col-2" id="real_trade_five">
+    <table id="real_trade_table">
+        <tr id="quote_con1" class="title">
+            <td>涨停：<span class="red" id="quote_hhp">--</span></td>
+            <td>跌停：<span class="green" id="quote_llp">--</span></td>
+        </tr>
+        <tr class="alt">
+            <td>卖⑤ <span id="sell_five">--</span></td>
+            <td><span id="sell_five_quantity">--</span></td>
+        </tr>
+        <tr>
+            <td>卖④ <span id="sell_four">--</span></td>
+            <td><span id="sell_four_quantity">--</span></td>
+        </tr>
+        <tr class="alt">
+            <td>卖③ <span id="sell_three">--</span></td>
+            <td><span id="sell_three_quantity">--</span></td>
+        </tr>
+        <tr>
+            <td>卖② <span id="sell_two">--</span></td>
+            <td><span id="sell_two_quantity">--</span></td>
+        </tr>
+        <tr class="alt">
+            <td>卖① <span id="sell_one">--</span></td>
+            <td><span id="sell_one_quantity">--</span></td>
+        </tr>
+        <tr class="title">
+            <td>成交：<span id="chengjiao">--</span></td>
+            <td>现手：<span id="xianshou">--</span></td>
+        </tr>
+        <tr class="alt">
+            <td>买① <span id="buy_one">--</span></td>
+            <td><span id="buy_one_quantity">--</span></td>
+        </tr>
+        <tr>
+            <td>买② <span id="buy_two">--</span></td>
+            <td><span id="buy_two_quantity">--</span></td>
+        </tr>
+        <tr class="alt">
+            <td>买③ <span id="buy_three">--</span></td>
+            <td><span id="buy_three_quantity">--</span></td>
+        </tr>
+        <tr>
+            <td>买④ <span id="buy_four">--</span></td>
+            <td><span id="buy_four_quantity">--</span></td>
+        </tr>
+        <tr class="alt">
+            <td>买⑤ <span id="buy_five">--</span></td>
+            <td><span id="buy_five_quantity">--</span></td>
+        </tr>
+    </table>
+</div>
+<div class="col-3">
+    <p class="tc" id="flash_div_sf">
+        数据加载中……
+    </p>
+    <p class="f16 ml20">分时明细</p>
+    <table id="detail_capital">
+    <thead>
+        <tr>
+            <th>时间</th>
+            <th>成交价</th>
+            <th>成交量</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>--:--:--</td>
+            <td><span>--</span></td>
+            <td><span>-- ↑</span></td>
+        </tr>
+        <tr class="alt">
+            <td>--:--:--</td>
+            <td><span>--</span></td>
+            <td><span>-- ↑</span></td>
+        </tr>
+        <tr>
+            <td>--:--:--</td>
+            <td><span>--</span></td>
+            <td><span>-- ↑</span></td>
+        </tr>
+        <tr class="alt">
+            <td>--:--:--</td>
+            <td><span>--</span></td>
+            <td><span>-- ↑</span></td>
+        </tr>
+        <tr>
+            <td>--:--:--</td>
+            <td><span>--</span></td>
+            <td><span>-- ↑</span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

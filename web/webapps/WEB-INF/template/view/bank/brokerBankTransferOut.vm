@@ -1,0 +1,112 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="银证业务")
+#set($breadCrumb ="证券账户")
+#parse("/common/option-nav.vm")
+                <ul class="sub-tabbar  mt10">
+                    <li id="menu_1"><a href="#C/stock/$!{accountId}/bankIndex.jspa">资金转入</a></li>
+                    <li id="menu_2" class="cur">资金转出</li>
+                    <li id="menu_3"><a href="#C/stock/$!{accountId}/fundQuery.jspa">转账记录</a></li>
+                </ul>
+                <div class="">
+                    <div class=" error-msg-bar-wrap error-msg-bar middle" style="display:none" id="moneyValueDiv">
+                        <i class="icon icon-error-2"></i>
+                        <span id="moneyValue"></span>
+                    </div>
+                </div>
+                <form action="/stock/bankTransfer.jspa" method="post" id="transferForm">
+                <input type="hidden" id="transferType" name="transferType" value="2"/>
+                <input type="hidden" id="bankNo" name="bankNo" value="$!{_bankNo}"/>
+                 <input type="hidden" id="bankAcc" name="bankAcc" value="$!{_bankAcc}"/>
+                <div id="con_1">
+                    <div class="trade-block mt30 clearfix">
+                        <div class="col-1 col-1-s2" style="width:auto; height: 484px;">
+                            <table class="ml30">
+                                <tr>
+                                    <td class="field" style="width:85px;"><span>选择银行</span></td>
+                                    <td>
+                                        <div class="">
+                                            <ul class="custom-checkbox clearfix">
+                                                #foreach($bank in $bankList)
+											    <li class="middle #if($!velocityCount == 1) checked #end"  onclick="setBankNo('$!{bank.bankNo}','$!{bank.bankAccount}',JRJZQTPassword.Action.ZTOY, qsFlag);"><span>$!{bank.bankName}</span></li>
+										        #end
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!--<tr>
+                                    <td class="field">银行余额</td>
+                                    <td>
+                                        <a id="balanceButton" href="javascript:void(0)" onclick="getNeedpasswords();" class="btn btn-279-37">点击显示银行卡余额</a>
+                                        <span class="num-wrap"><span class="num" id="moneys"></span></span> 
+                                    </td>
+                                </tr>-->
+                                <tr>
+                                    <td class="field" style="vertical-align:top">转出金额</td>
+                                    <td>
+                                        <input id="balance" name="balance" type="text" class="txtbox fl" style="width: 259px;" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">
+                                        <div style="display:none" id="fund_password_div">
+                                                                                                                            资金密码
+                                        </div>
+                                        <div class="mt20" style="display:none" id="bank_password_div">
+                                                                                                                            银行密码
+                                        </div>
+                                        <div class="mt20" style="display:none" id="trade_password_div">
+                                                                                                                           交易密码
+                                        </div>
+                                    </td>
+                                    <td id="bankpass">
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field"></td>
+                                    <td id="bankpass_error">
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">&nbsp;</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="submitForm($!{accountId});return false;" class="btn btn-123-40 mt10">转账</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                </form>
+<!-- main-right -->
+</div>
+#define( $privatejs )
+<script src="#C/stock/js/common/JRJPassword.v2.js"></script>
+<script type="text/javascript" src="#C/stock/js/trade/trade_pwd.js"></script>
+<script src="#C/stock/js/bank/bankTransfer.js"></script>
+<script src="#C/stock/js/bank/bankBalance.js"></script>
+<script>
+var qsFlag='$!{qsFlag}';
+var bankNo = $("#bankNo").val();
+var bankpasswords = "";
+//checkbox
+            $('.custom-checkbox li').mouseenter(function () {
+                if (!$(this).hasClass('checked')) {
+                    $(this).addClass('hover');
+                }
+            }).mouseleave(function () {
+                $(this).removeClass('hover');
+            }).click(function () {
+                $(this).addClass('checked').siblings().removeClass('checked');
+            });
+            //checkbox
+//初始化
+function initBank(){
+    if(bankNo != ""){
+        setBankNo(bankNo,$("#bankAcc").val(),JRJZQTPassword.Action.ZTOY,qsFlag);
+    }
+}
+initBank();
+</script>
+#end

@@ -1,0 +1,41 @@
+#set($layout="layout/stock_noasset_layout.vm")
+#set($title="我的证券通账户页")
+#set($breadCrumb ="初始化券商交易密码")
+
+<div class="password-wrap">
+    <h1 class="title">为了您的账户安全，请输入以下密码</h1>
+    <table style="margin-top: 20px;">
+  <tbody><tr>
+   <td class="field" style="width: 84px;">
+     <div style="" id="fund_password_div">
+  <h1 style="font-size: 16px;">交易密码</h1>
+     </div>
+     <i style="height: 15px;display: inline-block;">&nbsp;</i>
+     <div style="margin-top: 16px;display: none; " id="tx_password_div">
+  <h1 style="font-size: 16px;">通讯密码</h1>
+     </div>
+   </td>
+    <td id="p_initPwd">
+    </td>
+  </tr>
+  <tr>
+  <td></td><td>    <p class="error-msg" id="errmsg" style="display:none"></p></td>
+  </tr>
+</tbody></table>
+
+    <p class="tc mt30"><a href="javascript:void(0)" onclick="initpwd_submit($!{accountId});" class="btn btn-123-40">确定</a></p>
+</div>
+#define( $privatejs )
+<script src="#C/stock/js/common/JRJPassword.v2.js"></script>
+<script src="#C/stock/js/account/initpwd.js"></script>
+<script>
+var returnUrl = '$!{returnUrl}';
+initPwd = new JRJZQTPassword('#p_initPwd',_accountId,JRJZQTPassword.Action.INIT,'',320,null,function(data){
+	if(data!=undefined&&data.txpwd!=undefined){
+		if(data.txpwd==1){
+			$("#tx_password_div").show();
+		}
+	}
+});
+</script>
+#end

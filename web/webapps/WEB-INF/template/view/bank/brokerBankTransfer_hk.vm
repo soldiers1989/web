@@ -1,0 +1,162 @@
+#set($layout="layout/stock_layout_hk.vm")
+#set($title="银证业务")
+#set($breadCrumb ="证券账户")
+#set($option_nav="transe")
+#parse("/common/option-nav-hk.vm")
+                <ul class="sub-tabbar  mt10">
+                    <li id="menu_1" class="cur">存入资金</li>
+                    <li id="menu_2"><a href="#C/stock/hk/$!{accountId}/bankRollOut.jspa">提取资金</a></li>
+                    <li id="menu_3"><a href="#C/stock/hk/$!{accountId}/fundQuery.jspa">转账记录</a></li>
+					<li id="menu_4"><a href="#C/stock/hk/$!{accountId}/modifyBankInfo.jspa">更改银行资料</a></li>
+                </ul>
+                    <div class="trade-block trade-block-hk mt10 clearfix">
+                        <div class="col-1 col-1-s2" style="width:auto;">
+                            <table class="mb20">
+                                <tr>
+                                    <td class="field" style="width: 80px;"><span>存入币种</span></td>
+                                    <td> 
+                                        <ul class="custom-checkbox custom-checkbox-133 clearfix">
+                                            <li class="checked">港币</li>
+                                           
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field" style="width: 80px;"><span>存入方式</span></td>
+                                    <td>
+                                        <ul class="custom-checkbox custom-checkbox-133 clearfix">
+                                            <li class="checked cur" id="menua_1">香港等地区汇款</li>
+                                            <li id="menua_2">大陆银行汇款</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+							<div id="cona_1">
+							<table class="mb20">
+								<!--
+								<tr>
+                                    <td class="field" style="width: 80px;">汇款人</td>
+                                    <td class="middle"><span>CHENG DAWEN</span><i class="icon icon-tooltip ml5" title="强烈建议使用开户本人的户头汇入款项"></i></td>
+                                </tr>
+								-->
+                                <tr>
+                                    <td class="field" style="vertical-align:top;width: 80px;">收款银行</td>
+                                    <td style="padding:0">
+										 <div class="radio-wrap">
+                                            <div class="middle"><input  id="Radio1" type="radio" class="radio" name="radio-group" /><label for="Radio1"><span>香港上海汇丰银行有限公司</span></label></div>
+                                            <div class="info">收款人名称： 证星国际证券有限公司</div>
+											<div class="info">收款账号： 652-295452-838　　收款银行编号：004</div>
+                                            <div class="info">收款银行地址：1, Queen's Road Central, Hong</div>
+											<div class="info">SWIFT CODE：HSBCHKHHHKH</div>	
+                                        </div>
+                                        <div class="radio-wrap">
+                                            <div class="middle"><input id="Radio2" type="radio" class="radio" name="radio-group" /><label for="Radio2"><span>恒生银行有限公司</span></label></div>
+                                            <div class="info">收款人名称：证星国际证券有限公司</div>
+											<div class="info">收款账号： 262-168008-001　　收款银行编号：024</div>
+                                            <div class="info">收款银行地址：83, Des Voeus Road Central, Hong Kong</div>
+											<div class="info">SWIFT CODE：HASEHKHHXXX</div>          
+                                        </div>
+                                        <div class="radio-wrap">
+                                            <div class="middle"><input id="Radio3" type="radio" class="radio" name="radio-group" /><label for="Radio3"><span>中国银行（香港）有限公司</span></label></div>
+                                             <div class="info">收款人名称：证星国际证券有限公司</div>
+											<div class="info">收款账号： 875-0-046969-2　　收款银行编号：012</div>
+                                            <div class="info">收款银行地址：1 Garden Road ,Central,Hong Kong</div>
+											<div class="info">SWIFT CODE：BKCHHKHHXXX</div>                   
+                                        </div>
+                                        <div class="radio-wrap">
+                                            <div class="middle"><input id="Radio4" type="radio" class="radio" name="radio-group" /><label for="Radio4"><span>星展银行（香港）有限公司</span></label></div>
+                                             <div class="info">收款人名称：证星国际证券有限公司</div>
+											<div class="info">收款账号： 78-138059　　收款银行编号：016</div>
+                                            <div class="info">收款银行地址：G/F The Center,99 Queen's Road Central,Central,Hong Kong</div>
+											<div class="info">SWIFT CODE：DHBKHKHHXXX</div>                   
+                                        </div>
+										 <div class="radio-wrap">
+                                            <div class="middle"><input id="Radio5" type="radio" class="radio" name="radio-group" /><label for="Radio5"><span>中国工商银行（亚洲）有限公司</span></label></div>
+                                             <div class="info">收款人名称：证星国际证券有限公司</div>
+											<div class="info">收款账号： 861-502-27116-5　　收款银行编号：072</div>
+                                            <div class="info">收款银行地址：33/F, ICBC Tower, 3 Garden Road, Central, Hong Kong</div>
+											<div class="info">SWIFT CODE：UBHKHKHH</div>                   
+                                        </div>
+										<div class="radio-wrap">
+                                            <div class="middle"><input id="Radio6" type="radio" class="radio" name="radio-group" /><label for="Radio6"><span>渣打银行（香港）有限公司</span></label></div>
+                                             <div class="info">收款人名称：证星国际证券有限公司</div>
+											<div class="info">收款账号： 447-0-679365-2　　收款银行编号：003</div>
+                                            <div class="info">收款银行地址：15th Floor, Standard Chartered Tower, 388 Kwun Tong Road, Hong Kong</div>
+											<div class="info">SWIFT CODE：SCBLHKHHXXX/ SCBLHKHH</div>                   
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+							<table style="clear:both" class="clearfix">
+                                <tr>
+                                    <td class="field" style="width:110px;text-align:left">客户的网银汇款入口</td>
+                                    <td>
+                                        <div class="middle f14">
+                                            <span><i class="icon-bank icon-bank-HSBC"></i><a class="link" href="https://www.ebanking.hsbc.com.hk/1/2/logon?LANGTAG=zh&COUNTRYTAG=&fbc=HomeSChiLeftMenu"  target="_blank">香港汇丰银行</a></span>
+                                            <span class="ml10"><i class="icon-bank icon-bank-ICBC"></i><a class="link" href="https://myebankasia.icbc.com.cn/icbc/perbank/index.jsp?areaCode=0110&dse_locale=zh-TW"  target="_blank">工商银行（亚洲）</a></span>
+                                            <span class="ml10"><i class="icon-bank icon-bank-SC"></i><a class="link" href="https://ibank.standardchartered.com.hk/nfs/login.htm?lang=zh_HK"  target="_blank">渣打银行（香港）</a></span>
+                                            <span><i class="icon-bank icon-bank-DBS"></i><a class="link" href="https://internet-banking.hk.dbs.com/IB/Welcome"  target="_blank">星展银行（香港）</a></span>
+                                            <span class="ml10"><i class="icon-bank icon-bank-HangSeng"></i><a class="link" href="https://e-banking1.hangseng.com/1/2/!ut/p/c5/04_SB8K8xLLM9MSSzPy8xBz9CP0os3gDd-NQv1BDg2AXA1-PEE9zH2cTAwgAykcC5Q3CfCydDEy9LAzMDL39vNzMDGDyROh2dnf0MDH3AfLDPF0NPE2cTAxMfd0MDTyNCej288jPTdUvyA2NKHdUVAQA-SNG7A!!/dl3/d3/L2dJQSEvUUt3QS9ZQnZ3LzZfMEczVU5VMTBTRDBNSFRJN01DNDAwMDAwMDA!/"  target="_blank">恒生银行</a></span>
+											<span><i class="icon-bank icon-bank-CMB"></i><a class="link" href="http://hk.cmbchina.com/"  target="_blank">招商银行（香港）</a></span>
+											<span><i class="icon-bank icon-bank-COB"></i><a class="link" href="http://www.bochk.com/web/home/home.xml?lang=tw"  target="_blank">中国银行（香港）</a></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            </div>
+							<div id="cona_2" style="display:none;">
+							   <table class="mb20">
+								<!--
+								  <tr>
+                                    <td class="field" style="width: 80px;">汇款人</td>
+                                    <td class="middle"><span>CHENG DAWEN</span><i class="icon icon-tooltip ml5" title="强烈建议使用开户本人的户头汇入款项"></i></td>
+                                  </tr>
+								  -->
+								  <tr>
+                                    <td class="field" style="vertical-align:top;width: 80px;">收款子账户</td>
+                                    <td style="padding:0">
+										 <div class="radio-wrap radio-wrap-selected">
+                                            <div class="info" style="font-size: 16px;">您的子账号信息已经随同开户确认邮件发送到您登记的邮箱当中，请您登录查看</div>
+											<br>
+										    <div>
+											温馨提示：该账户为港币账户，如需换汇，请客户与汇出行接洽，资金汇出有相应的汇兑费用请了解汇出行的手续费用。
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </table>
+                            </div>
+                            <div class="hk-bottom-bar clearfix ">
+                                <div class="hk-bottom-bar-left mt10" style="width:388px;">
+
+                                    <p><b>客户入金后可以使用以下三个方式通知本公司</b></p>
+                                    <ul class="clearfix">
+                                        <li class="clearfix mb5">
+                                            <div class="left">方式一：</div>
+                                            <div class="right"><h2>使用登记邮箱通知本公司的邮箱: fio@istartrade.com </h2>内容包括: 姓名，客户号码，款项导出银行，存入银行，存入金额，及附上银行汇款底单或网上转账截屏。</div>
+                                        </li>
+                                        <li class="clearfix mb5">
+                                            <div class="left">方式二：</div>
+                                            <div class="right"><h2>传真已填写的《入金通知书》和汇款底单至香港客服部</h2>
+                                            传真：（852） 39001708／（852）39001705
+                                            </div>
+                                        </li>
+                                        <li class="clearfix mb5">
+                                            <div class="left">方式三：</div>
+                                            <div class="right"><h2>邮寄已填写的《入金通知书》的原件到香港客服部。</h2>
+                                            公司地址： 香港中环皇后大道中99号中环中心3705室<br>
+				上海综合服务部 地址：上海浦东新区碧波路690号张江微电子港8号楼3楼 							
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="hk-bottom-bar-right">
+                                    <p class="tc mt60"><a href="/stock/banktransferdata/rjtzs.pdf" class="btn btn-152-32" target="_blank">《入金通知书》下载</a></p>
+                                    <p class="tc mt30"><a href="/stock/banktransferdata/rjtzsyz.pdf" class="btn btn-152-32" target="_blank">样本资料查看</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+#define( $privatejs )
+<script src="#C/stock/js/bank/bankHKTransfer.js"></script>
+#end

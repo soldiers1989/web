@@ -1,0 +1,104 @@
+#set($layout="layout/stock_noheader_layout.vm")
+#set($title="出错啦")
+#define($privatecss)
+<style>
+      body{
+        background: #fff;
+      }
+      .clearfix:after,.wrapper:after  { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+      .clearfix { display: inline-block; }
+      *{
+        margin: 0;
+      }
+      *{
+        padding: 0;
+      }
+      img{
+        border:0;
+      }
+      li{
+        list-style: none;
+        text-decoration: none;
+      }
+      a{
+        text-decoration: none;
+      }
+      a:hover{
+        text-decoration: underline;
+      }
+      .wrapper{
+        width: 1000px;
+        margin: 20px auto;
+         -webkit-box-shadow: 0px 0px 4px #d3e6fb;
+       -moz-box-shadow: 0px 0px 4px #d3e6fb;
+       box-shadow: 0px 0px 4px #d3e6fb;
+      }
+      .box{
+        width: 520px;
+        margin: 0px auto;
+        padding: 100px 0;
+      }
+      .box .img404{
+        margin: 0 auto;
+        display: block;
+      }
+      .box h2{
+        text-align: center;
+        color: #666666;
+        font-family: 微软雅黑;
+        font-size: 26px;
+        padding: 30px 0 70px;
+        display: block;
+      }
+      .box h3{
+        text-align: center;
+        color: #666666;
+        font-family: 微软雅黑;
+        font-size: 18px;
+        font-weight: normal;
+        color: #333333;
+        padding-bottom: 34px;
+      }
+      .blur{
+        color: #2e71a9;
+      }
+      .box ul{
+        float: left;
+        width: 192px;
+        padding: 0 30px;
+        border-right:1px solid #ddd;
+        overflow: hidden;
+        font-size: 14px;
+        font-family: 微软雅黑;
+        line-height:27px;
+        white-space:nowrap;
+      }
+      .box ul li a{
+        display: block;
+        width: 192px;
+         word-break:keep-all;
+       white-space:nowrap;
+       overflow:hidden;
+       text-overflow:ellipsis;
+      }
+    </style>
+#end
+	<div class="wrapper">
+       <div class="box">
+          <div class="clearfix">
+           <img class="img404" src="/stock/images/404.jpg" alt="">
+           <h2>不好意思，您访问的页面不存在！</h2>
+           <h3>您可以选择继续访问 <a href="/stock"><span class="blur">证券通</span></a> 或访问下面您可能感兴趣的页面：</h3>
+           <ul>
+               <li><a href="http://www.jrj.com.cn/" title="金融界首页" class="blur">1、金融界首页</a></li>
+               <li><a href="http://stock.jrj.com.cn/" title="金融界股票频道" class="blur">2、金融界股票频道</a></li>
+               <li><a href="http://finance.jrj.com.cn/" title="金融界财经频道" class="blur">3、金融界财经频道</a></li>
+           </ul>
+           <ul style="border:none">
+               <li><a href="http://stock.jrj.com.cn/invest/" title="金融界大盘频道" class="blur">4、金融界大盘频道</a></li>
+               <li><a href="http://money.jrj.com.cn/" title="金融界理财频道" class="blur">5、金融界理财频道</a></li>
+               <li><a href="http://stock.jrj.com.cn/ipo/" title="金融界新股频道" class="blur">6、金融界新股频道</a></li>
+           </ul>
+       </div>
+     </div>  
+   </div>

@@ -1,0 +1,20 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="我的证券通账户页")
+#set($breadCrumb ="账户首页")
+#define( $privatejs )
+<script>
+JRJ.Dialogs.iframeDialog({
+	width: 350,
+    hasOkBtn: false,
+    title: '买入确认',
+	titleRight:'',
+	ifrReHeight:false,
+	ifrHeight:250,
+	hasBtn:false,
+    hasCancelBtn: false,
+    enableKeyCtrl: true,
+    ifrSrc: 'http://127.0.0.1:8082/stock/auth.jspa?p=DCC9225DEC4FFD5EC998AB019EA9D42DCA21B644261A6A82B243A80F99074DB689DB426A226B709062572D7A01EB505075E94BEC3E2633DA8B263DF99FAF23EBA4C72C8DF90BB9EF80B26E7A0B239199A12A43DC3024FBBE3B481712DD8443DDA3BF60CE65F8D8B10DB233B55ED6B484ABFBD44F13352CBF8E2D6C072D831A113236374BA0CE51F11E374DD8F66AB881177DDB71BE74C8064956D7D9F4AFC89010892E207235432437833226A1D49CC4481C1D0C56835854&state=2&redirect_uri=http://www.baidu.com/',
+    ifrReHeight: true
+});
+</script>
+#end

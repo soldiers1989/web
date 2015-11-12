@@ -1,0 +1,2 @@
+<input type="hidden" autocomplete="off" name="$!{tokenNameField}" value="$!{name}" />
+<input type="hidden" autocomplete="off" name="$!{name}" value="$!{token}" />

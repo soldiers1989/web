@@ -1,0 +1,61 @@
+<input type="hidden" value="$!{queryList.size()}" id="countsize"/>
+<input type="hidden" value="$!{pageNum}" id="pageNum"/>
+
+<table class="table-general">
+#if($errMsg)
+	<tbody>
+		<tr>
+			<td class="tc red last">错误提示：$!{errMsg}</td>
+		</tr>
+    </tbody>	
+#else
+
+    <thead>
+        <tr>
+            <th class="tc">转账日期</th>
+            <th class="tc">转账时间</th>
+            <th class="tc" style="width:110px;">银行名称</th>
+            <th class="tr">转账金额</th>
+            <th class="tr">银行余额</th>
+            <th class="tc">交易类型</th>
+            <th class="tc last">状态说明</th>
+        </tr>
+    </thead>
+    <tbody>
+    #if($queryList.size() >0)
+		#foreach($fund in $queryList)
+		<tr>
+            <td class="tc">#if($fund.initDate == 0)$!{dateTool.format("yyyy-MM-dd",$dateUtils.now())}#else $!{stockUtils.longDate2String("$fund.initDate")}#end</td>
+            <td class="tc">$!{stockUtils.longTime2String("$fund.entrustTime")}</td>
+            <td class="tc">$!{fund.bankName}</td>
+            #if($fund.businessType)
+            <td class="tr">#if($fund.businessType.value != 4)$!{numberTool.format("0.00",$fund.occurBalance)} #else -- -- #end</td>
+            <td class="tr">#if($fund.businessType.value == 4)$!{numberTool.format("0.00",$fund.occurBalance)} #else -- -- #end</td>
+            <td class="tc">$!{fund.businessType.name}</td>
+            <td class="tc last">$!{fund.entrustStatus.name}</td>
+            #else
+            #if("查银行余额"==$!{fund.transName})
+            <td class="tr">-- --</td>
+            <td class="tr">$!{numberTool.format("0.00",$fund.occurBalance)}</td>
+            #else
+            <td class="tr">$!{numberTool.format("0.00",$fund.occurBalance)}</td>
+            <td class="tr">-- --</td>
+            #end
+            <td class="tc">$!{fund.transName}</td>
+            <td class="tc last">$!{fund.cancelInfo}</td>
+            #end
+            
+        </tr>
+		#end	
+	#else
+		<tr>
+			 <td colspan="7" class="tc middle last">
+			  <div class="mt20">
+                <img src="/stock/images/icon-alert.png"> <span class="ml10 f16" style="font-weight:bold;">您在当前时段没有任何转账记录</span>
+			</div>
+			</td>
+		</tr>
+	#end	
+    </tbody>
+#end
+</table>

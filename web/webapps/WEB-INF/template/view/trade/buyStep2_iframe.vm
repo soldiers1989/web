@@ -1,0 +1,42 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="股票买入")
+#set($breadCrumb ="买入确认")
+<div class="block-title middle">
+    <span class="jrj-fl">
+        <span>买入股票</span>
+        <a class="tooltip">
+            <i class="block-title-info png_bg"></i>
+            <span class="tooltip-content" style="left: 112px; top: 9px; display: none;"><i class="tooltip-arrow"></i>买入股票</span>
+        </a>
+    </span>
+</div>
+<div class="entrust-area">
+    <div class="entrust-hd path-2"></div>
+    <div class="entrust-buy">
+        <div class="entrust-info">
+            <h1 class="entrust-title">确认委托</h1>
+			<iframe frameborder="0" height="600" width="740" scrolling="no" name="main">
+            </iframe>
+        </div>
+    </div>
+</div>
+ </div>
+ <form action="$!{url}" method="get" id="form_main" target="main">
+ #foreach($param in ${params.keySet()})
+  <input type="hidden" name="$param" value="${params.get($param)}"/>
+  #end
+ </form>
+ <form action="#C/stock/buyCallBack.jspa" id="form_buy" method="post">
+#token()
+</form>
+#define( $privatejs )
+<script>
+$(function(){
+	$('#form_main').submit();
+	});
+	
+function submitForm(){
+	$('#form_buy').submit();
+}
+</script>
+#end

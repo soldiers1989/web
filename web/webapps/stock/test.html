@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="/stock/js/jquery/jquery-1.7.2.min.js"></script>
+<script src="/stock/js/common/JRJPassword.v1.js"></script>
+</head>
+<body >
+<div id="test"></div>
+<script>
+var  test;
+$(function(){
+	test=new JRJ.ui.ZQTPassword("#test",100030,3,1,300,200);
+	//test.check();
+})
+function tttttt(){
+	test.check(function(t){
+		console.log(t);
+		
+	})
+}
+</script>
+<button onclick="tttttt()">test</button>
+<button onclick="alert(test.value())">test2</button>
+</body>
+</html>

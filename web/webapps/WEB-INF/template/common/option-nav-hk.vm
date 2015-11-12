@@ -1,0 +1,9 @@
+<div class="table-tab mt30 clearfix">
+	<img src="#C/stock/images/sample-30.png" alt="美股交易热线" class="fr">
+    <a class="table-tab-item #navHighLight("position",$option_nav,"btn btn-79-25")" href="#C/stock/hk/$!{accountId}/stockInfoIndex.jspa">当前持仓</a>
+    <a class="table-tab-item #navHighLight("buy",$option_nav,"btn btn-79-25")" href="#C/stock/hk/$!{accountId}/buyStep1.jspa">买入</a>
+    <a class="table-tab-item #navHighLight("sell",$option_nav,"btn btn-79-25")" href="#C/stock/hk/$!{accountId}/sellStep1.jspa">卖出</a>
+    <a class="table-tab-item #navHighLight("cancel",$option_nav,"btn btn-79-25")" href="#C/stock/hk/$!{accountId}/cancelable.jspa">挂单</a>
+    <a class="table-tab-item #navHighLight("entrust",$option_nav,"btn btn-79-25")" href="#C/stock/hk/$!{accountId}/entrust.jspa">查询</a>
+    <a class="table-tab-item #navHighLight("transe",$option_nav,"btn btn-79-25")" href="#C/stock/hk/$!{accountId}/bankIndex.jspa">银证转账</a>
+</div>

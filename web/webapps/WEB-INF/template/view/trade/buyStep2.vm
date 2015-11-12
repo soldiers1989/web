@@ -1,0 +1,43 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="股票买入")
+#set($breadCrumb ="买入确认")
+<div class="block-title middle">
+    <span class="jrj-fl">
+        <span>买入股票</span>
+        <a class="tooltip">
+            <i class="block-title-info png_bg"></i>
+            <span class="tooltip-content" style="left: 112px; top: 9px; display: none;"><i class="tooltip-arrow"></i>买入股票</span>
+        </a>
+    </span>
+</div>
+<div class="entrust-area">
+    <div class="entrust-hd path-2"></div>
+    <div class="entrust-buy">
+        <div class="entrust-info">
+            <h1 class="entrust-title">确认委托</h1>
+			<form action="#C/stock/buyStep3.jspa" method="post" id="submitForm">
+			#token()		
+			<input type="hidden" name="userMac" value="" id="userMac"/>
+            <ul class="entrust-list et-enter">
+                <li><label for="">股票代码：</label><span class="no-fill">$!{stockCode}</span></li>
+                <li><label for="">股票名称：</label><span class="no-fill">$!{stockName}</span></li>
+                <li><label for="">买入价格：</label><span class="no-fill">$!{entrustPrice}</span><em>元</em></li>
+                <li><label for="">买入数量：</label><span class="no-fill">$!{entrustAmount}</span><em>股</em></li>
+                <li style="height:42px;"><label for="">交易密码：</label>
+					<input type="hidden"  name="password" id="password" class="inp-txt">
+					<OBJECT id=TestAX classid="clsid:10D83247-E1A4-4C6B-9685-B84208D6FB50" codebase="#C/stock/JrjSafePwd.cab#version=1,0,4,0"  align="center" hspace="0" vspace="0" style="height:40px;"> 
+    						<param name="BorderColor" value="DDDDDD">
+    						<param name="BorderWidth" value="212">
+    						<param name="BorderHeight" value="36">
+    						<param name="BorderSize" value="1">
+							<span class="no-safety-controller">请在IE下安装控件<span class="no-safety-controller-tip"></span></span>
+    				</OBJECT>
+				</li>
+            </ul>
+            <input type="button" value=""  id="buysubmit" class="order-form-btn order-2">
+            </form>
+        </div>
+    </div>
+</div>
+ </div>
+<script src="#C/stock/js/trade/buySubmit.js"></script>

@@ -1,0 +1,155 @@
+/**
+* Stylish Select 0.4.9 - $ plugin to replace a select drop down box with a stylable unordered list
+* http://github.com/scottdarby/Stylish-Select/
+* 
+* Copyright (c) 2009 Scott Darby
+* 
+* Requires: jQuery 1.3 or newer
+* 
+* Dual licensed under the MIT and GPL licenses.
+*/
+
+/**
+* Hide lists on page load
+---------------------------------------------------------*/
+
+.stylish-select .SSContainerDivWrapper {
+	left:-9999px;
+}
+
+/*
+* Red example
+---------------------------------------------------------*/
+.stylish-select .SSContainerDivWrapper {
+	margin:0;
+	padding:0;
+	width:202px;
+	position:absolute;
+	top:22px;
+	left:0;
+	z-index:2;
+}
+
+.stylish-select ul.newList {
+	margin:0;
+	padding:0;
+	list-style:none;
+	color:#000;
+	background:#fff;
+	border:1px solid #8cb2d9;
+	overflow:auto;
+}
+
+.stylish-select ul.newList * {
+	margin:0;
+	padding:0;
+}
+
+
+    .stylish-select ul.newList a { color: #000; text-decoration: none; display: block; padding: 0 8px; height: 28px; line-height: 28px; white-space: nowrap; overflow: hidden; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis; }
+
+.stylish-select .newListSelected {
+	width:202px;
+	color:#000;
+	height:37px;
+    line-height:37px;
+	float:left;
+	background:url(/stock/images/select-bg.png) no-repeat;
+    outline:none;
+    margin-right:10px;
+}
+
+/*------------------------------------ customed style ------------------------------------*/
+.stylish-select  .newListSelected-364{ 
+    width:364px;
+	background:url(/stock/images/select-bg-364.png) no-repeat;
+}
+.stylish-select  .newListSelected-229{ 
+    width:229px;
+	background:url(/stock/images/select-bg-229.png) no-repeat;
+}
+.stylish-select  .newListSelected-124{ 
+    width:124px;
+	background:url(/stock/images/select-bg-124.png) no-repeat;
+}
+.stylish-select  .newListSelected-79{ 
+    width:79px;
+	background:url(/stock/images/select-bg-79.png) no-repeat;
+}
+
+
+/*------------------------------------ customed style ------------------------------------*/
+
+.stylish-select ul.newList li a:focus {
+	-moz-outline-style: none;
+}
+
+.stylish-select .selectedTxt {
+	width:152px;
+	overflow:hidden;
+	height:37px;
+    line-height:37px;
+	padding:0 40px 0 10px;
+    outline:none;
+}
+
+.stylish-select .hiLite {
+	background:#e2f0ff!important;
+    outline:none;
+	color:#333!important;
+}
+
+.stylish-select .newListHover {
+	background:#fafafa!important;
+	color:#000!important;
+	cursor:default;
+}
+
+.stylish-select .newListDisabled {
+	opacity: 0.6;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+}
+
+.stylish-select .newListItemDisabled {
+	opacity: 0.6;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+}
+
+.stylish-select .newListOptionDisabled {
+	opacity: 0.6;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+}
+
+.stylish-select .newListSelHover,
+.stylish-select .newListSelFocus {
+    background-position:0 -37px;
+	cursor:default;
+}
+
+.stylish-select .newListOptionTitle {
+	font-weight:bold;
+}
+
+.stylish-select .newListOptionTitle ul {
+	margin:3px 0 0;
+}
+
+.stylish-select .newListOptionTitle li {
+	font-weight:normal;
+}
+
+
+
+/*------------------------------------ customed style ------------------------------------*/
+.newListSelected-364 .selectedTxt { width:314px;}
+.newListSelected-364 .SSContainerDivWrapper { width:364px;}
+.newListSelected-229 .selectedTxt { width:179px;}
+.newListSelected-229 .SSContainerDivWrapper { width:229px;}
+.newListSelected-124 .selectedTxt { width:74px;}
+.newListSelected-124 .SSContainerDivWrapper { width:124px;}
+.newListSelected-79 .selectedTxt { width:29px;}
+.newListSelected-79 .SSContainerDivWrapper { width:79px;}
+/*------------------------------------ customed style ------------------------------------*/

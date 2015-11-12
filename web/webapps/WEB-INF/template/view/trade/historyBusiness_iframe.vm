@@ -1,0 +1,42 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="历史成交查询")
+#set($breadCrumb ="交易查询")
+<div class="block">
+    <div class="block-title middle">
+        <span>
+            <span>交易查询</span>
+            <a class="tooltip">
+                <i class="block-title-info png_bg"></i>
+                <span class="tooltip-content" style="left: 112px; top: 9px; display: none;"><i class="tooltip-arrow"></i>了解您的历史成交状况</span>
+            </a>
+        </span>
+    </div>
+    <div class="stock-buy">
+         <div class="tab-wrap">
+            <a href="#C/stock/entrust.jspa"><span><em></em>当日委托</span></a>
+            <a href="#C/stock/business.jspa"><span><em></em>当日成交</span></a>
+            <a href="javascript:;"><span class="tab-cur"><em></em>历史成交</span></a>
+            <a href="#C/stock/fund.jspa"><span><em></em>交割单</span></a>
+        </div>
+        <div class="clear"></div>
+        <div class="search-date pl10">
+            <span class="time-txt">日期</span>
+            <span class="date-inp"><input type="text" name="" id="beginTime" class="buy-int"><i id="date-list-s" class="date-list"></i></span>
+            <span class="time-txt">至</span>
+            <span class="date-inp"><input type="text" name="" id="endTime" class="buy-int"><i id="date-list-e" class="date-list"></i></span>
+            <em></em>
+            <input type="button" value="" class="search-buy-btn" id="search-iframe-hbusiness">
+        </div>
+		<div id="nextContent">
+        <iframe width="778" align="center" height="650" id="win" name="win" frameborder="0" scrolling="no" src="$!{url}">
+</iframe> 
+        </div>
+    </div>
+</div>	
+	
+#define( $privatejs )
+	<link href="#C/stock/css/trade/calendar.css" rel="stylesheet" />
+	<script src="#C/stock/js/trade/calendar-min.2.1.js"></script>
+	<script src="#C/stock/js/trade/getHBusinessIframeAjax.js"></script>
+	<script type="text/javascript" src="#C/stock/js/common/common.date.js"></script>
+#end

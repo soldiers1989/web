@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>金融界-长江证券手机开户</title>
+    <meta content="金融界、长江证券、手机开户、万三佣金 " name="keywords" />
+    <meta content="金融界携手长江证券打造便捷手机开户模式" name="description" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--全站 reset CSS-->
+    <link type="text/css" rel="stylesheet" href="http://js.jrjimg.cn/common/edition15/css/common2015.css" />
+    <script src="http://js.jrjimg.cn/lib/zepto-min.js"></script>
+    <script>
+	$(function(){
+		var w=$(window).width();
+		if(w>640){w=640}
+		$('.wrap').height(w/640*600);
+		$(window).resize(function(){
+			w=$(this).width();
+			if(w>640){w=640};
+			$('.wrap').height(w/640*600);
+		})
+	});
+	</script>
+    <!--页面特殊样式 CSS-->
+    <style type="text/css">
+		body,div,p,h1,h2,h3,h4,h5,h6,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,table,th,td,header, footer, nav, article, section,figure,figcaption{margin:0;padding:0;}
+		h1,h2,h3,h4,h5,h6{font-size:100%;}
+		em,i{font-style:normal;}
+		b,strong,h4{ font-weight:normal;}
+		li{list-style:none;}
+		a,li,img,button,input,textarea{-webkit-tap-highlight-color:rgba(255,0,0,0);-moz-tap-highlight-color:rgba(255,0,0,0);tap-highlight-color:rgba(255,0,0,0);-ms-tap-highlight-color:rgba(255,0,0,0);-o-tap-highlight-color:rgba(255,0,0,0);}
+		a,a:visited{text-decoration:none;color:#ffd800;}
+		a:focus,input:focus{-webkit-tap-highlight-color:rgba(0,0,0,0); outline:none;}
+		a:hover{text-decoration:underline;}
+		img{border:none; margin:0 auto;}
+		table{border-collapse:collapse;border-spacing:0;}
+		input[type="button"],input[type="submit"],input[type="reset"]{cursor:pointer;}
+		@media only screen and (-webkit-min-device-pixel-ratio: 2){html{-webkit-text-size-adjust:none}}
+		html {background-image:url(about:blank);background-attachment:fixed; width:100%; height:100%; overflow:auto; background:#f2594c;}
+		body { font: 1em/16em;font-size:75%; font-family:'Microsoft Yahei','Hiragino Sans GB','Hiragino Sans GB W3',sans-serif; height:100%; overflow:auto;}
+		body * {-webkit-appearance:none; }
+		input { font-family:'Microsoft Yahei','Hiragino Sans GB','Hiragino Sans GB W3',sans-serif;outline:none; border:none 0; font-size:1em;}
+		input[type=checkbox] { -webkit-appearance:checkbox;}
+		body{ background:#f2594c;}
+		.fl{ float:left;}.fr{ float:right;}.tc{ text-align:center;}
+		.wrap{margin: 0 auto;max-width: 640px;min-width: 320px;position:absolute; left:0; top:0; right:0; bottom:0;  height:100%;  background:#f2594c url(http://i0.jrjimg.cn/focus/2015/phoneDownload/bg.jpg) center 0 no-repeat; -moz-background-size:cover;-webkit-background-size:cover;-ms-background-size:cover;-o-background-size:cover;background-size:cover;}
+		.top{ padding-top:15px;}.top img{ width:100%;}
+		.jrj{ margin-left:12px; width:43px;}.zqt{ margin-left:3px; width:30px;}.cjzq{ border-left:1px solid #f8a9ab; margin-left:10px; padding-left:9px; width:48px;}
+		.con{ padding-bottom:30px;}
+		.bn{ margin-top:25px;}
+		.t{ width:215px; height:35px; margin:20px auto 0; background:#dd383c;transform:skew(157deg,180deg); box-shadow:2px 2px 5px rgba(207,46,50,1); line-height:35px; text-align:center; color:#fff; font-size:1.75em;}
+		.iptbox{ margin:20px 15px 0; height:90px; background:#fff; border-radius:3px; border:1px solid #e2e2e2;}
+		.iptbox p{ height:44px; border-top:1px solid #cfcfcf; padding:0 15px;}.iptbox p:first-child{ border-top:none;}
+		.ipt{ height:16px; padding:16px 0 10px; color:#999; font-size:1.167em;}
+		.getyzm,.getyzm:hover{ color:#1b66c7; text-decoration:none;}
+		.btn{ display:block; margin:20px 15px 0; height:41px; background-color:#fffb94; border-radius:3px; text-align:center; line-height:41px; color:#8c4109; font-size:1.433em; text-decoration:none;}
+		.btn:hover{ text-decoration:none;}
+		.kht{ margin:25px 15px 0; background:url(http://i0.jrjimg.cn/focus/2015/phoneDownload/line.png) left center no-repeat; height:30px; line-height:30px; text-align:center; font-size:1.433em; color:#fff; background-size:contain;}
+		.info{ color:#f8d2d2; font-size:1em;  text-align:center;}
+    </style>
+    
+</head>
+<body>
+	<!--------------------------------------------专题header开始-------------------------------------------->
+    <!--------------------------------------------专题header结束-------------------------------------------->
+    <!--------------------------------------------专题内容开始-------------------------------------------->
+    <div class="wrap">
+        <div class="head">
+            <div class="top jrj-wrap">
+                <a class="fl jrj" href="javascript:;"><img src="http://i0.jrjimg.cn/focus/2015/phoneDownload/jrj.png" /></a>
+                <a class="fl zqt" href="javascript:;"><img src="http://i0.jrjimg.cn/focus/2015/phoneDownload/zqt.png" /></a>
+                <a class="fl cjzq" href="javascript:;"><img src="http://i0.jrjimg.cn/focus/2015/phoneDownload/cjzq.png" /></a>
+            </div>
+        	<p class="bn tc"><img src="http://i0.jrjimg.cn/focus/2015/phoneDownload/t.png" width="278" /></p>
+            <p class="t"><b>万3</b> 佣金 手机开户</p>
+        </div>
+        <div class="con">
+             <div class="" style="height:92px;">
+            </div>
+            <p><a class="btn" href="javascript:;" id="subOpen">立即参与</a></p>
+            <p class="kht">温馨提示</p>
+            <p class="info" style="font-size:1.2em; font-weight:bolder;">请准备好您的身份证和银行卡</p>
+        </div>
+    </div>
+    <!--------------------------------------------专题内容结束-------------------------------------------->
+<script src="#C/stock/js/activity/index.js"></script>
+
+<script src="https://t.jrj.com.cn/stock/js/util/sdcs_dcs_tag-min.js"></script>    
+</body>
+</html>

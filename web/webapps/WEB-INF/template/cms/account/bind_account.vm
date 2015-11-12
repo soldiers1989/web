@@ -1,0 +1,90 @@
+ <h2 class="block-title">轻松绑定，便捷交易<span style="font-size:14px">（更多优质券商，努力接入中...）</span></h2>
+<div id="open_account" class="open-account-block mt10">
+    <ul class="stock-comp-list clearfix">
+       #foreach($Broker in $brokerlist)
+       #if($!Broker.type =="1"&&$!Broker.isBind =="0")
+       		  #set($t=1)
+       		  #set($str=$Broker.brokerId.substring(0,4))
+       		  ##$!{str}
+       		   #if($!Broker.brokerType =="1")
+	       		   #foreach($Broker2 in $brokerlist)
+	       		     #if($!Broker2.brokerType =="0")
+	       		     	#if($!Broker2.brokerId == $!Broker.brokerId.substring(4))
+		   		   			  #set($t=2)
+		   		   		#end
+	       		     #end
+	       		   #end
+       		   #end
+       		   ##$!{t}
+   		      #if($!t !=2)
+   		      		<li data-id="$!{velocityCount}" isbind="$!{Broker.idBindOld}" broker="$!{Broker.brokerId}" data-txpwd="$!{Broker.txPwd}">
+			            <div class="bank-logo-$!{Broker.brokerId}">
+			              #if($!Broker.angleMark !="0")
+			            	<img class="jiao-0$!{Broker.angleMark}" src="#C/stock/images/$!{Broker.angleMarkImg}" alt="new" />
+			              #end
+			            </div>
+			        </li>
+   		      #end
+   		      
+##	     	#if( $!Broker.brokerType =="1")
+##	      	<li data-id="$!{velocityCount}" broker="$!{Broker.brokerId}">
+##	            <div class="bank-logo-$!{Broker.brokerId}">
+##	              #if($!Broker.angleMark !="0")
+##	            	<img class="jiao-0$!{Broker.angleMark}" src="#C/stock/images/$!{Broker.angleMarkImg}" alt="new" />
+##	              #end
+##	            </div>
+##	        </li>
+##	        #end
+		#end
+       	#end
+    </ul>
+</div>
+<div class="stock-comp-popup" style="display:none;z-index:100;">
+    <div class="stock-comp-popup-cnt clearfix" id="stock-comp-popup-cnt-7" style="display:block;">
+        <p class="f14 wblock middle">
+           <input id="agreeint" type="checkbox" class="mr5">
+           <span>已阅读并同意 </span>
+           <a  title="" class="link" onclick="xieyi()">《证券通用户协议》 《证券通用户服务协议》</a>
+           ##<a  title="" class="link" onclick="xieyi()">《证券通用户服务协议》</a>
+            &nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" title="" class="btn ITN_btnbind_div">立即绑定</a>
+        </p>
+    </div>        
+</div>
+
+<div id="bindzh" class="mt30 clearfix">
+    <div class="fl">
+        <h2 class="block-title">绑定港股账户</h2>
+    </div>
+</div>
+<div class="con_4" style="position:relative;">
+<div class="open-account-block mt10">
+    <ul class="stock-comp-list clearfix">
+    	#foreach($Broker in $brokerlist)
+	     	#if( $!Broker.brokerType =="0" && $!Broker.type =="2")
+	      	<li data-id="$!{velocityCount}" isbind="$!{Broker.idBindOld}" broker="$!{Broker.brokerId}">
+	            <div class="bank-logo-$!{Broker.brokerId}">
+	             #if($!Broker.angleMark !="0")
+	            	<img class="jiao-0$!{Broker.angleMark}" src="#C/stock/images/$!{Broker.angleMarkImg}" alt="new" />
+	              #end
+	            </div>
+	        </li>
+	        #end
+       	#end
+    </ul>
+</div>
+<div class="stock-comp-popup" style="display:none;z-index:100;">
+    <div class="stock-comp-popup-cnt clearfix" id="stock-comp-popup-cnt-5" style="display:block;">
+        <p class="f14 wblock middle">
+           <input id="agreeint2" type="checkbox"  class="mr5">
+           <span>已阅读并同意 </span>
+             <a  title="" class="link" onclick="xieyi()">《证券通用户协议》 《证券通用户服务协议》</a>
+           ##<a  title="" class="link" onclick="xieyi()">《证券通用户服务协议》</a>
+            &nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" title="" class="btn btnbind_div btnbind_div_4">立即绑定</a>
+        </p>
+    </div>        
+</div>
+</div>
+<!-- 第二行 -->
+<p class="qskh" style="margin-top:30px;">
+    <a href="javascript:void(0)" title="" onclick="gobindTob('2')" class="btn" style="margin-top:0">没找到心仪的券商，去开户吧</a>
+</p>

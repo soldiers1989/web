@@ -1,0 +1,30 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="可撤单查询")
+#set($breadCrumb ="撤单查询")
+#set($option_nav="cancel")
+#parse("/common/option-nav.vm")
+<div id="con_3">
+#if($errMsg)
+<table class="table-general mt20" id="nextContent">
+	<tbody>
+		<tr>
+			<td class="tc red last">错误提示：$!{errMsg}</td>
+		</tr>
+    </tbody>
+</table>		
+#else
+<iframe width="925" height="720" frameborder="0" scrolling="no" name="main" style="margin-left: -18px;"></iframe>
+#end
+</div>
+<form action="$!{url}" method="get" id="form_main" target="main">
+ #foreach($param in ${params.keySet()})
+  <input type="hidden" name="$param" value="${params.get($param)}"/>
+ #end
+</form>
+#define( $privatejs )
+<script>
+$(function(){
+	$('#form_main').submit();
+	});
+</script>
+#end

@@ -1,0 +1,93 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/* reset */
+html, body, header, footer, nav, article, section, aside, time, code, div, p, ul, ol, li, dl, dd, dt, h1, h2, h3, a, span, strong, em, small, form, label, input, select, textarea,input{
+    margin: 0;
+    padding: 0;
+}
+*{
+	margin: 0;
+	padding: 0;
+    overflow: hidden;
+    
+}
+article, aside, audio, footer, header, nav, section, video { display: block }
+:focus { outline: 0; }
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix { display: block; }
+a{color:#404040;text-decoration:none;
+ -webkit-tap-highlight-color:transparent;
+-moz-tap-highlight-color:transparent;
+tap-highlight-color:transparent;}
+img { border: 0; display:block;}
+em,i{font-style:normal;}
+ol, ul{ list-style: none; }
+.fl{float:left;}
+.fr{float:right;
+}
+.tr{
+	text-align: right;
+}
+.red{
+	color: #bf1635;
+}
+.clearfix:after{ content:"."; display:block; clear:both; height:0; overflow:hidden;}
+.clearfix{ zoom:1;}
+.wrap{
+    width:93%;
+    margin: 0 auto;
+}
+body{font-family:"微软雅黑",sans-serif;color:#595959;background-color:#f5f5f5;}
+
+/*手机样式*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2){html{-webkit-text-size-adjust:none}}
+body { font: 1em/16em;font-size:75%;}
+section{
+	width: 88%;
+	margin: 0 auto;
+}
+section header img.why{
+	width: 100%;
+	margin:20px 0 0px;
+	/*height:49px;*/
+}
+section header em img{
+	margin:0 auto;
+	display: block;
+	width: 10px;
+	height: 6px;
+}
+.art1{
+	background: url(/stock/images/mobile/phone-4.png) no-repeat left center;
+	padding-left:140px;
+	min-height:79px;
+	background-size:129px  79px;
+}
+.art2{
+	background: url(/stock/images/mobile/phone-5.jpg) no-repeat right center;
+	padding-right:151px;
+	min-height:69px;
+	background-size:151px  69px;
+}
+article{
+	margin:20px auto;
+}
+article h2{
+	text-align: center;
+  font-size:1.4em;
+  line-height:30px;
+}
+article p{
+  font-size: 1em;
+  color: #727272;
+}
+.bg img{
+   width: 100%;
+   display: block;
+}
+.art3{
+	background: url(/stock/images/mobile/phone-6.jpg) no-repeat left center;
+	padding-left:140px;
+	min-height:100px;
+	background-size:130px 100px;
+}

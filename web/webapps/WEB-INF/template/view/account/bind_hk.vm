@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>证券通</title>
+    <meta name="keywords" content="证券通" />
+    <meta name="description" content="证券通" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />
+    
+    <link href="#C/stock/css/reset-min.css" rel="stylesheet" />
+    <link href="#C/stock/css/tooltipster.min.css" rel="stylesheet" />
+    <link href="#C/stock/css/tooltipster-light.min.css" rel="stylesheet" />
+    <script src="#C/stock/js/jquery/jquery-1.7.2.min.js"></script>
+	<link href="#C/stock/css/dialog.effect.css" rel="stylesheet" />
+    <link href="#C/stock/css/styles.css" rel="stylesheet" />
+    
+    <script src="#C/stock/js/jquery/jquery-1.7.2.min.js"></script>
+	<script src="#C/stock/js/jquery/jquery.md5.js"></script>
+	<script src="#C/stock/js/lib/jrjbase-min.js"></script>
+	<script src="#C/stock/js/common/rAF-Polyfill.js"></script>
+	<script src="#C/stock/js/dialogs/dialogs-effect.js"></script>
+	<script src="#C/stock/js/common/common.urls.js"></script>
+	<script src="#C/stock/js/common/common.util.js"></script>
+	<script src="#C/stock/js/util/mustache-min.js"></script>
+	<script src="#C/stock/js/util/SearchBox.js"></script>
+	<script src="#C/stock/js/jquery/jquery.cookie.js"></script>
+	<script src="#C/stock/js/jquery/jquery.watermark.min.js"></script>
+	<script src="#C/stock/js/jquery/jquery.bgiframe.pack.js"></script>
+	<script src="#C/stock/js/jquery/jquery.tooltipster.min.js"></script>
+	<script src="#C/stock/js/lib/countUp.js"></script>
+	<script src="#C/stock/js/lib/scrollReveal.min.js"></script>
+	<script src="#C/stock/js/common/ie6fixed-min.js"></script>
+	<script src="#C/stock/js/login/LoginDialog.js"></script>
+	<script src="#C/stock/userInfo.jspa"></script>
+    
+    <script type="text/javascript">
+         $(function () {
+            setTimeout(function () {
+                frameElement._thisDialog.resizeIfrH();
+                frameElement._thisDialog.dlg.resetPosition();
+            }, 0);
+         });   
+    </script>
+    <style>
+        table tr td, table tr th{
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body style="background:#fff;overflow:hidden;height:auto;padding-bottom:10px;">
+<form id="bindForm" action="/stock/hk/doHkBind.jspa" method="post">
+   <input type="hidden" id="brokerId" name="brokerId" value="$!{brokerId}">
+   <input type="hidden" id="client_no" name="client_no" value="$!{client_no}">
+    <table class="mt10">
+         <tr>
+            <td class="f14 tr color666" style="width:70px">
+                                         账户编号：
+            </td>
+            <td>
+               #if($!client_no =='')
+		           <input type="text" id="accountNo" name="accountNo" class="txtbox ml15" style="width:222px;" value="$!{accountNo}"> 
+		       #else
+		           $!{client_no}
+		           <input type="hidden" id="accountNo" name="accountNo" class="txtbox ml15" style="width:222px;" value="$!{client_no}"> 
+		       #end
+            </td>
+        </tr>
+        <tr>
+            <td class="f14 tr color666" style="width:70px">
+                                        密码： 
+            </td>
+            <td>
+               <input id="password" name="password" class="txtbox ml15" type="password" style="width:222px;" value="$!{password}"> 
+            </td>
+        </tr>
+        <tr>
+            <td class="f14 tr color666" style="width:70px">
+                &nbsp;
+            </td>
+            <td id="errorMsg" class="error-msg">
+                $!{msg}
+            </td>
+        </tr>
+    </table>
+    <p class="clearfix tc">
+         <a class="btn btn-123-40" id="btnSubmit" href="javascript:void(0)" onclick="ajaxhkBind()" style="width:120px;">提交</a>
+    </p> 
+    <p class="mt10"></p>
+    </form>
+</body>
+</html>
+<script src="#C/stock/js/account/hkBind.js"></script>

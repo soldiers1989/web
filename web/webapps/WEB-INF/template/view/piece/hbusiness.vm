@@ -1,0 +1,46 @@
+<table class="table-list buy-line">
+#if($errMsg)
+	<input type="hidden" value="0" id="countsize"/>
+	<input type="hidden" value="1" id="pageNum"/>
+	<tbody>
+		<tr style="text-align:center;color:red">
+			<td>错误提示：$!{errMsg}</td>
+		</tr>
+    </tbody>		
+#else
+<input type="hidden" value="$!{queryList.size()}" id="countsize"/>
+<input type="hidden" value="$pageNum" id="pageNum"/>
+<thead>
+    <tr>
+        <th class="time">成交日期</th>
+        <th>股票代码</th>
+        <th>股票名称</th>
+        <th>买卖方向</th>
+		<th>成交数量</th>
+        <th>成交价格</th>                   
+        <th>成交金额</th>
+        <th>业务状态 </th>
+    </tr>
+</thead>
+<tbody>
+    #if($queryList.size()>0)
+		#foreach($business in $queryList)
+			<tr>
+                <td>$!{business.initDate}</td>
+                <td>$!{business.stockCode}</td>
+                <td>$!{business.stockName}</td>
+                <td>$!{business.entrustBs.getName()}</td>
+				<td>$!{business.occurAmount}</td>
+                <td>$!{business.businessPrice}</td>
+                <td>$!{business.businessBalance}</td>
+				<td>$!{business.businessStatus.getName()}</td>
+			</tr>
+		#end
+		#else
+		<tr style="text-align:center;">
+			<td colspan="8">您所选择的时间区间没有交易记录</td>
+         </tr>	
+	  #end
+</tbody>	
+#end	
+</table>

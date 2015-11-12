@@ -1,0 +1,50 @@
+<div class="header_tool clearfix">
+	<h1 class="logo"><a href="http://www.jrj.com.cn" target="_blank"><img src="#C/stock/images/homev2014/header/logo_sub.png" /></a><b>证券通</b></h1>
+	<div class="city_ht vnone">
+        	<div class="allcity"><i></i></div>
+        </div>
+    <div class="search_ht search_ht_sub">
+    	<div class="sh_box clearfix">
+        	<div class="tab_top_one">
+            	<span>股票/基金</span>
+                <ul style="display:none">
+                	<li id="ta_1">股票/基金</li>
+                    <li id="ta_2">资讯</li>
+                    <li id="ta_3">股吧</li>
+                </ul>
+            </div>
+            <div class="con_input" id="cn_1">
+                <input type="text" autocomplete="off" class="cint01" value="代码/简称/拼音" id="search_1">
+                <input id="btntop01" type="button" class="cinb01" />
+            </div>
+            <div class="con_input" id="cn_2" style="display:none">
+                <form id='formInfo2014' target='_blank' accept-charset='gb2312'onsubmit="$(this).attr('action','http://jinsoo.jrj.com.cn/search.jsp');document.charset='gb2312';"  method='post'>
+                    <input id="search_2" class="cint01" type="text" autocomplete="off" name="q" value="请输入关键词">
+                    <input id="btntop02" class="cinb01" type="submit" value="">
+                </form>
+            </div>
+            <div class="con_input" id="cn_3" style="display:none">
+				<input id="search_3" type="text" value="" class="cint01" autocomplete="off" />
+				<input id="btntop03" type="button" class="cinb01" />
+			</div>
+        </div>
+        <p class="keyword_top">热门搜索：
+			<a href="http://stock.jrj.com.cn/share,000925.shtml" target="_blank">众合机电</a>
+			<a href="http://stock.jrj.com.cn/share,002190.shtml" target="_blank">成飞集成</a>
+			<a href="http://stock.jrj.com.cn/share,600962.shtml" target="_blank">国投中鲁</a>
+			<a href="http://stock.jrj.com.cn/share,600839.shtml" target="_blank">四川长虹</a>
+		</p>
+    </div>
+    <div class="myjrj_ht">
+	<div class="mjbtn">
+		<div class="mjn">
+            <a href="http://i.jrj.com.cn/" target="_blank"></a>
+		</div>
+	</div>
+	<div style="display: none;" class="mjshow">
+		<a href="https://t.jrj.com/stock/">我的股票(证券通)<i>&gt;</i></a>
+		<a target="_blank" href="http://t.jrj.com/">我的基金(盈利宝)<i>&gt;</i></a>
+		<a target="_blank" href="http://blog.jrj.com.cn/" class="cur">我的博客<i>&gt;</i></a>
+	</div>
+</div>
+</div>

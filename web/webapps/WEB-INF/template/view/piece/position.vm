@@ -1,0 +1,81 @@
+#if($errMsg)
+    <input type="hidden" value="0" id="countsize"/>
+	<input type="hidden" value="1" id="pageNum"/>
+ 	<table class="table-general mt15 table-general-p3" >
+		<tbody>
+	       <tr>
+			<td class="tc red last">错误提示：$!{errMsg}</td>
+	        </tr>
+	    </tbody>
+    </table>
+#else
+<input type="hidden" value="$!{positions.size()}" id="countsize"/>
+<input type="hidden" value="$!{pageNum}" id="pageNum"/>
+<table class="table-general mt15 table-general-p3" >
+		<thead>
+	        <tr>
+	            <th class="tc">代码</th>
+	            <th class="tc">名称</th>
+	            <th class="tc middle" style="width:45px;">走势</th>
+	            <th class="tr">当前数量</th>
+	            <th class="tr">可用数量</th>
+	            <th class="tr" style="width:45px;">成本价</th>
+	            <th class="tr" style="width:45px;">当前价</th>
+	            <th class="tr" style="width:75px;">市值</th>
+	            <th class="tr" style="width:75px;">浮动盈亏</th>
+	            <th class="tr" style="width:50px;">盈亏比例</th>
+	            <th class="last">交易</th>
+	        </tr>
+	    </thead>
+    <tbody>
+    #if($positions.size()==0)
+		<tr>
+		 <td colspan="11" class="tc middle last">
+		 <div class="mt20">
+               <img src="/stock/images/icon-alert.png"> <span class="ml10 f16" style="font-weight:bold;">您现在暂无持仓记录，尝试</span><a href="#C/stock/$!{accountId}/buyStep1.jspa" class="link f16" style="font-weight:bold;">买入股票</a><span class="f16" style="font-weight:bold;">？</span>
+          </div>
+          </td>
+		</tr>
+	#else
+		#foreach($p in $positions)
+        #if($velocityCount % 2 == 0)
+		<tr class="alt">
+        #else
+        <tr>
+		#end
+		#if($p.stockType=='3')
+		<td class="tc"><a href="http://fund.jrj.com.cn/archives,$!{p.stockCode}.shtml" target="_blank" class="link">$!{p.stockCode}</a></td>
+        <td class="tc"><a href="http://fund.jrj.com.cn/archives,$!{p.stockCode}.shtml" target="_blank" class="link">$!{p.stockName}</a></td>	
+		<td class="tc"><img class="img-trend" onerror="$(this).removeAttr('src');" src="#C/stock/chart/pngdata/minpic/pic40/$!{p.stockCode}.png" alt="" data-code="$!{p.stockCode}"/></td>
+		#elseif($p.stockType=='1')
+		<td class="tc"><a href="http://stock.jrj.com.cn/share,$!{p.stockCode}.shtml" target="_blank" class="link">$!{p.stockCode}</a></td>
+        <td class="tc"><a href="http://stock.jrj.com.cn/share,$!{p.stockCode}.shtml" target="_blank" class="link">$!{p.stockName}</a></td>	
+        <td class="tc"><img class="img-trend" onerror="$(this).removeAttr('src');" src="#C/stock/chart/pngdata/minpic/pic40/$!{p.stockCode}.png" alt="" data-code="$!{p.stockCode}"/></td>
+		#else
+		<td class="tc">$!{p.stockCode}</td>
+        <td class="tc">$!{p.stockName}</td>	
+        <td class="tc"></td>	
+		#end
+            <td class="tr">$!{numberTool.format("#",$p.currentAmount)}</td>
+            <td class="tr">$!{numberTool.format("#",$p.enableAmount)}</td>
+            <td class="tr">$!{numberTool.format("0.000",$p.costPrice)}</td>
+            <td class="tr">$!{numberTool.format("0.000",$p.lastPrice)}</td>
+            <td class="tr">$!{numberTool.format("0.00",$p.marketValue)}</td>
+            <td class="tr #if($p.incomeBalance<0) green #elseif($p.incomeBalance>0) red #end">$!{numberTool.format("0.00",$p.incomeBalance)}</td>
+            #if($p.currentAmount == 0 || $p.costPrice == 0)#set($result = "--")#else
+             #set($result = $!{stockUtils.calIncomeRate($p)})#end  ##盈亏比例= 浮动盈亏  / (成本价 * 持有数量)
+            <td class="tr #if($result && $result != "--" && $result < 0) green #elseif($result && $result != "--" && $result > 0) red #end" >#if($result!="--")$!{result}%#else$!{result}#end</td>
+            <td class="last middle tc">
+            #if($p.stockType=='3'||$p.stockType=='1'||$p.stockType=='7')
+            	#if($p.stockType!='7')
+            	<a href="/stock/$!{accountId}/buyStep1.jspa?stockCode=$!{p.stockCode}" class="link">买</a><span class="split">|</span>
+            	#end
+            	<a href="/stock/$!{accountId}/sellStep1.jspa?stockCode=$!{p.stockCode}" class="link">卖</a>
+            #end
+            </td>
+		</tr>
+		#end
+	#end
+    </tbody>
+</table>
+#end

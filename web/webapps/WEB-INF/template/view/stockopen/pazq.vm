@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>平安证券3分钟开户，享万2.5超低佣金</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no" />
+	<meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" /> 
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta content="万2.5，平安证券，重重好礼，4折基金，大数据选股，明星投顾，闲钱理财，开户，一人多户">
+	<link rel="stylesheet" href="../../stock/css/m/index2.css">
+	<style type="text/css">
+		/* .telp{
+      position:absolute;
+      top:62px;
+      right:54px;
+      color:#fff;
+      z-index: 9999;
+      text-decoration: underline!important;
+      font-size: 28px;
+    } */
+	</style>
+    <script type="text/javascript">
+      var arr_a=window.location.search.substr(1);
+      var str_tmp= new Array(); //定义一数组
+      var arr_newValue=new Array();
+      var str_tmp=arr_a.split("&"); //字符分割
+      var result = {};
+      var result02 = {};
+      var result03 = {};
+      for(var i=0;i<str_tmp.length;i++){
+      var arr_strs=str_tmp[i].split("=");
+      result[arr_strs[0]]=arr_strs[1];
+      }
+
+      function getlink(obj){
+      var mylink=obj.href;
+      var link_arr= mylink.split('?');
+      var link_tmp=link_arr[1].split("&");
+
+
+      for(var i=0;i<link_tmp.length;i++){
+      var arr_strs02=link_tmp[i].split("=");
+      result02[arr_strs02[0]]=arr_strs02[1];
+      }
+
+      $.extend(result02,result);
+      var inner=decodeURIComponent(result02.jumpUrl).split("?")[1].split("&");
+      for(var i=0;i<inner.length;i++){
+      var arr_strs03=inner[i].split("=");
+      result03[arr_strs03[0]]=arr_strs03[1];
+      }
+      $.extend(result03,result);
+
+
+      var b="";
+      for(pro in result03){
+      b=b+pro+"="+result03[pro]+"&";
+      }
+
+      c=decodeURIComponent(result02.jumpUrl).split("?")[0]+'?'+b;
+
+      result02.jumpUrl=encodeURIComponent(c);
+      var a="";
+      for(pro in result02){
+      a=a+pro+"="+result02[pro]+"&";
+      }
+      obj.href='https://ay.pingan.com/union/pinganRedirect.html?'+a;
+      }
+</script>
+<style>
+.alert{
+   position:fixed;
+   top:0;
+   bottom:0;
+   left: 0;
+   right:0;
+   z-index: 9999999999;
+   width:100%;
+   height:100%;
+   display: none;
+}
+
+body{
+  background: #D00B15;
+}
+  .focus-tip{
+    width:35rem;
+    margin:0 auto;    
+    display: none;
+    margin-bottom: .5rem;
+  }
+   .focus-tip img{
+    width:100%;
+    display: block;
+   }
+</style>
+</head>
+<body>
+	
+	<header></header>
+	<section>
+    	<div class="m-img">	
+    			 	<div id="tel">
+    	<a href="tel://4008651651">4008-651-651</a>
+    </div>
+                 <div class="new">
+				 <img src="#C/stock/images/pazqopen/bg_01.jpg">
+				  <img src="#C/stock/images/pazqopen/bg_02.jpg">
+                    <img src="#C/stock/images/pazqopen/bg_03.jpg">
+                    <!-- <div class="focus-tip"><img src="images/ios-tip.png" alt=""></div> -->
+                     <img src="#C/stock/images/pazqopen/bg_04.jpg">
+                     <img src="#C/stock/images/pazqopen/bg_05.jpg">
+				 </div>
+                 <a class="btn01" href="javascript:void(0);" 
+otype="button" otitle="财神节立即开户" onClick="ga('send', 'event', { eventCategory: 'cch1', eventAction: 'click'});"></a> 
+ <iframe id="alert" class="alert" <iframe id="alert" class="alert" src="http://stock.pingan.com/huodong/ydkh/khxz.html?cmb=$mobile&nm=%E7%88%B1%E6%8A%95%E9%A1%BE&cd=MKT-MEDIAKH05I&mb=13162188332&s=&type=ydkh&aid=65&sid=392&ouid=ios" frameborder="0"></iframe>
+		    </div>					
+	</section>
+	<footer></footer>
+    <script type="text/javascript" src="#C/stock/js/jquery/jquery-1.11.1.min.js"></script>
+    <script src="https://t.jrj.com.cn/stock/js/util/sdcs_dcs_tag-min.js"></script>
+    <script type="text/javascript">
+
+  setTimeout('exesdcjs()',0);
+
+  function exesdcjs(){
+
+      var jDomain="www.pingan.com";
+
+      var js_path="/app_js/sdc/src/web.js";
+
+      var domain="http"+(window.location.protocol.indexOf('https:')==0?'s':'')+"://"+jDomain;
+
+      var SDC_js=document.createElement("script");
+
+      SDC_js.src=domain+js_path;
+
+      var headElem=document.getElementsByTagName("head")[0];
+
+      headElem.appendChild(SDC_js);
+
+   }
+
+   </script>
+<script type="text/javascript">
+    //关闭子页面
+     function  closeChildPage(){
+        $('#alert').hide();
+     }
+     /*var clientH=$(document).height();
+    //console.log(clientH);
+       $('#alert').height(clientH);*/
+     //供子页面调用的跳转方法
+     function jumpDownload(link){
+        window.location.href = link;
+     }
+     
+	var ua = navigator.userAgent;
+  var isIOS = ua.match(/iPhone|iPad|iPod/i) ? true : false;
+  var isAndroid = ua.match(/Android/i) ? true : false;
+    function appLink(){
+        var link = "";
+        var linkBtn = "";
+        var URL_DL_IOS="javascript:void(0)"
+       /*var URL_DL_IOS = 'http://stock.pingan.com/huodong/ydkh/khxz.html?nm=%E7%88%B1%E6%8A%95%E9%A1%BE&cd=MEDIAKH05I&mb=18895511888&s=&type=ydkh&aid=65&sid=392&ouid=IOS';*/
+        /*var URL_DL_IOS = 'https://itunes.apple.com/cn/app/ping-an-zi-zhu-kai-hu/id871659147?mt=8';*/
+        var URL_DL_ANDROID = 'http://download.95511-8.com/downloads/mediakh/ymt_MKT-MEDIAKH05A.apk';
+        if(isIOS) {
+            link = URL_DL_IOS;
+            //link2 = URL_ZZ_IOS;
+            linkBtn = "IOS客户端";
+            $('.btn01').click(function(){
+              //console.log("ok");
+               window.location.href = 'http://stock.pingan.com/huodong/ydkh/khxz.html?cmb=$mobile&nm=%E7%88%B1%E6%8A%95%E9%A1%BE&cd=MKT-MEDIAKH05I&mb=13162188332&s=&type=ydkh&aid=65&sid=392&ouid=ios';
+             //  $('.alert').show();                
+            }); 
+        } else if(isAndroid) {
+            link = URL_DL_ANDROID;
+            //link2 = URL_ZZ_ANDROID;
+            linkBtn = "ANDROID客户端";
+        } else {
+            link = URL_DL_ANDROID;
+            //link2 = URL_ZZ_ANDROID;
+            linkBtn = "ANDROID客户端";
+        }
+        $('.btn01').attr("otitle","开户" + linkBtn);
+        //$('.xz a.lk2').attr("otitle","转户" + linkBtn);
+        
+        //$('.xz a.lk1').click(function(){
+            $('.btn01').attr("href",link);
+        //});
+        //$('.xz a.lk2').click(function(){
+        	 // $('.xz a.lk2').attr("href",link2);
+        //});
+    }
+
+    appLink(); 
+                
+    
+	var browser={
+	    		versions:function(){
+		            var u = navigator.userAgent, app = navigator.appVersion;
+		            return {         //移动终端浏览器版本信息
+		                 trident: u.indexOf('Trident') > -1, //IE内核
+		                presto: u.indexOf('Presto') > -1, //opera内核
+		                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+		                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+		                mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+		                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+		                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+		                iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
+		                iPad: u.indexOf('iPad') > -1, //是否iPad
+		                webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+		                weixin:u.indexOf('MicroMessenger')>-1//是否是微信浏览器
+		            };
+	         	}(),
+	         language:(navigator.browserLanguage || navigator.language).toLowerCase()
+			}
+
+if(browser.versions.weixin){
+        /*$('.focus-tip').hide();*/
+				$("<div id='shaddow'><img id='shaddow_img' src='guide_new_shaddow.png'  /></div>").css({
+					position:'fixed',
+					top:0,
+					left:0,
+					right:0,
+					bottom:0,
+					backgroundColor:"#000000",
+					opacity:0.8,
+					zIndex:300000
+				})
+				//.height($(document).height())
+				//.width($(document).width())
+				.appendTo("body");
+
+
+				function ResizeModel(){
+					//重绘蒙版的高宽 add by lym
+						var imgwidth=$(window).width()*0.87;
+					var imgheight=imgwidth*0.59;
+					//console.log("imgwidth="+imgwidth+";imgheight="+imgheight);
+					$("#shaddow_img").attr("width",imgwidth);
+					$("#shaddow_img").attr("height",imgheight);
+					$("#shaddow_img").css("margin-left","10%");
+					$("#shaddow_img").css("margin-top","5%");
+
+				}
+				
+				ResizeModel();	
+
+}
+
+                  /* var IS_IPAD = navigator.userAgent.match(/iPad/i) != null,
+                IS_IPHONE = !IS_IPAD && ((navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null)),
+                IS_IOS = IS_IPAD || IS_IPHONE,
+                IS_ANDROID = !IS_IOS && navigator.userAgent.match(/android/i) != null,
+                IS_MOBILE = IS_IOS || IS_ANDROID;
+                  if (IS_IOS) {
+
+                      $('.focus-tip').show();
+                      console.log("ok");
+
+                  } else if (IS_ANDROID) {
+
+                      $('.focus-tip').hide();
+                  }*/
+</script>
+<!--<script src="http://s11.cnzz.com/z_stat.php?id=1255986895&web_id=1255986895" language="JavaScript"></script>
+--></body>
+</html>

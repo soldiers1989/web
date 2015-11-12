@@ -1,0 +1,38 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="股票买入")
+#set($breadCrumb ="委托结果")
+<div class="block-title middle">
+    <span class="jrj-fl">
+        <span>买入股票</span>
+        <a class="tooltip">
+            <i class="block-title-info png_bg"></i>
+            <span class="tooltip-content" style="left: 112px; top: 9px; display: none;"><i class="tooltip-arrow"></i>买入股票</span>
+        </a>
+    </span>
+</div>
+<div class="entrust-area">
+    <div class="entrust-hd path-3"></div>
+    <div class="entrust-buy">
+        <div class="entrust-info">
+            <h1 class="entrust-title">委托结果</h1>
+			#if($errMsg)
+				<h2 class="result-error-h2">您的委托提交失败！</h2>
+				<ul class="result-error">
+					<li>失败原因 : <em style="color:red">$!{errMsg}</em></li>
+					<li><a href="#C/stock/buyStep1.jspa?stockCode=$!{stockCode}&marketType=$!{marketType}&stockType=$!{stockType}">返回重新购买&gt;&gt;</a></li>
+                </ul>	
+			#else
+				<h2 class="entrust-h2">您的委托已提交！<a href="#C/stock/entrust.jspa">查看委托&gt;&gt;</a></h2>
+                <ul class="entrust-result">
+                    <li>委托时间：<em>$!{stockUtils.longTime2String("$result.entrustTime")}</em></li>
+    				<li>股票代码：<em>$!{stockCode}</em></li>
+    				<li>委托单号：<em>$!{result.entrustNo}</em></li>
+                    <li>股票名称：<em>$!{stockName}</em></li>              
+                    <li>委托价格：<em>$!{entrustPrice}</em></li>
+                    <li>委托数量：<em>$!{entrustAmont}</em></li>
+                    <li>买卖方向：<em>买入</em></li>
+                </ul>
+			#end	           
+        </div>
+    </div>
+</div>

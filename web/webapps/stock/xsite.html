@@ -1,0 +1,24 @@
+<script type="text/javascript">
+var lastMessage="";
+setInterval(function(){
+	if(location.hash != '') {
+		var message = location.hash.substr(1);		
+		if(lastMessage!=message){
+			lastMessage=message;			
+			dispatch_message(message);	
+		}
+		location.hash = '';
+	}
+}, 150);
+function getQueryString(source,name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = source.match(reg);
+    if (r != null) return unescape(r[2]); return null;
+}
+function dispatch_message(message) {
+	var id=getQueryString(message,"actionid");
+	if(id!=null)
+	document.cookie = "h_"+id+"="+escape(message);
+}
+//p = { authresult,usertoken,errorno=,errorinfo,actionid,authmethod }
+</script>

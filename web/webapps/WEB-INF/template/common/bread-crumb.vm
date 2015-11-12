@@ -1,0 +1,5 @@
+<!--bread-crumb-->
+<div class="site-breadcrumb">
+  <div class="wrapper"><a href="http://jrj.com.cn">首页</a> <span>&gt;</span> <a href="http://itougu.jrj.com.cn">我的爱投顾</a> <span>&gt;</span> <a href="/stock">证券通</a> <span>&gt;</span> <span class="cur">$!{breadCrumb}</span> <a class="helpIn" href="http://t.jrj.com.cn/cjwt.shtml" target="_blank">帮助中心</a></div>
+</div>
+<!--bread-crumb-->

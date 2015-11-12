@@ -1,0 +1,35 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="银证业务")
+#set($breadCrumb ="证券账户")
+			<div class="table-tab mt30 clearfix">
+                    <a class="table-tab-item"  href="#C/stock/$!{accountId}/stockInfoIndex.jspa">当前持仓</a>
+                    <a class="table-tab-item" href="#C/stock/$!{accountId}/buyStep1.jspa">买入</a>
+                    <a class="table-tab-item" href="#C/stock/$!{accountId}/sellStep1.jspa">卖出</a>
+                    <a class="table-tab-item" href="#C/stock/$!{accountId}/cancelable.jspa">撤单</a>
+                    <a class="table-tab-item" href="#C/stock/$!{accountId}/entrust.jspa">查询</a>
+                    <a class="table-tab-item btn btn-79-25" href="#C/stock/$!{accountId}/bankIndex.jspa">银证转账</a>
+                </div>
+                <ul class="sub-tabbar">
+                    <li id="menu_1" class="cur">资金转入/转出</li>
+                    <!--<li id="menu_2"><a href="#C/stock/$!{accountId}/bankRollOut.jspa">资金转出</a></li>-->
+                    <li id="menu_3"><a href="#C/stock/$!{accountId}/fundQuery.jspa">转账记录</a></li>
+                </ul>
+                <div class="broker-area">
+                    <div class="clear"></div>
+                    <div class="borker-con">
+                        <iframe width="780" height="600" scrolling="no" frameborder="0" name="main"></iframe>
+                    </div>
+                </div>
+<!-- main-right -->
+ <form action="$!{url}" method="get" id="form_main" target="main">
+ #foreach($param in ${params.keySet()})
+  <input type="hidden" name="$param" value="${params.get($param)}"/>
+  #end
+ </form>
+#define( $privatejs )	
+<script>
+$(function(){
+	$('#form_main').submit();
+	});
+</script>
+#end

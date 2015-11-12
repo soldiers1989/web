@@ -1,0 +1,10 @@
+#set($layout="layout/stock_layout.vm")
+#set($title="错误页")
+<div class="main">
+<div class="main-right">
+    <div class="error-page-cnt-2">
+        <p class="jrj-tc middle"><span class="error-page-cnt-title-2">错误信息提示</span></p>
+        <p class="jrj-tc mt10">为保证您的交易安全，请到IE浏览器下进行股票交易！</p>
+    </div>
+</div>
+ </div>

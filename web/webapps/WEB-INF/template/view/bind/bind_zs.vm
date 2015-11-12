@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>绑定证券通账户-绑定证券通-金融界</title>
+<meta content="#if($keywords)$keywords#else#C('keywords')#end" name="keywords" />
+<meta content="#if($description)$description#else#C('description')#end" name="description" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<script src="#C/stock/js/jquery/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+<form action="$!{url}" method="get" id="bindForm" style="display:none">
+  
+  #foreach($param in ${params.keySet()})
+  <input type="hidden" name="$param" value="${params.get($param)}"/>
+  #end
+</form>
+<script>
+	$("#bindForm").submit();
+</script> 
+</body>
+</html>
